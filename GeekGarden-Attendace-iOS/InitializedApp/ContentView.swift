@@ -14,8 +14,6 @@ struct ContentView: View {
             Group {
                 if navigationViewModel.getUserLoginStatus() {
                     TabBarView()
-                        .navigationTitle("GeekGarden Attendance")
-                        .navigationBarTitleDisplayMode(.inline)
                 } else {
                     LoginView()
                 }

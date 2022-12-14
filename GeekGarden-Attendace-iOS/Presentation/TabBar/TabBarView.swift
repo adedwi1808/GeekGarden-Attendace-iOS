@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            Text("HomeView")
+            HomeView()
                 .tabItem {
                     VStack {
                         Image(systemName: "house")
@@ -42,6 +42,9 @@ struct TabBarView: View {
                     }
                 }
         }
+        .navigationTitle("GeekGarden Attendance")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
