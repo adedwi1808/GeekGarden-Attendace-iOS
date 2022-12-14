@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject var loginViewModel: LoginViewModel = LoginViewModel()
     
     var body: some View {
         ZStack {
@@ -34,7 +33,8 @@ struct LoginView: View {
                         .frame(width: 30, height: 30)
                         .foregroundColor(Color("PrimaryColor"))
                     VStack {
-                        TextField("Email", text: $email)
+                        TextField("Email", text: $loginViewModel.email)
+                            .autocapitalization(.none)
                         Color("PrimaryColor")
                             .frame(height: 2)
                     }
@@ -47,7 +47,8 @@ struct LoginView: View {
                         .frame(width: 30, height: 30)
                         .foregroundColor(Color("PrimaryColor"))
                     VStack {
-                        TextField("Password", text: $password)
+                        TextField("Password", text: $loginViewModel.password)
+                            .autocapitalization(.none)
                         Color("PrimaryColor")
                             .frame(height: 2)
                     }
@@ -61,8 +62,10 @@ struct LoginView: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 
+                NavigationLink(destination: TabBarView(), isActive: $loginViewModel.isLoggedIn, label: {EmptyView()})
+                
                 Button {
-                    //
+                    loginViewModel.userLogin()
                 } label: {
                     Text("Login")
                         .font(.system(size: 22, weight: .bold))
