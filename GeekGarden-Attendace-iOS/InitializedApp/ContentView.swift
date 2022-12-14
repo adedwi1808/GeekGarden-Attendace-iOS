@@ -8,43 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isLoggedIn: Bool = true
     var body: some View {
         NavigationView {
-            TabView {
-                LoginView()
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "house")
-                            Text("Home")
-                        }
-                    }
-                
-                Text("Attendance")
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "list.clipboard.fill")
-                            Text("Attendance")
-                        }
-                    }
-                
-                Text("History")
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "clock.fill")
-                            Text("History")
-                        }
-                    }
-                
-                Text("More")
-                    .tabItem {
-                        VStack {
-                            Image(systemName: "line.3.horizontal")
-                            Text("More")
-                        }
-                    }
+            Group {
+                if isLoggedIn {
+                    TabBarView()
+                        .navigationTitle("GeekGarden Attendance")
+                        .navigationBarTitleDisplayMode(.inline)
+                } else {
+                    Text("LoginView")
+                }
             }
-            .navigationTitle("GeekGarden Attendance")
-            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }
