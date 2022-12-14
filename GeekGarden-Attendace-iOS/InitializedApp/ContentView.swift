@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var isLoggedIn: Bool = false
+    @StateObject var navigationViewModel: NavigationViewModel = NavigationViewModel()
     var body: some View {
         NavigationView {
             Group {
-                if isLoggedIn {
+                if navigationViewModel.getUserLoginStatus() {
                     TabBarView()
                         .navigationTitle("GeekGarden Attendance")
                         .navigationBarTitleDisplayMode(.inline)
                 } else {
-                    Text("LoginView")
+                    LoginView()
                 }
             }
-            
         }
     }
 }
