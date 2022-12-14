@@ -26,33 +26,10 @@ struct LoginView: View {
                     .frame(maxWidth: .infinity ,alignment: .leading)
                     .foregroundColor(Color("PrimaryColor"))
                 
-                HStack {
-                    Image(systemName: "envelope")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(Color("PrimaryColor"))
-                    VStack {
-                        TextField("Email", text: $loginViewModel.email)
-                            .autocapitalization(.none)
-                        Color("PrimaryColor")
-                            .frame(height: 2)
-                    }
-                }
+                LoginForm(type: "Email", value: $loginViewModel.email)
                 
-                HStack {
-                    Image(systemName: "lock")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(Color("PrimaryColor"))
-                    VStack {
-                        TextField("Password", text: $loginViewModel.password)
-                            .autocapitalization(.none)
-                        Color("PrimaryColor")
-                            .frame(height: 2)
-                    }
-                }
+                LoginForm(type: "Password", value: $loginViewModel.password)
+                
                 HStack {
                     Text("Lupa Password ?")
                         .foregroundColor(Color("PrimaryColor"))

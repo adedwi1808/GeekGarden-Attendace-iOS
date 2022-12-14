@@ -16,6 +16,7 @@
 		0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C988294A5CB1008C7589 /* NavigationViewModel.swift */; };
 		0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C98A294A5EB1008C7589 /* LoginViewModel.swift */; };
 		0135C990294A6466008C7589 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C98F294A6466008C7589 /* HomeView.swift */; };
+		0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C992294A6F3A008C7589 /* LoginForm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		0135C988294A5CB1008C7589 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		0135C98A294A5EB1008C7589 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0135C98F294A6466008C7589 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0135C992294A6F3A008C7589 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0135C991294A6DE7008C7589 /* Component */,
 				0135C97C294A42EA008C7589 /* InitializedApp */,
 				0135C97B294A42CD008C7589 /* Presentation */,
 				0135C971294A425F008C7589 /* Assets.xcassets */,
@@ -128,6 +131,14 @@
 				0135C98F294A6466008C7589 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0135C991294A6DE7008C7589 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				0135C992294A6F3A008C7589 /* LoginForm.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
+				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
