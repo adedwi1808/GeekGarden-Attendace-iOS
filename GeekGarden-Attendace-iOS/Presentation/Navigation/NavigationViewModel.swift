@@ -11,6 +11,7 @@ class NavigationViewModel: ObservableObject {
     @Published var isLoggedIn: Bool = false
     
     func getUserLoginStatus() -> Bool{
+//        UserDefaults.standard.set(false, forKey: "isLoggedIn")
         return UserDefaults.standard.bool(forKey: "isLoggedIn")
     }
 }

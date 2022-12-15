@@ -9,7 +9,40 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            
+            VStack {
+                Group {
+                    HStack {
+                        AsyncImage(url: URL(string: "https")) { Image in
+                            Image
+                                .resizable()
+                                .scaledToFit()
+                        } placeholder: {
+                            Color.gray
+                        }
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(50)
+                        .padding(.trailing, 5)
+                        
+                        VStack {
+                            Text("asdasda")
+                            Text("asdasda")
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    }
+                    .padding(20)
+                    .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
+                    .background(.blue)
+                    .cornerRadius(15)
+                }
+                .foregroundColor(.white)
+            }
+            .padding(.horizontal, 15)
+        }
     }
 }
 
