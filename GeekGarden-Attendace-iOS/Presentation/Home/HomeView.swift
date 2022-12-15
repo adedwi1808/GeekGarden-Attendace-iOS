@@ -40,6 +40,60 @@ struct HomeView: View {
                     .cornerRadius(15)
                 }
                 .foregroundColor(.white)
+                
+                Section {
+                        HStack {
+                            ZStack {
+                                Color(.white)
+                                    .cornerRadius(15)
+                                VStack {
+                                    Text("5")
+                                        .fontWeight(.bold)
+                                    Text("Hadir")
+                                }
+                            }
+                            
+                            ZStack {
+                                Color(.white)
+                                    .cornerRadius(15)
+                                VStack {
+                                    Text("5")
+                                        .fontWeight(.bold)
+                                    Text("Hadir")
+                                }
+                            }
+                            
+                            ZStack {
+                                Color(.white)
+                                    .cornerRadius(15)
+                                VStack {
+                                    Text("5")
+                                        .fontWeight(.bold)
+                                    Text("Hadir")
+                                }
+                            }
+                            
+                            ZStack {
+                                Color(.white)
+                                    .cornerRadius(15)
+                                VStack {
+                                    Text("5")
+                                        .fontWeight(.bold)
+                                    Text("Hadir")
+                                }
+                            }
+                        }
+                        .padding(10)
+                        .frame(maxHeight: 115, alignment: .center)
+                        .background(.blue)
+                        .cornerRadius(15)
+                } header: {
+                    Text("Detail Kehadiran Anda")
+                        .font(.system(size: 22, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                
+                
             }
             .padding(.horizontal, 15)
         }
