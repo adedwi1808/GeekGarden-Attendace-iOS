@@ -12,90 +12,37 @@ struct HomeView: View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
-            
-            VStack {
-                Group {
-                    HStack {
-                        AsyncImage(url: URL(string: "https")) { Image in
-                            Image
-                                .resizable()
-                                .scaledToFit()
-                        } placeholder: {
-                            Color.gray
-                        }
-                        .frame(width: 80, height: 80)
-                        .cornerRadius(50)
-                        .padding(.trailing, 5)
-                        
-                        VStack {
-                            Text("asdasda")
-                            Text("asdasda")
-                        }
-                        Spacer()
-                        Image(systemName: "chevron.right")
+            ScrollView {
+                VStack {
+                    MiniProfilPegawaiView()
+                    
+                    Section {
+                        DataKehadiranPegawaiView()
+                    } header: {
+                        Text("Detail Kehadiran Anda")
+                            .font(.system(size: 22, weight: .bold))
+                            .foregroundColor(Color("PrimaryColor"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .padding(20)
-                    .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
-                    .background(.blue)
-                    .cornerRadius(15)
-                }
-                .foregroundColor(.white)
-                
-                Section {
-                        HStack {
-                            ZStack {
-                                Color(.white)
-                                    .cornerRadius(15)
-                                VStack {
-                                    Text("5")
-                                        .fontWeight(.bold)
-                                    Text("Hadir")
-                                }
-                            }
-                            
-                            ZStack {
-                                Color(.white)
-                                    .cornerRadius(15)
-                                VStack {
-                                    Text("5")
-                                        .fontWeight(.bold)
-                                    Text("Hadir")
-                                }
-                            }
-                            
-                            ZStack {
-                                Color(.white)
-                                    .cornerRadius(15)
-                                VStack {
-                                    Text("5")
-                                        .fontWeight(.bold)
-                                    Text("Hadir")
-                                }
-                            }
-                            
-                            ZStack {
-                                Color(.white)
-                                    .cornerRadius(15)
-                                VStack {
-                                    Text("5")
-                                        .fontWeight(.bold)
-                                    Text("Hadir")
-                                }
+                    
+                    
+                    Section {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 20) {
+                                MadingGeekGardenView()
                             }
                         }
-                        .padding(10)
-                        .frame(maxHeight: 115, alignment: .center)
-                        .background(.blue)
-                        .cornerRadius(15)
-                } header: {
-                    Text("Detail Kehadiran Anda")
-                        .font(.system(size: 22, weight: .bold))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, maxHeight: 350)
+                    } header: {
+                        Text("Mading GeekGarden")
+                            .font(.system(size: 22, weight: .bold))
+                            .foregroundColor(Color("PrimaryColor"))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    
                 }
-                
-                
+                .padding(.horizontal, 15)
             }
-            .padding(.horizontal, 15)
         }
     }
 }

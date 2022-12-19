@@ -17,6 +17,9 @@
 		0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C98A294A5EB1008C7589 /* LoginViewModel.swift */; };
 		0135C990294A6466008C7589 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C98F294A6466008C7589 /* HomeView.swift */; };
 		0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C992294A6F3A008C7589 /* LoginForm.swift */; };
+		014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */; };
+		014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */; };
+		014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77432950B03800C253C3 /* MiniProfilPegawai.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		0135C98A294A5EB1008C7589 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0135C98F294A6466008C7589 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0135C992294A6F3A008C7589 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
+		014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKehadiranPegawaiView.swift; sourceTree = "<group>"; };
+		014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenView.swift; sourceTree = "<group>"; };
+		014C77432950B03800C253C3 /* MiniProfilPegawai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniProfilPegawai.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +69,8 @@
 		0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				0135C991294A6DE7008C7589 /* Component */,
 				0135C97C294A42EA008C7589 /* InitializedApp */,
+				0135C991294A6DE7008C7589 /* Component */,
 				0135C97B294A42CD008C7589 /* Presentation */,
 				0135C971294A425F008C7589 /* Assets.xcassets */,
 				0135C973294A425F008C7589 /* Preview Content */,
@@ -137,6 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				0135C992294A6F3A008C7589 /* LoginForm.swift */,
+				014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */,
+				014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */,
+				014C77432950B03800C253C3 /* MiniProfilPegawai.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -214,7 +223,10 @@
 				0135C97F294A43C9008C7589 /* LoginView.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
+				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
+				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
+				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
