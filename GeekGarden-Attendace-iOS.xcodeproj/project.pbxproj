@@ -20,6 +20,14 @@
 		014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */; };
 		014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */; };
 		014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77432950B03800C253C3 /* MiniProfilPegawai.swift */; };
+		014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77472950B33200C253C3 /* NetworkFactory.swift */; };
+		014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77492950B35B00C253C3 /* NetworkError.swift */; };
+		014C774C2950B38800C253C3 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C774B2950B38800C253C3 /* Networker.swift */; };
+		014C774F2953EDCE00C253C3 /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C774E2953EDCE00C253C3 /* LoginServices.swift */; };
+		014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77532953F12300C253C3 /* LoginPegawaiResponseModel.swift */; };
+		014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775529541E5C00C253C3 /* HomeViewModel.swift */; };
+		014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77582954211E00C253C3 /* DataPegawaiModel.swift */; };
+		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +45,14 @@
 		014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKehadiranPegawaiView.swift; sourceTree = "<group>"; };
 		014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenView.swift; sourceTree = "<group>"; };
 		014C77432950B03800C253C3 /* MiniProfilPegawai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniProfilPegawai.swift; sourceTree = "<group>"; };
+		014C77472950B33200C253C3 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
+		014C77492950B35B00C253C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		014C774B2950B38800C253C3 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		014C774E2953EDCE00C253C3 /* LoginServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
+		014C77532953F12300C253C3 /* LoginPegawaiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPegawaiResponseModel.swift; sourceTree = "<group>"; };
+		014C775529541E5C00C253C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		014C77582954211E00C253C3 /* DataPegawaiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPegawaiModel.swift; sourceTree = "<group>"; };
+		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +85,8 @@
 		0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				014C775A29542BE700C253C3 /* Extension */,
+				014C77452950B2E600C253C3 /* Domainless */,
 				0135C97C294A42EA008C7589 /* InitializedApp */,
 				0135C991294A6DE7008C7589 /* Component */,
 				0135C97B294A42CD008C7589 /* Presentation */,
@@ -109,6 +127,8 @@
 		0135C97D294A4303008C7589 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				014C77502953EE6800C253C3 /* Model */,
+				014C774D2953EDBD00C253C3 /* Services */,
 				0135C97E294A43C8008C7589 /* LoginView.swift */,
 				0135C98A294A5EB1008C7589 /* LoginViewModel.swift */,
 			);
@@ -134,7 +154,9 @@
 		0135C98C294A6451008C7589 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				014C77572954211300C253C3 /* Model */,
 				0135C98F294A6466008C7589 /* HomeView.swift */,
+				014C775529541E5C00C253C3 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -148,6 +170,56 @@
 				014C77432950B03800C253C3 /* MiniProfilPegawai.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		014C77452950B2E600C253C3 /* Domainless */ = {
+			isa = PBXGroup;
+			children = (
+				014C77462950B30B00C253C3 /* Networking */,
+			);
+			path = Domainless;
+			sourceTree = "<group>";
+		};
+		014C77462950B30B00C253C3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				014C77472950B33200C253C3 /* NetworkFactory.swift */,
+				014C77492950B35B00C253C3 /* NetworkError.swift */,
+				014C774B2950B38800C253C3 /* Networker.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		014C774D2953EDBD00C253C3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				014C774E2953EDCE00C253C3 /* LoginServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		014C77502953EE6800C253C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				014C77532953F12300C253C3 /* LoginPegawaiResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		014C77572954211300C253C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				014C77582954211E00C253C3 /* DataPegawaiModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		014C775A29542BE700C253C3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				014C775B29542C0C00C253C3 /* UserDefaults.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,7 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */,
 				0135C97F294A43C9008C7589 /* LoginView.swift in Sources */,
+				014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */,
+				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
@@ -228,9 +303,14 @@
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
+				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
+				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
+				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
+				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
+				014C774F2953EDCE00C253C3 /* LoginServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
