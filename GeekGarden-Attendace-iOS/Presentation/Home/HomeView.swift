@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var homeViewModel: HomeViewModel = HomeViewModel()
     var body: some View {
         ZStack {
             Color("BackgroundColor")
@@ -15,6 +16,7 @@ struct HomeView: View {
             ScrollView {
                 VStack {
                     MiniProfilPegawaiView()
+                        .environmentObject(homeViewModel)
                     
                     Section {
                         DataKehadiranPegawaiView()

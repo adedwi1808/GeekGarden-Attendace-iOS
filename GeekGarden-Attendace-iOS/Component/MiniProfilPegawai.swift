@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MiniProfilPegawaiView: View {
+    @EnvironmentObject var homeViewModel: HomeViewModel
     var body: some View {
         Group {
             HStack {
@@ -23,7 +24,7 @@ struct MiniProfilPegawaiView: View {
                 .padding(.trailing, 5)
                 
                 VStack(alignment: .leading) {
-                    Text("Ade Dwi Prayitno")
+                    Text(homeViewModel.getDataPegawai()?.jabatan ?? "kiw")
                         .font(.system(size: 20, weight: .bold))
                     Text("iOS Engineer")
                         .font(.system(size: 20, weight: .medium))
