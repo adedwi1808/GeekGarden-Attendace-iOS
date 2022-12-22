@@ -42,7 +42,9 @@ struct LoginView: View {
                 NavigationLink(destination: TabBarView(), isActive: $loginViewModel.isLoggedIn, label: {EmptyView()})
                 
                 Button {
-                    loginViewModel.userLogin()
+                    Task {
+                        await loginViewModel.loginPegawai()
+                    }
                 } label: {
                     Text("Login")
                         .font(.system(size: 22, weight: .bold))
