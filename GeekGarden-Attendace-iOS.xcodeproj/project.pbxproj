@@ -28,6 +28,8 @@
 		014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775529541E5C00C253C3 /* HomeViewModel.swift */; };
 		014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77582954211E00C253C3 /* DataPegawaiModel.swift */; };
 		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
+		015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenModel.swift */; };
+		015991772954C7AD00490EDC /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991762954C7AD00490EDC /* HomeServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		014C775529541E5C00C253C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		014C77582954211E00C253C3 /* DataPegawaiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPegawaiModel.swift; sourceTree = "<group>"; };
 		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		015991732954C65B00490EDC /* MadingGeekGardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenModel.swift; sourceTree = "<group>"; };
+		015991762954C7AD00490EDC /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +89,12 @@
 		0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				014C775A29542BE700C253C3 /* Extension */,
-				014C77452950B2E600C253C3 /* Domainless */,
-				0135C97C294A42EA008C7589 /* InitializedApp */,
-				0135C991294A6DE7008C7589 /* Component */,
-				0135C97B294A42CD008C7589 /* Presentation */,
 				0135C971294A425F008C7589 /* Assets.xcassets */,
+				0135C991294A6DE7008C7589 /* Component */,
+				014C77452950B2E600C253C3 /* Domainless */,
+				014C775A29542BE700C253C3 /* Extension */,
+				0135C97C294A42EA008C7589 /* InitializedApp */,
+				0135C97B294A42CD008C7589 /* Presentation */,
 				0135C973294A425F008C7589 /* Preview Content */,
 			);
 			path = "GeekGarden-Attendace-iOS";
@@ -154,6 +158,7 @@
 		0135C98C294A6451008C7589 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				015991752954C78D00490EDC /* Services */,
 				014C77572954211300C253C3 /* Model */,
 				0135C98F294A6466008C7589 /* HomeView.swift */,
 				014C775529541E5C00C253C3 /* HomeViewModel.swift */,
@@ -210,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				014C77582954211E00C253C3 /* DataPegawaiModel.swift */,
+				015991732954C65B00490EDC /* MadingGeekGardenModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,6 +226,14 @@
 				014C775B29542C0C00C253C3 /* UserDefaults.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		015991752954C78D00490EDC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				015991762954C7AD00490EDC /* HomeServices.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,11 +309,13 @@
 				014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */,
 				0135C97F294A43C9008C7589 /* LoginView.swift in Sources */,
 				014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */,
+				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
 				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
+				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,

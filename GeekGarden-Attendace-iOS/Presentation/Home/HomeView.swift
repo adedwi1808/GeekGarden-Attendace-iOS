@@ -46,6 +46,11 @@ struct HomeView: View {
                 .padding(.horizontal, 15)
             }
         }
+        .onAppear {
+            Task {
+                await homeViewModel.getMadingGeekGarden()
+            }
+        }
     }
 }
 

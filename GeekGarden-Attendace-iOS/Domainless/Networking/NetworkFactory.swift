@@ -13,6 +13,7 @@ enum NetworkFactory {
     case getHeroes
     case getHeroStats
     case loginPegawai(email: String, password: String)
+    case getMadingGeekGarden
 }
 
 extension NetworkFactory {
@@ -30,6 +31,8 @@ extension NetworkFactory {
             return "/api/heroStats"
         case .loginPegawai:
             return "/api/login-pegawai"
+        case .getMadingGeekGarden:
+            return "/api/madings"
         }
     }
     
@@ -40,8 +43,9 @@ extension NetworkFactory {
             return []
         case .getHeroes, .getHeroStats:
             return []
-        case .loginPegawai(let email, let password):
-//            return [URLQueryItem(name: "email", value: email), URLQueryItem(name: "password", value: password)]
+        case .loginPegawai:
+            return []
+        case .getMadingGeekGarden:
             return []
         }
     }
@@ -50,7 +54,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "03f8-182-253-183-13.ap.ngrok.io"
+            return "5d38-182-253-183-13.ap.ngrok.io"
         }
     }
     
@@ -113,6 +117,8 @@ extension NetworkFactory {
             return getHeaders(type: .anonymous)
         case .loginPegawai:
             return getHeaders(type: .anonymous)
+        case .getMadingGeekGarden:
+            return getHeaders(type: .appToken)
         }
     }
     
@@ -125,7 +131,7 @@ extension NetworkFactory {
     
     fileprivate func getHeaders(type: HeaderType) -> [String: String] {
         
-        let appToken = UserDefaults.standard.string(forKey: "UserToken")
+        let appToken = UserDefaults.standard.getDataFromLocal(String.self, with: .appToken)
         
         var header: [String: String]
         
@@ -135,8 +141,7 @@ extension NetworkFactory {
         case .appToken:
             header = ["Content-Type": "application/json",
                       "Accept": "*/*",
-                      "x-lapakibu-token": "\(appToken ?? "")",
-                      "agree-mart-token": "\(appToken ?? "")"]
+                      "Authorization": "Bearer \(appToken ?? "")"]
         case .multiPart:
             let boundary = generateBoundaryString()
             header = ["Content-Type": "multipart/form-data; boundary=\(boundary)",
