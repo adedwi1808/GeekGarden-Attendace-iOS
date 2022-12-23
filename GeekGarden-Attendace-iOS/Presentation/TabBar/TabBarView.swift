@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct TabBarView: View {
+    init() {
+            //Use this if NavigationBarTitle is with Large Font
+            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
+
+            //Use this if NavigationBarTitle is with displayMode = .inline
+            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
+        }
+
     var body: some View {
         TabView {
             HomeView()
