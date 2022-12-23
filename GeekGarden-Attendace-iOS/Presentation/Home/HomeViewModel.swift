@@ -9,7 +9,6 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     private let prefs: UserDefaults = UserDefaults()
-    
     private var homeServices: HomeServicesProtocol
     
     init(homeServices: HomeServicesProtocol = HomeServices()) {
@@ -36,10 +35,18 @@ class HomeViewModel: ObservableObject {
     func getMadingGeekGarden() async {
         do {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
-            print(data)
-            
+            saveMadingGeekGardenLocale(data)
         } catch {
             print("err while do login")
         }
+    }
+    
+    func saveMadingGeekGardenLocale(_ data: MadingGeekGardenModel) {
+        prefs.setDataToLocal(data.self, with: .madingGeekGarden)
+    }
+    
+    func getMadingGeekGardenFromLocale() -> MadingGeekGardenModel {
+        guard let mading = prefs.getDataFromLocal(MadingGeekGardenModel.self, with: .madingGeekGarden) else { return MadingGeekGardenModel(code: nil, message: nil, data: nil)}
+        return mading
     }
 }

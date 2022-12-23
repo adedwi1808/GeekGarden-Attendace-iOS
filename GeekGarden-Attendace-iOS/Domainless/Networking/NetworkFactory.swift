@@ -54,7 +54,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "5d38-182-253-183-13.ap.ngrok.io"
+            return "2d6f-182-253-183-13.ap.ngrok.io"
         }
     }
     

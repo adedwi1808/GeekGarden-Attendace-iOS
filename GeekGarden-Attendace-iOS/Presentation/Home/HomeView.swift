@@ -30,11 +30,17 @@ struct HomeView: View {
                     
                     Section {
                         ScrollView(.horizontal, showsIndicators: false) {
-                            HStack(spacing: 20) {
-                                MadingGeekGardenView()
+                            HStack {
+                                if let mading = homeViewModel.getMadingGeekGardenFromLocale().data {
+                                    ForEach(mading, id: \.idMading) { mading in
+                                        MadingGeekGardenView(
+                                            judulMading: mading.judul ?? "",
+                                            isiMading: mading.informasi ?? "",
+                                            fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                                    }
+                                }
                             }
                         }
-                        .frame(maxWidth: .infinity, maxHeight: 350)
                     } header: {
                         Text("Mading GeekGarden")
                             .font(.system(size: 22, weight: .bold))

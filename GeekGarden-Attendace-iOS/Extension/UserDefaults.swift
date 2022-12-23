@@ -23,5 +23,6 @@ extension UserDefaults {
     enum Key: String {
         case dataPegawai
         case appToken
+        case madingGeekGarden
     }
 }
