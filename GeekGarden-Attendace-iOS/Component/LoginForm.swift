@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginForm: View {
     var type: String
     @Binding var value: String
-    @State var isSecured: Bool = false
+    @State var isSecured: Bool = true
     
     var body: some View {
         HStack {

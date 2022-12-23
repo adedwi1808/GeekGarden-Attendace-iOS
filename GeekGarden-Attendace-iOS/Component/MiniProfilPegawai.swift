@@ -24,9 +24,9 @@ struct MiniProfilPegawaiView: View {
                 .padding(.trailing, 5)
                 
                 VStack(alignment: .leading) {
-                    Text(homeViewModel.getDataPegawai()?.jabatan ?? "kiw")
+                    Text(homeViewModel.getDataPegawai().nama ?? "-")
                         .font(.system(size: 20, weight: .bold))
-                    Text("iOS Engineer")
+                    Text(homeViewModel.getDataPegawai().jabatan ?? "-")
                         .font(.system(size: 20, weight: .medium))
                 }
                 Spacer()
@@ -41,8 +41,8 @@ struct MiniProfilPegawaiView: View {
     }
 }
 
-struct MiniProfilPegawaiView_Previews: PreviewProvider {
-    static var previews: some View {
-        MiniProfilPegawaiView()
-    }
-}
+//struct MiniProfilPegawaiView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MiniProfilPegawaiView()
+//    }
+//}

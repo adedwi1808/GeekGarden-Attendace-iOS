@@ -8,14 +8,38 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    func getDataPegawai() -> DataPegawaiModel? {
+    private let prefs: UserDefaults = UserDefaults()
+    
+    private var homeServices: HomeServicesProtocol
+    
+    init(homeServices: HomeServicesProtocol = HomeServices()) {
+        self.homeServices = homeServices
+    }
+    
+    func getDataPegawai() -> DataPegawaiModel {
+        guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
+        return dataMapper(data: dataPegawai)
+    }
+    
+    func dataMapper(data: LoginPegawaiResponseModel) -> DataPegawaiModel {
+        let res: DataPegawaiModel = DataPegawaiModel(
+            idPegawai: data.data?.idPegawai,
+            nama: data.data?.nama,
+            jenisKelamin: data.data?.jenisKelamin,
+            nomorHP: data.data?.nomorHP,
+            email: data.data?.email,
+            jabatan: data.data?.jabatan,
+            fotoProfile: data.data?.fotoProfile)
+        return res
+    }
+    
+    func getMadingGeekGarden() async {
         do {
-            if let data = UserDefaults.standard.data(forKey: "dataPegawai") {
-                return try JSONDecoder().decode(DataPegawaiModel.self, from: data)
-            }
+            let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
+            print(data)
+            
         } catch {
-            print(error)
+            print("err while do login")
         }
-        return nil
     }
 }

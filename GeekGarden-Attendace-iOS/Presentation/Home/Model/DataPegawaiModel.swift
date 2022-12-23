@@ -11,7 +11,7 @@ struct DataPegawaiModel: Codable {
     let idPegawai: Int?
     let nama, jenisKelamin, nomorHP, email: String?
     let jabatan: String?
-    let fotoProfile: JSONNull?
+    let fotoProfile: String?
 
     enum CodingKeys: String, CodingKey {
         case idPegawai = "id_pegawai"

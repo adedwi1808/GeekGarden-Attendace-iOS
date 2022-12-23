@@ -8,9 +8,10 @@
 import Foundation
 
 class LoginViewModel: ObservableObject {
-    @Published var email: String = ""
-    @Published var password: String = ""
+    @Published var email: String = "adedwip1808@gmail.com"
+    @Published var password: String = "123123"
     @Published var isLoggedIn: Bool = false
+    @Published var isLoading: Bool = false
     private let prefs = UserDefaults()
     
     private var loginPegawaiServices: LoginServicesProtocol
@@ -30,14 +31,10 @@ class LoginViewModel: ObservableObject {
     
     func saveLoginData(using data: LoginPegawaiResponseModel) {
         DispatchQueue.main.async {
+            guard let appToken = data.token else { return }
             self.isLoggedIn = true
-            do {
-                let encodedDataPegawai = try JSONEncoder().encode(data.data)
-                self.prefs.setDataToLocal(encodedDataPegawai, with: .dataPegawai)
-            } catch {
-                print("encoded data pegawai error")
-            }
-            self.prefs.setDataToLocal(data.token, with: .appToken)
+            self.prefs.setDataToLocal(data.self, with: .dataPegawai)
+            self.prefs.setDataToLocal(appToken.self, with: .appToken)
         }
     }
 }
