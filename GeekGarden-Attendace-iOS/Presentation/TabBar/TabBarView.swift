@@ -26,7 +26,7 @@ struct TabBarView: View {
                     }
                 }
             
-            Text("Attendance")
+            AttendanceView()
                 .tabItem {
                     VStack {
                         Image(systemName: "list.clipboard.fill")
