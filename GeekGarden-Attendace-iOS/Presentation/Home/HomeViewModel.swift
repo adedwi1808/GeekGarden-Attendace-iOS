@@ -20,6 +20,16 @@ class HomeViewModel: ObservableObject {
         return dataMapper(data: dataPegawai)
     }
     
+    func getPegawaiInitials() -> String {
+        let name = getDataPegawai().nama
+        let initials = name?.components(separatedBy: " ") ?? ["", ""]
+        var res = [String]()
+        for initial in initials {
+            res.append(initial.first.map(String.init)!)
+        }
+        return res.joined()
+    }
+    
     func dataMapper(data: LoginPegawaiResponseModel) -> DataPegawaiModel {
         let res: DataPegawaiModel = DataPegawaiModel(
             idPegawai: data.data?.idPegawai,

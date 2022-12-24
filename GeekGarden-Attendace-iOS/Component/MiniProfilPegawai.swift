@@ -17,7 +17,12 @@ struct MiniProfilPegawaiView: View {
                         .resizable()
                         .scaledToFit()
                 } placeholder: {
-                    Color.gray
+                    ZStack {
+                        Color.white
+                        Text(homeViewModel.getPegawaiInitials())
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundColor(Color("PrimaryColor"))
+                    }
                 }
                 .frame(width: 80, height: 80)
                 .cornerRadius(50)
