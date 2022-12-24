@@ -18,6 +18,8 @@
 		0135C990294A6466008C7589 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C98F294A6466008C7589 /* HomeView.swift */; };
 		0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C992294A6F3A008C7589 /* LoginForm.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
+		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
+		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
 		014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */; };
 		014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */; };
 		014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77432950B03800C253C3 /* MiniProfilPegawai.swift */; };
@@ -46,6 +48,8 @@
 		0135C98F294A6466008C7589 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0135C992294A6F3A008C7589 /* LoginForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginForm.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
+		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
+		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataKehadiranPegawaiView.swift; sourceTree = "<group>"; };
 		014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenView.swift; sourceTree = "<group>"; };
 		014C77432950B03800C253C3 /* MiniProfilPegawai.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniProfilPegawai.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				014BAB212957168F00991566 /* CheckIn */,
 				014BAB1C2956C08500991566 /* Attendance */,
 				0135C98C294A6451008C7589 /* Home */,
 				0135C987294A5C8D008C7589 /* Navigation */,
@@ -184,8 +189,17 @@
 			isa = PBXGroup;
 			children = (
 				014BAB1D2956C0B100991566 /* AttendanceView.swift */,
+				014BAB1F2956C22100991566 /* AttendanceViewModel.swift */,
 			);
 			path = Attendance;
+			sourceTree = "<group>";
+		};
+		014BAB212957168F00991566 /* CheckIn */ = {
+			isa = PBXGroup;
+			children = (
+				014BAB22295716AD00991566 /* CheckInView.swift */,
+			);
+			path = CheckIn;
 			sourceTree = "<group>";
 		};
 		014C77452950B2E600C253C3 /* Domainless */ = {
@@ -326,6 +340,7 @@
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
+				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
 				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
@@ -336,6 +351,7 @@
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
+				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
 				014C774F2953EDCE00C253C3 /* LoginServices.swift in Sources */,
