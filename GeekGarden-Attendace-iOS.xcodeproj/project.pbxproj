@@ -20,6 +20,7 @@
 		013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC8462958CBF100194B80 /* ImagePicker.swift */; };
 		013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC8482959E97C00194B80 /* CheckInViewModel.swift */; };
 		013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC84B2959E9E300194B80 /* PickerModel.swift */; };
+		013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC84E2959FAE800194B80 /* LocationManager.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -53,6 +54,7 @@
 		013BC8462958CBF100194B80 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		013BC8482959E97C00194B80 /* CheckInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
 		013BC84B2959E9E300194B80 /* PickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerModel.swift; sourceTree = "<group>"; };
+		013BC84E2959FAE800194B80 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 		0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				013BC84D2959FAD500194B80 /* LocationManager */,
 				013BC8452958CBDA00194B80 /* CameraPicker */,
 				0135C971294A425F008C7589 /* Assets.xcassets */,
 				014C77452950B2E600C253C3 /* Domainless */,
@@ -207,6 +210,14 @@
 				013BC84B2959E9E300194B80 /* PickerModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		013BC84D2959FAD500194B80 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				013BC84E2959FAE800194B80 /* LocationManager.swift */,
+			);
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		014BAB1C2956C08500991566 /* Attendance */ = {
@@ -380,6 +391,7 @@
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
+				013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
 				014C774F2953EDCE00C253C3 /* LoginServices.swift in Sources */,
@@ -515,6 +527,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use camera for taking photo";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Program requires GPS to tracking users";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Program requires GPS to tracking users";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Program requires GPS to tracking users";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -545,6 +560,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This app need to use camera for taking photo";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Program requires GPS to tracking users";
+				INFOPLIST_KEY_NSLocationUsageDescription = "Program requires GPS to tracking users";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Program requires GPS to tracking users";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

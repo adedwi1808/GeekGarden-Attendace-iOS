@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct TabBarView: View {
     init() {
@@ -49,6 +50,20 @@ struct TabBarView: View {
                         Text("More")
                     }
                 }
+        }
+        .onAppear {
+                LocationManager.shared.getLocation { (location:CLLocation?, error:NSError?) in
+
+                            if let error = error {
+                                print(error.localizedDescription)
+                                return
+                            }
+                            
+                            guard let location = location else {
+                                return
+                            }
+                            print("Latitude: \(location.coordinate.latitude) Longitude: \(location.coordinate.longitude)")
+                        }
         }
         .navigationTitle("GeekGarden Attendance")
         .navigationBarTitleDisplayMode(.inline)
