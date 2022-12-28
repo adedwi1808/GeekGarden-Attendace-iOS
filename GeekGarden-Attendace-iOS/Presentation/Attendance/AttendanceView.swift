@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct AttendanceView: View {
     @StateObject var attendanceViewModel: AttendanceViewModel = AttendanceViewModel()
@@ -23,7 +24,10 @@ struct AttendanceView: View {
                     .font(.system(size: 24, weight: .regular))
                     .foregroundColor(Color("PrimaryColor"))
                 
-                NavigationLink(destination: CheckInView()) {
+                NavigationLink(destination:
+                                CheckInView(latitude: attendanceViewModel.latitude,
+                                            longitude: attendanceViewModel.longitude,
+                                            tempat: attendanceViewModel.tempat)) {
                     ZStack {
                         Circle()
                             .foregroundColor(.green)
@@ -38,18 +42,22 @@ struct AttendanceView: View {
                     .padding(.vertical, 20)
                 }
                 
-                
-                HStack {
-                    Image(systemName: "mappin")
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(.red)
-                        .frame(height: 24)
-                    Text("GeekGarden Office")
-                        .font(.system(size: 24, weight: .semibold))
-                        .foregroundColor(Color("PrimaryColor"))
+                NavigationLink(destination: MapView()) {
+                    HStack {
+                        Image(systemName: "mappin")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(.red)
+                            .frame(height: 24)
+                        Text(attendanceViewModel.reversedGeoCodeLoc)
+                            .lineLimit(1)
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundColor(Color("PrimaryColor"))
+                    }
+                    .padding(.horizontal, 40)
+                    .padding(.bottom, 20)
                 }
-                .padding(.bottom, 20)
+                
                 
                 HStack(alignment: .center, spacing: 60) {
                     VStack {
@@ -83,8 +91,8 @@ struct AttendanceView: View {
         }
         .onAppear {
             attendanceViewModel.updateTimer
+            attendanceViewModel.getReversedGeoCodeLoc()
         }
-
     }
 }
 

@@ -21,6 +21,12 @@
 		013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC8482959E97C00194B80 /* CheckInViewModel.swift */; };
 		013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC84B2959E9E300194B80 /* PickerModel.swift */; };
 		013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC84E2959FAE800194B80 /* LocationManager.swift */; };
+		013BC852295A012400194B80 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC851295A012400194B80 /* MapView.swift */; };
+		013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC853295B1CC300194B80 /* MapViewModel.swift */; };
+		013BC857295B1D0600194B80 /* MarkerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC856295B1D0600194B80 /* MarkerModel.swift */; };
+		013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC859295B2B5200194B80 /* CheckInServices.swift */; };
+		013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC85C295B384F00194B80 /* CheckInModel.swift */; };
+		013BC85F295C385500194B80 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC85E295C385500194B80 /* Data.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -55,6 +61,12 @@
 		013BC8482959E97C00194B80 /* CheckInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewModel.swift; sourceTree = "<group>"; };
 		013BC84B2959E9E300194B80 /* PickerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerModel.swift; sourceTree = "<group>"; };
 		013BC84E2959FAE800194B80 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		013BC851295A012400194B80 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		013BC853295B1CC300194B80 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		013BC856295B1D0600194B80 /* MarkerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerModel.swift; sourceTree = "<group>"; };
+		013BC859295B2B5200194B80 /* CheckInServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInServices.swift; sourceTree = "<group>"; };
+		013BC85C295B384F00194B80 /* CheckInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInModel.swift; sourceTree = "<group>"; };
+		013BC85E295C385500194B80 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -103,8 +115,6 @@
 		0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				013BC84D2959FAD500194B80 /* LocationManager */,
-				013BC8452958CBDA00194B80 /* CameraPicker */,
 				0135C971294A425F008C7589 /* Assets.xcassets */,
 				014C77452950B2E600C253C3 /* Domainless */,
 				014C775A29542BE700C253C3 /* Extension */,
@@ -127,6 +137,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				013BC850295A011800194B80 /* Map */,
 				014BAB212957168F00991566 /* CheckIn */,
 				014BAB1C2956C08500991566 /* Attendance */,
 				0135C98C294A6451008C7589 /* Home */,
@@ -220,6 +231,40 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
+		013BC850295A011800194B80 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				013BC855295B1CFA00194B80 /* Model */,
+				013BC851295A012400194B80 /* MapView.swift */,
+				013BC853295B1CC300194B80 /* MapViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		013BC855295B1CFA00194B80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				013BC856295B1D0600194B80 /* MarkerModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		013BC858295B2B4100194B80 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				013BC859295B2B5200194B80 /* CheckInServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		013BC85B295B383600194B80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				013BC85C295B384F00194B80 /* CheckInModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		014BAB1C2956C08500991566 /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +277,8 @@
 		014BAB212957168F00991566 /* CheckIn */ = {
 			isa = PBXGroup;
 			children = (
+				013BC85B295B383600194B80 /* Model */,
+				013BC858295B2B4100194B80 /* Services */,
 				014BAB22295716AD00991566 /* CheckInView.swift */,
 				013BC8482959E97C00194B80 /* CheckInViewModel.swift */,
 			);
@@ -241,6 +288,8 @@
 		014C77452950B2E600C253C3 /* Domainless */ = {
 			isa = PBXGroup;
 			children = (
+				013BC84D2959FAD500194B80 /* LocationManager */,
+				013BC8452958CBDA00194B80 /* CameraPicker */,
 				014C77462950B30B00C253C3 /* Networking */,
 			);
 			path = Domainless;
@@ -285,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				014C775B29542C0C00C253C3 /* UserDefaults.swift */,
+				013BC85E295C385500194B80 /* Data.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -376,11 +426,17 @@
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
 				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
+				013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
+				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
+				013BC85F295C385500194B80 /* Data.swift in Sources */,
+				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
+				013BC857295B1D0600194B80 /* MarkerModel.swift in Sources */,
 				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
+				013BC852295A012400194B80 /* MapView.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,

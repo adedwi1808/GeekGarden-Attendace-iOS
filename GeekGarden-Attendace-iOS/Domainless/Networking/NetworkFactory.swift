@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum NetworkFactory {
     case getPost(page: Int)
@@ -14,6 +15,7 @@ enum NetworkFactory {
     case getHeroStats
     case loginPegawai(email: String, password: String)
     case getMadingGeekGarden
+    case postCheckIn(tempat: String, status: String, long: String, lat: String, image: Data)
 }
 
 extension NetworkFactory {
@@ -33,6 +35,8 @@ extension NetworkFactory {
             return "/api/login-pegawai"
         case .getMadingGeekGarden:
             return "/api/madings"
+        case .postCheckIn:
+            return "/api/absensi-hadir-ios"
         }
     }
     
@@ -47,6 +51,8 @@ extension NetworkFactory {
             return []
         case .getMadingGeekGarden:
             return []
+        case .postCheckIn:
+            return []
         }
     }
     
@@ -54,7 +60,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "4490-182-253-183-12.ap.ngrok.io"
+            return "4aa3-182-253-183-10.ap.ngrok.io"
         }
     }
     
@@ -77,6 +83,8 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return .post
+        case .postCheckIn:
+            return .post
         default:
             return .get
         }
@@ -94,7 +102,10 @@ extension NetworkFactory {
     var bodyParam: [String: Any]? {
         switch self {
         case .loginPegawai(let email, let password):
-            return ["email": email, "password": password]
+            return ["email": email,
+                    "password": password]
+        case .postCheckIn(let tempat, let status, let long, let lat, _):
+            return ["tempat": tempat, "status": status, "longitude": long, "latitude": lat]
         default:
             return [:]
         }
@@ -103,6 +114,8 @@ extension NetworkFactory {
     // MARK: MULTIPART DATA
     var data: Data? {
         switch self {
+        case .postCheckIn(_, _, _, _, let image):
+            return image as Data?
         default:
             return Data()
         }
@@ -119,6 +132,8 @@ extension NetworkFactory {
             return getHeaders(type: .anonymous)
         case .getMadingGeekGarden:
             return getHeaders(type: .appToken)
+        case .postCheckIn:
+            return getHeaders(type: .multiPart)
         }
     }
     
@@ -127,6 +142,10 @@ extension NetworkFactory {
         case anonymous
         case appToken
         case multiPart
+    }
+    
+    func getBoundary() -> String {
+        return "Boundary-\(UUID().uuidString)"
     }
     
     fileprivate func getHeaders(type: HeaderType) -> [String: String] {
@@ -143,14 +162,56 @@ extension NetworkFactory {
                       "Accept": "*/*",
                       "Authorization": "Bearer \(appToken ?? "")"]
         case .multiPart:
-            let boundary = generateBoundaryString()
-            header = ["Content-Type": "multipart/form-data; boundary=\(boundary)",
-                      "Accept": "*/*",
-                      "x-lapakibu-token": "\(appToken ?? "")"]
+            header = ["Accept": "*/*",
+                      "Authorization": "Bearer \(appToken ?? "")"]
         }
         return header
     }
     
+    func createBodyWithParameters(parameters: [String: Any], imageDataKey: Data?, boundary: String)  -> Data {
+        var body = Data()
+        let filePath = "image"
+        let fileName = "imagggee.jpg"
+        let mimetype = "image/jpeg"
+        let lineBreak = "\r\n"
+        for (key, value) in parameters {
+            body.append("--\(boundary + lineBreak)")
+            body.append("Content-Disposition: form-data; name=\"\(key)\"\(lineBreak + lineBreak)")
+            body.append("\(value)")
+            body.append("\(lineBreak)")
+        }
+        
+        body.append("\r\n--\(boundary)\r\n")
+        
+        if let imageDataKey {
+            body.append("Content-Disposition: form-data; name=\"\(filePath)\"; filename=\"\(fileName)\"\r\n")
+            body.append("Content-Type: \(mimetype)\r\n\r\n")
+            body.append(imageDataKey)
+            body.append("\r\n--\(boundary)--\r\n")
+        }
+        print("asdasda")
+        return body
+    }
+    
+    var urlRequestMultipart: URLRequest {
+        var urlRequest = URLRequest(url: self.url)
+        urlRequest.httpMethod = method.rawValue
+        let boundary = getBoundary()
+        
+        if let headers = headers {
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            headers.forEach { key, value in
+                urlRequest.setValue(value, forHTTPHeaderField: key)
+            }
+        }
+        
+        if let bodyParam, let data {
+            urlRequest.httpBody =  createBodyWithParameters(parameters: bodyParam,
+                                                                imageDataKey: data,
+                                                                boundary: boundary)
+        }
+        return urlRequest
+    }
     
     var urlRequest: URLRequest {
         var urlRequest = URLRequest(url: self.url)
@@ -168,9 +229,9 @@ extension NetworkFactory {
                 urlRequest.httpBody = bodyData
             } catch {
                 // swiftlint:disable disable_print
-                #if DEBUG
+#if DEBUG
                 print(error)
-                #endif
+#endif
                 // swiftlint:enable disable_print
             }
         }

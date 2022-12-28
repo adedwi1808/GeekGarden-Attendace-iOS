@@ -17,7 +17,7 @@ protocol NetworkerProtocol: AnyObject {
 
 final class Networker: NetworkerProtocol {
     func taskAsync<T>(type: T.Type, endPoint: NetworkFactory, isMultipart: Bool) async throws -> T where T: Decodable {
-        let (data, response) = try await URLSession.shared.data(for: endPoint.urlRequest)
+        let (data, response) = try await URLSession.shared.data(for: isMultipart ? endPoint.urlRequestMultipart: endPoint.urlRequest)
         
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.middlewareError(code: 500, message: "Connection Error")
@@ -26,7 +26,7 @@ final class Networker: NetworkerProtocol {
         // swiftlint:disable disable_print
         #if DEBUG || NETFOX
         let dataString = String(decoding: data, as: UTF8.self)
-//        print("Response : \(dataString)")
+        print("Response : \(dataString)")
         #endif
         // swiftlint:enable disable_print
         

@@ -12,6 +12,9 @@ struct CheckInView: View {
     
     @StateObject var checkInViewModel: CheckInViewModel = CheckInViewModel()
     @State private var selectedImageData: UIImage?
+    let latitude: String
+    let longitude: String
+    let tempat: Bool
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -42,6 +45,7 @@ struct CheckInView: View {
                 }
                 .fullScreenCover(isPresented: $checkInViewModel.showPicker) {
                     ImagePicker(sourceType: .camera , selectedImage: $selectedImageData)
+                        .ignoresSafeArea()
                 }
                 .alert("Error", isPresented: $checkInViewModel.showCameraAlert, presenting: checkInViewModel.cameraError, actions: { cameraError in
                     cameraError.button
@@ -51,7 +55,11 @@ struct CheckInView: View {
                 
                 
                 Button {
-                    //
+                    if let selectedImageData {
+                        Task {
+                            await checkInViewModel.postCheckIn(lat: latitude, long: longitude, tempat: tempat, foto: (selectedImageData.jpegData(compressionQuality: 0.4))!)
+                        }
+                    }
                 } label: {
                     ZStack {
                         Text("Check In")
@@ -70,6 +78,6 @@ struct CheckInView: View {
 
 struct CheckInView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckInView()
+        CheckInView(latitude: "", longitude: "", tempat: false)
     }
 }
