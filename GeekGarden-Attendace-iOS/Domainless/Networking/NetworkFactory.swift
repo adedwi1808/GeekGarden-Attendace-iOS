@@ -9,9 +9,14 @@ import Foundation
 import SwiftUI
 
 enum NetworkFactory {
+    //AUTH
     case loginPegawai(email: String, password: String)
+    
     case getMadingGeekGarden
+    
+    //ATTENDANCE
     case postCheckIn(tempat: String, status: String, long: String, lat: String, image: Data)
+    case checkAttendance
 }
 
 extension NetworkFactory {
@@ -25,13 +30,15 @@ extension NetworkFactory {
             return "/api/madings"
         case .postCheckIn:
             return "/api/absensi-hadir-ios"
+        case .checkAttendance:
+            return "api/cek-absensi"
         }
     }
     
     // MARK: URL QUERY PARAMS / URL PARAMS
     var queryItems: [URLQueryItem] {
         switch self {
-        case .loginPegawai:
+        case .loginPegawai, .checkAttendance:
             return []
         case .getMadingGeekGarden:
             return []
@@ -110,7 +117,7 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return getHeaders(type: .anonymous)
-        case .getMadingGeekGarden:
+        case .getMadingGeekGarden, .checkAttendance:
             return getHeaders(type: .appToken)
         case .postCheckIn:
             return getHeaders(type: .multiPart)

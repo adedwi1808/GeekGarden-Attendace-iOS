@@ -27,6 +27,7 @@
 		013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC859295B2B5200194B80 /* CheckInServices.swift */; };
 		013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC85C295B384F00194B80 /* CheckInModel.swift */; };
 		013BC85F295C385500194B80 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC85E295C385500194B80 /* Data.swift */; };
+		013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC861295CAF0900194B80 /* CheckAttendanceModel.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -67,6 +68,7 @@
 		013BC859295B2B5200194B80 /* CheckInServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInServices.swift; sourceTree = "<group>"; };
 		013BC85C295B384F00194B80 /* CheckInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInModel.swift; sourceTree = "<group>"; };
 		013BC85E295C385500194B80 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		013BC861295CAF0900194B80 /* CheckAttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAttendanceModel.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -265,9 +267,18 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		013BC860295CAEF500194B80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				013BC861295CAF0900194B80 /* CheckAttendanceModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		014BAB1C2956C08500991566 /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
+				013BC860295CAEF500194B80 /* Model */,
 				014BAB1D2956C0B100991566 /* AttendanceView.swift */,
 				014BAB1F2956C22100991566 /* AttendanceViewModel.swift */,
 			);
@@ -423,6 +434,7 @@
 				013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */,
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
+				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
 				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
