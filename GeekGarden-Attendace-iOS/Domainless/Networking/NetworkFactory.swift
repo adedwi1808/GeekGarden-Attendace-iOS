@@ -9,10 +9,6 @@ import Foundation
 import SwiftUI
 
 enum NetworkFactory {
-    case getPost(page: Int)
-    case getUser
-    case getHeroes
-    case getHeroStats
     case loginPegawai(email: String, password: String)
     case getMadingGeekGarden
     case postCheckIn(tempat: String, status: String, long: String, lat: String, image: Data)
@@ -23,14 +19,6 @@ extension NetworkFactory {
     // MARK: URL PATH API
     var path: String {
         switch self {
-        case .getPost(let page):
-            return "/posts/page\(page)"
-        case .getUser:
-            return "/users"
-        case .getHeroes:
-            return "/api/heroes"
-        case .getHeroStats:
-            return "/api/heroStats"
         case .loginPegawai:
             return "/api/login-pegawai"
         case .getMadingGeekGarden:
@@ -43,10 +31,6 @@ extension NetworkFactory {
     // MARK: URL QUERY PARAMS / URL PARAMS
     var queryItems: [URLQueryItem] {
         switch self {
-        case .getPost, .getUser:
-            return []
-        case .getHeroes, .getHeroStats:
-            return []
         case .loginPegawai:
             return []
         case .getMadingGeekGarden:
@@ -124,10 +108,6 @@ extension NetworkFactory {
     // MARK: HEADER API
     var headers: [String: String]? {
         switch self {
-        case .getPost, .getUser:
-            return getHeaders(type: .anonymous)
-        case .getHeroes, .getHeroStats:
-            return getHeaders(type: .anonymous)
         case .loginPegawai:
             return getHeaders(type: .anonymous)
         case .getMadingGeekGarden:
