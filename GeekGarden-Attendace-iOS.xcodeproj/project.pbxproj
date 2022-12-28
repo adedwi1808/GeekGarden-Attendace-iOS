@@ -34,6 +34,8 @@
 		013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86C295CCC9C00194B80 /* CheckOutServices.swift */; };
 		013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */; };
 		013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */; };
+		013BC876295CF13F00194B80 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC875295CF13F00194B80 /* HistoryView.swift */; };
+		013BC879295CF1D000194B80 /* AttendanceHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC878295CF1CF00194B80 /* AttendanceHistoryResponseModel.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -81,6 +83,8 @@
 		013BC86C295CCC9C00194B80 /* CheckOutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutServices.swift; sourceTree = "<group>"; };
 		013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutResponseModel.swift; sourceTree = "<group>"; };
 		013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatsResponseModel.swift; sourceTree = "<group>"; };
+		013BC875295CF13F00194B80 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		013BC878295CF1CF00194B80 /* AttendanceHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryResponseModel.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				013BC874295CF12C00194B80 /* History */,
 				013BC866295CBAF500194B80 /* CheckOut */,
 				013BC850295A011800194B80 /* Map */,
 				014BAB212957168F00991566 /* CheckIn */,
@@ -330,6 +335,23 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		013BC874295CF12C00194B80 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				013BC877295CF1C100194B80 /* Model */,
+				013BC875295CF13F00194B80 /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		013BC877295CF1C100194B80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				013BC878295CF1CF00194B80 /* AttendanceHistoryResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		014BAB1C2956C08500991566 /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +515,7 @@
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
+				013BC876295CF13F00194B80 /* HistoryView.swift in Sources */,
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
 				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
@@ -523,6 +546,7 @@
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
 				013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */,
+				013BC879295CF1D000194B80 /* AttendanceHistoryResponseModel.swift in Sources */,
 				013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
