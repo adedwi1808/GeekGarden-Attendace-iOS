@@ -73,7 +73,7 @@ struct AttendanceView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 40)
-                        Text("22.0")
+                        Text(attendanceVM.attendanceInterval)
                     }
                     
                     VStack {
@@ -98,6 +98,7 @@ struct AttendanceView: View {
             attendanceVM.checkHowManyAbsentToday()
             attendanceVM.getCheckInTime()
             attendanceVM.getCheckOutTime()
+            attendanceVM.getAttendanceInterval()
         }
     }
 }

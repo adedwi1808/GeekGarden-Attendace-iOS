@@ -17,6 +17,9 @@ class AttendanceViewModel: ObservableObject {
     @Published var numberOfAbsencesToday: Int = 0
     @Published var checkInTime: String = "-"
     @Published var checkOutTime: String = "-"
+    @Published var attendanceInterval: String = "-"
+    private var checkInDate: Date?
+    private var checkOutDate: Date?
     
     private var locA: CLLocation?
     private var prefs = UserDefaults()
@@ -39,7 +42,7 @@ class AttendanceViewModel: ObservableObject {
     }
     
     var updateTimer: Timer {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in 
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
             self.date = Date()
         })
     }
@@ -98,6 +101,7 @@ class AttendanceViewModel: ObservableObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         guard let date = dateFormatter.date(from: time) else { return }
+        self.checkInDate = date
         self.checkInTime = timeString(date: date)
     }
     
@@ -107,7 +111,21 @@ class AttendanceViewModel: ObservableObject {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         guard let date = dateFormatter.date(from: time) else { return }
+        self.checkOutDate = date
         self.checkOutTime = timeString(date: date)
+    }
+    
+    func getAttendanceInterval(){
+        guard let checkInDate, let checkOutDate else { return }
+        
+        let calendar = Calendar.current
+        let totalComponents = calendar.dateComponents([.hour, .minute], from: checkInDate)
+        let userWalkedComponents = calendar.dateComponents([.hour, .minute], from: checkOutDate)
+        
+        let difference = calendar.dateComponents([.minute], from: totalComponents, to: userWalkedComponents).minute!
+        let differenceHour = difference / 60
+        let differenceFloating = difference % 60
+        self.attendanceInterval = "\(differenceHour).\(differenceFloating)"
     }
     
     private func saveCheckAttendanceToLocale(with data: CheckAttendanceResponseModel) {
