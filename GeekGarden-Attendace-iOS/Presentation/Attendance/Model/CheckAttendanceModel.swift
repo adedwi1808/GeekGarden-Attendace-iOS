@@ -10,7 +10,7 @@ import Foundation
 struct CheckAttendanceResponseModel: Codable {
     let code: Int?
     let message: String?
-    let data: DataClass?
+    let data: CheckAttendanceModel?
 }
 
 struct CheckAttendanceModel: Codable {

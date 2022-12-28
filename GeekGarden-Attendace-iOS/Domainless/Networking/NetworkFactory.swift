@@ -31,14 +31,16 @@ extension NetworkFactory {
         case .postCheckIn:
             return "/api/absensi-hadir-ios"
         case .checkAttendance:
-            return "api/cek-absensi"
+            return "/api/cek-absensi"
         }
     }
     
     // MARK: URL QUERY PARAMS / URL PARAMS
     var queryItems: [URLQueryItem] {
         switch self {
-        case .loginPegawai, .checkAttendance:
+        case .loginPegawai:
+            return []
+        case .checkAttendance:
             return []
         case .getMadingGeekGarden:
             return []
@@ -51,7 +53,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "4aa3-182-253-183-10.ap.ngrok.io"
+            return "de28-182-253-183-10.ap.ngrok.io"
         }
     }
     
@@ -194,8 +196,8 @@ extension NetworkFactory {
         
         if let bodyParam, let data {
             urlRequest.httpBody =  createBodyWithParameters(parameters: bodyParam,
-                                                                imageDataKey: data,
-                                                                boundary: boundary)
+                                                            imageDataKey: data,
+                                                            boundary: boundary)
         }
         return urlRequest
     }

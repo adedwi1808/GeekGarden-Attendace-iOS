@@ -24,5 +24,6 @@ extension UserDefaults {
         case dataPegawai
         case appToken
         case madingGeekGarden
+        case checkAttendance
     }
 }

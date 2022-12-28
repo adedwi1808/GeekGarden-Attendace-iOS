@@ -92,6 +92,9 @@ struct AttendanceView: View {
         .onAppear {
             attendanceViewModel.updateTimer
             attendanceViewModel.getReversedGeoCodeLoc()
+            Task {
+                await attendanceViewModel.checkAttendance()
+            }
         }
     }
 }

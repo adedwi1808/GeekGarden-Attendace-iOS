@@ -14,7 +14,13 @@ class AttendanceViewModel: ObservableObject {
     @Published var longitude: String = ""
     @Published var latitude: String = ""
     @Published var tempat: Bool = false
-    var locA: CLLocation?
+    private var locA: CLLocation?
+    private var prefs = UserDefaults()
+    private var attendanceServices: AttendanceServicesProtocol
+    
+    init(attendanceServices: AttendanceServicesProtocol = AttendanceServices()) {
+        self.attendanceServices = attendanceServices
+    }
     
     private var timeFormat: DateFormatter {
         let formatter = DateFormatter()
@@ -66,6 +72,21 @@ class AttendanceViewModel: ObservableObject {
         guard let locA = self.locA else { return false}
         let locB = CLLocation(latitude: 7.75561, longitude: 110.38478)
         return locA.distance(from: locB) > 25
+    }
+    
+    func checkAttendance() async {
+        do {
+            let data = try await attendanceServices.checkAttendance(endpoint: .checkAttendance)
+            print(data)
+            saveCheckAttendanceToLocale(with: data)
+        } catch {
+            print("Check Attendance ERR")
+        }
+    }
+    
+    private func saveCheckAttendanceToLocale(with data: CheckAttendanceResponseModel) {
+        
+        prefs.setDataToLocal(data.self, with: .checkAttendance)
     }
     
 }
