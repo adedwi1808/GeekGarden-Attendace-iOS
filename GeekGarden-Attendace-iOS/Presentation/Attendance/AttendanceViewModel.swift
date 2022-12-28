@@ -15,6 +15,7 @@ class AttendanceViewModel: ObservableObject {
     @Published var latitude: String = ""
     @Published var tempat: Bool = false
     @Published var numberOfAbsencesToday: Int = 0
+    @Published var checkInTime: String = "-"
     
     private var locA: CLLocation?
     private var prefs = UserDefaults()
@@ -88,6 +89,15 @@ class AttendanceViewModel: ObservableObject {
     func checkHowManyAbsentToday() {
         let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
         self.numberOfAbsencesToday = data?.data?.jumlahAbsenHariIni ?? 0
+    }
+    
+    func getCheckInTime() {
+        let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
+        guard let time = data?.data?.jamHadir?.tanggal else { return }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let date = dateFormatter.date(from: time) else { return }
+        self.checkInTime = timeString(date: date)
     }
     
     private func saveCheckAttendanceToLocale(with data: CheckAttendanceResponseModel) {

@@ -65,7 +65,7 @@ struct AttendanceView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 40)
-                        Text("22.0")
+                        Text(attendanceVM.checkInTime)
                     }
                     
                     VStack {
@@ -96,6 +96,7 @@ struct AttendanceView: View {
                 await attendanceVM.checkAttendance()
             }
             attendanceVM.checkHowManyAbsentToday()
+            attendanceVM.getCheckInTime()
         }
     }
 }
