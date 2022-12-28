@@ -29,6 +29,10 @@
 		013BC85F295C385500194B80 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC85E295C385500194B80 /* Data.swift */; };
 		013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC861295CAF0900194B80 /* CheckAttendanceModel.swift */; };
 		013BC865295CB0F700194B80 /* AttendanceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC864295CB0F700194B80 /* AttendanceServices.swift */; };
+		013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC868295CBB0D00194B80 /* CheckOutView.swift */; };
+		013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86A295CBB5E00194B80 /* CheckOutViewModel.swift */; };
+		013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86C295CCC9C00194B80 /* CheckOutServices.swift */; };
+		013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -71,6 +75,10 @@
 		013BC85E295C385500194B80 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		013BC861295CAF0900194B80 /* CheckAttendanceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAttendanceModel.swift; sourceTree = "<group>"; };
 		013BC864295CB0F700194B80 /* AttendanceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceServices.swift; sourceTree = "<group>"; };
+		013BC868295CBB0D00194B80 /* CheckOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutView.swift; sourceTree = "<group>"; };
+		013BC86A295CBB5E00194B80 /* CheckOutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutViewModel.swift; sourceTree = "<group>"; };
+		013BC86C295CCC9C00194B80 /* CheckOutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutServices.swift; sourceTree = "<group>"; };
+		013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutResponseModel.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				013BC866295CBAF500194B80 /* CheckOut */,
 				013BC850295A011800194B80 /* Map */,
 				014BAB212957168F00991566 /* CheckIn */,
 				014BAB1C2956C08500991566 /* Attendance */,
@@ -283,6 +292,33 @@
 				013BC864295CB0F700194B80 /* AttendanceServices.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		013BC866295CBAF500194B80 /* CheckOut */ = {
+			isa = PBXGroup;
+			children = (
+				013BC86E295CCD1200194B80 /* Model */,
+				013BC867295CBAFF00194B80 /* Services */,
+				013BC868295CBB0D00194B80 /* CheckOutView.swift */,
+				013BC86A295CBB5E00194B80 /* CheckOutViewModel.swift */,
+			);
+			path = CheckOut;
+			sourceTree = "<group>";
+		};
+		013BC867295CBAFF00194B80 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				013BC86C295CCC9C00194B80 /* CheckOutServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		013BC86E295CCD1200194B80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		014BAB1C2956C08500991566 /* Attendance */ = {
@@ -467,10 +503,14 @@
 				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
 				013BC865295CB0F700194B80 /* AttendanceServices.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
+				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
+				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
+				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
+				013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */,
 				013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,

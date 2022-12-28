@@ -14,7 +14,7 @@ struct MadingGeekGardenView: View {
     let tanggalMading: String
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            AsyncImage(url: URL(string: "https://de28-182-253-183-10.ap.ngrok.io/storage/mading/\(fotoMading)")) { image in
+            AsyncImage(url: URL(string: "https://5a93-2a09-bac1-34c0-628-00-1f1-21b.ap.ngrok.io/storage/mading/\(fotoMading)")) { image in
                 image
                     .resizable()
                     .scaledToFill()

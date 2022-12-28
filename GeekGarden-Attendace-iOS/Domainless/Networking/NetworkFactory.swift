@@ -16,6 +16,7 @@ enum NetworkFactory {
     
     //ATTENDANCE
     case postCheckIn(tempat: String, status: String, long: String, lat: String, image: Data)
+    case postCheckOut(tempat: String, status: String, prog: String, long: String, lat: String, image: Data)
     case checkAttendance
 }
 
@@ -32,6 +33,8 @@ extension NetworkFactory {
             return "/api/absensi-hadir-ios"
         case .checkAttendance:
             return "/api/cek-absensi"
+        case .postCheckOut:
+            return "/api/absensi-pulang-ios"
         }
     }
     
@@ -44,7 +47,7 @@ extension NetworkFactory {
             return []
         case .getMadingGeekGarden:
             return []
-        case .postCheckIn:
+        case .postCheckIn, .postCheckOut:
             return []
         }
     }
@@ -53,7 +56,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "de28-182-253-183-10.ap.ngrok.io"
+            return "5a93-2a09-bac1-34c0-628-00-1f1-21b.ap.ngrok.io"
         }
     }
     
@@ -76,7 +79,7 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return .post
-        case .postCheckIn:
+        case .postCheckIn, .postCheckOut:
             return .post
         default:
             return .get
@@ -99,6 +102,8 @@ extension NetworkFactory {
                     "password": password]
         case .postCheckIn(let tempat, let status, let long, let lat, _):
             return ["tempat": tempat, "status": status, "longitude": long, "latitude": lat]
+        case .postCheckOut(let tempat, let status, let prog, let long, let lat, _):
+            return ["tempat": tempat, "status":status, "progress_hari_ini": prog, "longitude":long, "latitude":lat]
         default:
             return [:]
         }
@@ -108,6 +113,8 @@ extension NetworkFactory {
     var data: Data? {
         switch self {
         case .postCheckIn(_, _, _, _, let image):
+            return image as Data?
+        case .postCheckOut(_, _, _, _, _, let image):
             return image as Data?
         default:
             return Data()
@@ -122,6 +129,8 @@ extension NetworkFactory {
         case .getMadingGeekGarden, .checkAttendance:
             return getHeaders(type: .appToken)
         case .postCheckIn:
+            return getHeaders(type: .multiPart)
+        case .postCheckOut:
             return getHeaders(type: .multiPart)
         }
     }
@@ -198,6 +207,7 @@ extension NetworkFactory {
             urlRequest.httpBody =  createBodyWithParameters(parameters: bodyParam,
                                                             imageDataKey: data,
                                                             boundary: boundary)
+            print(String(data:urlRequest.httpBody! as Data, encoding: .utf8))
         }
         return urlRequest
     }

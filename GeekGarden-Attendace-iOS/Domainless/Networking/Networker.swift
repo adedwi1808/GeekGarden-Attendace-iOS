@@ -25,8 +25,8 @@ final class Networker: NetworkerProtocol {
         
         // swiftlint:disable disable_print
         #if DEBUG || NETFOX
-//        let dataString = String(decoding: data, as: UTF8.self)
-//        print("Response : \(dataString)")
+        let dataString = String(decoding: data, as: UTF8.self)
+        print("Response : \(dataString)")
         #endif
         // swiftlint:enable disable_print
         

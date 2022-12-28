@@ -33,7 +33,7 @@ struct AttendanceView: View {
                         AttendanceButtonView()
                     }
                 } else {
-                    NavigationLink(destination: CheckInView(
+                    NavigationLink(destination: CheckOutView(
                         latitude: attendanceVM.latitude,
                         longitude: attendanceVM.longitude,
                         tempat: attendanceVM.tempat
