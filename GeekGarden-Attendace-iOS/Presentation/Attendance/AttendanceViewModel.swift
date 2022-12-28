@@ -65,7 +65,7 @@ class AttendanceViewModel: ObservableObject {
             
             guard let location else {return}
             self.locA = location
-            print("\(location.coordinate.latitude)")
+//            print("\(location.coordinate.latitude)")
             self.latitude = "\(location.coordinate.latitude)"
             self.longitude = "\(location.coordinate.longitude)"
             guard let placemark = placemark else { return }

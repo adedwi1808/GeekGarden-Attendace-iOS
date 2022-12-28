@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct DataKehadiranPegawaiView: View {
+    @Binding var hadir: String
+    @Binding var izin: String
+    @Binding var lembur: String
+    @Binding var cuti: String
+    
     var body: some View {
         HStack {
             ZStack {
                 Color(.white)
                     .cornerRadius(15)
                 VStack {
-                    Text("5")
+                    Text(hadir)
                         .fontWeight(.bold)
                     Text("Hadir")
                 }
@@ -24,9 +29,9 @@ struct DataKehadiranPegawaiView: View {
                 Color(.white)
                     .cornerRadius(15)
                 VStack {
-                    Text("5")
+                    Text(izin)
                         .fontWeight(.bold)
-                    Text("Hadir")
+                    Text("Izin")
                 }
             }
             
@@ -34,9 +39,9 @@ struct DataKehadiranPegawaiView: View {
                 Color(.white)
                     .cornerRadius(15)
                 VStack {
-                    Text("5")
+                    Text(cuti)
                         .fontWeight(.bold)
-                    Text("Hadir")
+                    Text("Cuti")
                 }
             }
             
@@ -44,21 +49,22 @@ struct DataKehadiranPegawaiView: View {
                 Color(.white)
                     .cornerRadius(15)
                 VStack {
-                    Text("5")
+                    Text(lembur)
                         .fontWeight(.bold)
-                    Text("Hadir")
+                    Text("Lembur")
                 }
             }
         }
         .padding(10)
         .frame(minHeight: 100, maxHeight: 115, alignment: .center)
+        .foregroundColor(Color("PrimaryColor"))
         .background(Color("PrimaryColor"))
         .cornerRadius(15)
     }
 }
 
-struct DataKehadiranPegawaiView_Previews: PreviewProvider {
-    static var previews: some View {
-        DataKehadiranPegawaiView()
-    }
-}
+//struct DataKehadiranPegawaiView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DataKehadiranPegawaiView(hadir: , izin: "", lembur: "", cuti: "")
+//    }
+//}

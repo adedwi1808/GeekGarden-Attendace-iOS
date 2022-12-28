@@ -25,5 +25,6 @@ extension UserDefaults {
         case appToken
         case madingGeekGarden
         case checkAttendance
+        case attendanceStats
     }
 }

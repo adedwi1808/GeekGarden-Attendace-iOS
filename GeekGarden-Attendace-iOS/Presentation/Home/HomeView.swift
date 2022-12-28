@@ -19,7 +19,10 @@ struct HomeView: View {
                         .environmentObject(homeViewModel)
                     
                     Section {
-                        DataKehadiranPegawaiView()
+                        DataKehadiranPegawaiView(hadir: $homeViewModel.hadirStats,
+                                                 izin: $homeViewModel.izinStats,
+                                                 lembur: $homeViewModel.lemburStats,
+                                                 cuti: $homeViewModel.cutiStats)
                     } header: {
                         Text("Detail Kehadiran Anda")
                             .font(.system(size: 22, weight: .bold))
@@ -55,7 +58,9 @@ struct HomeView: View {
         .onAppear {
             Task {
                 await homeViewModel.getMadingGeekGarden()
+                await homeViewModel.getAttendanceStats()
             }
+            homeViewModel.setAttendanceStatsFromLocale()
         }
     }
 }

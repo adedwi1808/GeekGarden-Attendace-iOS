@@ -18,6 +18,7 @@ enum NetworkFactory {
     case postCheckIn(tempat: String, status: String, long: String, lat: String, image: Data)
     case postCheckOut(tempat: String, status: String, prog: String, long: String, lat: String, image: Data)
     case checkAttendance
+    case getAttendanceStats
 }
 
 extension NetworkFactory {
@@ -35,6 +36,8 @@ extension NetworkFactory {
             return "/api/cek-absensi"
         case .postCheckOut:
             return "/api/absensi-pulang-ios"
+        case .getAttendanceStats:
+            return "/api/data-absensi"
         }
     }
     
@@ -43,7 +46,7 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return []
-        case .checkAttendance:
+        case .checkAttendance, .getAttendanceStats:
             return []
         case .getMadingGeekGarden:
             return []
@@ -126,7 +129,7 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return getHeaders(type: .anonymous)
-        case .getMadingGeekGarden, .checkAttendance:
+        case .getMadingGeekGarden, .checkAttendance, .getAttendanceStats:
             return getHeaders(type: .appToken)
         case .postCheckIn:
             return getHeaders(type: .multiPart)
@@ -187,7 +190,6 @@ extension NetworkFactory {
             body.append(imageDataKey)
             body.append("\r\n--\(boundary)--\r\n")
         }
-        print("asdasda")
         return body
     }
     
@@ -207,7 +209,6 @@ extension NetworkFactory {
             urlRequest.httpBody =  createBodyWithParameters(parameters: bodyParam,
                                                             imageDataKey: data,
                                                             boundary: boundary)
-            print(String(data:urlRequest.httpBody! as Data, encoding: .utf8))
         }
         return urlRequest
     }

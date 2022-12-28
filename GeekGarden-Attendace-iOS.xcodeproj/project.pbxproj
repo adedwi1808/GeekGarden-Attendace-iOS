@@ -33,6 +33,7 @@
 		013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86A295CBB5E00194B80 /* CheckOutViewModel.swift */; };
 		013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86C295CCC9C00194B80 /* CheckOutServices.swift */; };
 		013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */; };
+		013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -79,6 +80,7 @@
 		013BC86A295CBB5E00194B80 /* CheckOutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutViewModel.swift; sourceTree = "<group>"; };
 		013BC86C295CCC9C00194B80 /* CheckOutServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutServices.swift; sourceTree = "<group>"; };
 		013BC86F295CCD1F00194B80 /* CheckOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckOutResponseModel.swift; sourceTree = "<group>"; };
+		013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatsResponseModel.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -321,6 +323,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		013BC871295CE74C00194B80 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		014BAB1C2956C08500991566 /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +355,7 @@
 		014C77452950B2E600C253C3 /* Domainless */ = {
 			isa = PBXGroup;
 			children = (
+				013BC871295CE74C00194B80 /* Utils */,
 				013BC84D2959FAD500194B80 /* LocationManager */,
 				013BC8452958CBDA00194B80 /* CameraPicker */,
 				014C77462950B30B00C253C3 /* Networking */,
@@ -384,6 +394,7 @@
 			children = (
 				014C77582954211E00C253C3 /* DataPegawaiModel.swift */,
 				015991732954C65B00490EDC /* MadingGeekGardenModel.swift */,
+				013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -505,6 +516,7 @@
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
+				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,

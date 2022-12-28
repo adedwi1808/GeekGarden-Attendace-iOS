@@ -8,6 +8,11 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
+    @Published var hadirStats: String = "0"
+    @Published var izinStats: String = "0"
+    @Published var cutiStats: String = "0"
+    @Published var lemburStats: String = "0"
+    
     private let prefs: UserDefaults = UserDefaults()
     private var homeServices: HomeServicesProtocol
     
@@ -49,6 +54,28 @@ class HomeViewModel: ObservableObject {
         } catch {
             print("err while do login")
         }
+    }
+    
+    func getAttendanceStats() async {
+        do {
+            let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)
+            saveAttendanceStatsToLocale(data)
+            print(data)
+        } catch {
+            print("err while do login")
+        }
+    }
+    
+    func saveAttendanceStatsToLocale(_ data: AttendanceStatsResponseModel) {
+        prefs.setDataToLocal(data.self, with: .attendanceStats)
+    }
+    
+    func setAttendanceStatsFromLocale() {
+        guard let data = prefs.getDataFromLocal(AttendanceStatsResponseModel.self, with: .attendanceStats)?.data else {return}
+        self.cutiStats = "\(data.cuti ?? 0)"
+        self.hadirStats = "\(data.hadir ?? 0)"
+        self.lemburStats = "\(data.lembur ?? 0)"
+        self.izinStats = "\(data.izin ?? 0)"
     }
     
     func saveMadingGeekGardenLocale(_ data: MadingGeekGardenModel) {
