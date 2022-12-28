@@ -14,6 +14,8 @@ class AttendanceViewModel: ObservableObject {
     @Published var longitude: String = ""
     @Published var latitude: String = ""
     @Published var tempat: Bool = false
+    @Published var numberOfAbsencesToday: Int = 0
+    
     private var locA: CLLocation?
     private var prefs = UserDefaults()
     private var attendanceServices: AttendanceServicesProtocol
@@ -77,15 +79,18 @@ class AttendanceViewModel: ObservableObject {
     func checkAttendance() async {
         do {
             let data = try await attendanceServices.checkAttendance(endpoint: .checkAttendance)
-            print(data)
             saveCheckAttendanceToLocale(with: data)
         } catch {
             print("Check Attendance ERR")
         }
     }
     
+    func checkHowManyAbsentToday() {
+        let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
+        self.numberOfAbsencesToday = data?.data?.jumlahAbsenHariIni ?? 0
+    }
+    
     private func saveCheckAttendanceToLocale(with data: CheckAttendanceResponseModel) {
-        
         prefs.setDataToLocal(data.self, with: .checkAttendance)
     }
     

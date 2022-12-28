@@ -9,7 +9,7 @@ import SwiftUI
 import CoreLocation
 
 struct AttendanceView: View {
-    @StateObject var attendanceViewModel: AttendanceViewModel = AttendanceViewModel()
+    @StateObject var attendanceVM: AttendanceViewModel = AttendanceViewModel()
     
     var body: some View {
         ZStack {
@@ -17,29 +17,29 @@ struct AttendanceView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                Text(attendanceViewModel.timeString(date: attendanceViewModel.date))
+                Text(attendanceVM.timeString(date: attendanceVM.date))
                     .font(.system(size: 72, weight: .semibold))
                     .foregroundColor(Color("PrimaryColor"))
-                Text(attendanceViewModel.dateString(date: attendanceViewModel.date))
+                Text(attendanceVM.dateString(date: attendanceVM.date))
                     .font(.system(size: 24, weight: .regular))
                     .foregroundColor(Color("PrimaryColor"))
                 
-                NavigationLink(destination:
-                                CheckInView(latitude: attendanceViewModel.latitude,
-                                            longitude: attendanceViewModel.longitude,
-                                            tempat: attendanceViewModel.tempat)) {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.green)
-                            .shadow(radius: 5)
-                            .padding(5)
-                        Image("touchSymbol")
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(0.6)
+                if attendanceVM.numberOfAbsencesToday < 1 {
+                    NavigationLink(destination: CheckInView(
+                        latitude: attendanceVM.latitude,
+                        longitude: attendanceVM.longitude,
+                        tempat: attendanceVM.tempat
+                    )) {
+                        AttendanceButtonView()
                     }
-                    .frame(height: 300)
-                    .padding(.vertical, 20)
+                } else {
+                    NavigationLink(destination: CheckInView(
+                        latitude: attendanceVM.latitude,
+                        longitude: attendanceVM.longitude,
+                        tempat: attendanceVM.tempat
+                    )) {
+                        AttendanceButtonView()
+                    }
                 }
                 
                 NavigationLink(destination: MapView()) {
@@ -49,7 +49,7 @@ struct AttendanceView: View {
                             .scaledToFit()
                             .foregroundColor(.red)
                             .frame(height: 24)
-                        Text(attendanceViewModel.reversedGeoCodeLoc)
+                        Text(attendanceVM.reversedGeoCodeLoc)
                             .lineLimit(1)
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundColor(Color("PrimaryColor"))
@@ -90,11 +90,12 @@ struct AttendanceView: View {
             }
         }
         .onAppear {
-            attendanceViewModel.updateTimer
-            attendanceViewModel.getReversedGeoCodeLoc()
+            attendanceVM.updateTimer
+            attendanceVM.getReversedGeoCodeLoc()
             Task {
-                await attendanceViewModel.checkAttendance()
+                await attendanceVM.checkAttendance()
             }
+            attendanceVM.checkHowManyAbsentToday()
         }
     }
 }
@@ -102,5 +103,22 @@ struct AttendanceView: View {
 struct AttendanceView_Previews: PreviewProvider {
     static var previews: some View {
         AttendanceView()
+    }
+}
+
+struct AttendanceButtonView: View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .foregroundColor(.green)
+                .shadow(radius: 5)
+                .padding(5)
+            Image("touchSymbol")
+                .resizable()
+                .scaledToFit()
+                .scaleEffect(0.6)
+        }
+        .frame(height: 300)
+        .padding(.vertical, 20)
     }
 }
