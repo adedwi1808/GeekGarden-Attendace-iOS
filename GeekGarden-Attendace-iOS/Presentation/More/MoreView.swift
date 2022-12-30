@@ -11,15 +11,21 @@ struct MoreView: View {
     @StateObject private var moreVM: MoreViewModel = MoreViewModel()
     
     var body: some View {
-        ScrollView(.vertical) {
-            MiniProfilPegawaiView(pegawaiInitials: $moreVM.pegawaiInitials,
-                                  pegawaiName: $moreVM.pegawaiName,
-                                  pegawaiJabatan: $moreVM.pegawaiJabatan)
-                .environmentObject(moreVM)
-            DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
-                                     izin: $moreVM.izinStats,
-                                     lembur: $moreVM.lemburStats,
-                                     cuti: $moreVM.cutiStats)
+        ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
+            
+            ScrollView(.vertical) {
+                MiniProfilPegawaiView(pegawaiInitials: $moreVM.pegawaiInitials,
+                                      pegawaiName: $moreVM.pegawaiName,
+                                      pegawaiJabatan: $moreVM.pegawaiJabatan)
+                    .environmentObject(moreVM)
+                DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
+                                         izin: $moreVM.izinStats,
+                                         lembur: $moreVM.lemburStats,
+                                         cuti: $moreVM.cutiStats)
+            }
+            .padding(.horizontal, 15)
         }
     }
 }
