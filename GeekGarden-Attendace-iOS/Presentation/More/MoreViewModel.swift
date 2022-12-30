@@ -12,9 +12,14 @@ class MoreViewModel: ObservableObject {
     @Published var izinStats: String = "0"
     @Published var cutiStats: String = "0"
     @Published var lemburStats: String = "0"
-    @Published  var pegawaiInitials: String = ""
-    @Published  var pegawaiName: String = ""
-    @Published  var pegawaiJabatan: String = ""
+    @Published var pegawaiInitials: String = ""
+    @Published var pegawaiName: String = ""
+    @Published var pegawaiJabatan: String = ""
+    var destion: [CustomMoreButtonModel] = [
+        CustomMoreButtonModel(buttonName: "Pengajuan Izin", buttonSymbol: "TaskAddSymbol"),
+        CustomMoreButtonModel(buttonName: "Pengaduan Absensi", buttonSymbol: ""),
+        CustomMoreButtonModel(buttonName: "Status Pengajuan Izin", buttonSymbol: "TaskHistorySymbol"),
+        CustomMoreButtonModel(buttonName: "Status Pengaduan", buttonSymbol: "")]
     
     private let prefs: UserDefaults = UserDefaults()
         
@@ -62,5 +67,12 @@ extension MoreViewModel {
         self.pegawaiName = data.nama ?? ""
         self.pegawaiJabatan = data.jabatan ?? ""
         setPegawaiInitials()
+    }
+}
+
+//MARK: - Custom Button
+extension MoreViewModel {
+    func destionView(name: String) {
+        
     }
 }
