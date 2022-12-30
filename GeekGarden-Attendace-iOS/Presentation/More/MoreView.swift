@@ -19,13 +19,24 @@ struct MoreView: View {
                 MiniProfilPegawaiView(pegawaiInitials: $moreVM.pegawaiInitials,
                                       pegawaiName: $moreVM.pegawaiName,
                                       pegawaiJabatan: $moreVM.pegawaiJabatan)
-                    .environmentObject(moreVM)
-                DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
-                                         izin: $moreVM.izinStats,
-                                         lembur: $moreVM.lemburStats,
-                                         cuti: $moreVM.cutiStats)
+                Section {
+                    DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
+                                             izin: $moreVM.izinStats,
+                                             lembur: $moreVM.lemburStats,
+                                             cuti: $moreVM.cutiStats)
+                } header: {
+                    Text("Detail Kehadiran Anda")
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundColor(Color("PrimaryColor"))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                
             }
             .padding(.horizontal, 15)
+            .onAppear {
+                moreVM.setMiniProfile()
+                moreVM.setAttendanceStatsFromLocale()
+            }
         }
     }
 }
