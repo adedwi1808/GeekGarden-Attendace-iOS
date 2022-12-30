@@ -53,6 +53,7 @@
 		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
 		015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenModel.swift */; };
 		015991772954C7AD00490EDC /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991762954C7AD00490EDC /* HomeServices.swift */; };
+		01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */; };
 		01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3148A295CF3E900D2017E /* HistoryServices.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		015991732954C65B00490EDC /* MadingGeekGardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenModel.swift; sourceTree = "<group>"; };
 		015991762954C7AD00490EDC /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		01D3148A295CF3E900D2017E /* HistoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				01D0C1CE295EDD6400F8A5F4 /* More */,
 				013BC874295CF12C00194B80 /* History */,
 				013BC866295CBAF500194B80 /* CheckOut */,
 				013BC850295A011800194B80 /* Map */,
@@ -444,6 +447,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		01D0C1CE295EDD6400F8A5F4 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		01D31489295CF3D600D2017E /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,6 +564,7 @@
 				013BC865295CB0F700194B80 /* AttendanceServices.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
+				01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
 				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,

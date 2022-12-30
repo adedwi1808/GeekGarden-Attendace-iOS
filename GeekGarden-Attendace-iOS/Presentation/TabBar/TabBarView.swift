@@ -43,7 +43,7 @@ struct TabBarView: View {
                     }
                 }
             
-            Text("More")
+            MoreView()
                 .tabItem {
                     VStack {
                         Image(systemName: "line.3.horizontal")
