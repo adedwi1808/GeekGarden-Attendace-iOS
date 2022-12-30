@@ -22,6 +22,30 @@ class HomeViewModel: ObservableObject {
     init(homeServices: HomeServicesProtocol = HomeServices()) {
         self.homeServices = homeServices
     }
+}
+
+//MARK: - Mini Profile & Attendance Stats
+extension HomeViewModel {
+    func getAttendanceStats() async {
+        do {
+            let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)
+            saveAttendanceStatsToLocale(data)
+        } catch {
+            print("err while do login")
+        }
+    }
+    
+    func saveAttendanceStatsToLocale(_ data: AttendanceStatsResponseModel) {
+        prefs.setDataToLocal(data.self, with: .attendanceStats)
+    }
+    
+    func setAttendanceStatsFromLocale() {
+        guard let data = prefs.getDataFromLocal(AttendanceStatsResponseModel.self, with: .attendanceStats)?.data else {return}
+        self.cutiStats = "\(data.cuti ?? 0)"
+        self.hadirStats = "\(data.hadir ?? 0)"
+        self.lemburStats = "\(data.lembur ?? 0)"
+        self.izinStats = "\(data.izin ?? 0)"
+    }
     
     private func getDataPegawai() -> DataPegawaiModel {
         guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
@@ -56,7 +80,9 @@ class HomeViewModel: ObservableObject {
         self.pegawaiJabatan = data.jabatan ?? ""
         setPegawaiInitials()
     }
-    
+}
+//MARK: - Mading
+extension HomeViewModel {
     func getMadingGeekGarden() async {
         do {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
@@ -64,27 +90,6 @@ class HomeViewModel: ObservableObject {
         } catch {
             print("err while do login")
         }
-    }
-    
-    func getAttendanceStats() async {
-        do {
-            let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)
-            saveAttendanceStatsToLocale(data)
-        } catch {
-            print("err while do login")
-        }
-    }
-    
-    func saveAttendanceStatsToLocale(_ data: AttendanceStatsResponseModel) {
-        prefs.setDataToLocal(data.self, with: .attendanceStats)
-    }
-    
-    func setAttendanceStatsFromLocale() {
-        guard let data = prefs.getDataFromLocal(AttendanceStatsResponseModel.self, with: .attendanceStats)?.data else {return}
-        self.cutiStats = "\(data.cuti ?? 0)"
-        self.hadirStats = "\(data.hadir ?? 0)"
-        self.lemburStats = "\(data.lembur ?? 0)"
-        self.izinStats = "\(data.izin ?? 0)"
     }
     
     func saveMadingGeekGardenLocale(_ data: MadingGeekGardenModel) {
