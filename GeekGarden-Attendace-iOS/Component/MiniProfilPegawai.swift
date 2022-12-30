@@ -9,6 +9,10 @@ import SwiftUI
 
 struct MiniProfilPegawaiView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
+    @Binding var pegawaiInitials: String
+    @Binding var pegawaiName: String
+    @Binding var pegawaiJabatan: String
+    
     var body: some View {
         Group {
             HStack {
@@ -19,7 +23,7 @@ struct MiniProfilPegawaiView: View {
                 } placeholder: {
                     ZStack {
                         Color.white
-                        Text(homeViewModel.getPegawaiInitials())
+                        Text(pegawaiInitials)
                             .font(.system(size: 24, weight: .bold))
                             .foregroundColor(Color("PrimaryColor"))
                     }
@@ -29,9 +33,9 @@ struct MiniProfilPegawaiView: View {
                 .padding(.trailing, 5)
                 
                 VStack(alignment: .leading) {
-                    Text(homeViewModel.getDataPegawai().nama ?? "-")
+                    Text(pegawaiName)
                         .font(.system(size: 20, weight: .bold))
-                    Text(homeViewModel.getDataPegawai().jabatan ?? "-")
+                    Text(pegawaiJabatan)
                         .font(.system(size: 20, weight: .medium))
                 }
                 Spacer()

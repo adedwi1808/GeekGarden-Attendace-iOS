@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct MoreView: View {
+    @StateObject private var moreVM: MoreViewModel = MoreViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.vertical) {
+            MiniProfilPegawaiView(pegawaiInitials: $moreVM.pegawaiInitials,
+                                  pegawaiName: $moreVM.pegawaiName,
+                                  pegawaiJabatan: $moreVM.pegawaiJabatan)
+                .environmentObject(moreVM)
+            DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
+                                     izin: $moreVM.izinStats,
+                                     lembur: $moreVM.lemburStats,
+                                     cuti: $moreVM.cutiStats)
+        }
     }
 }
 

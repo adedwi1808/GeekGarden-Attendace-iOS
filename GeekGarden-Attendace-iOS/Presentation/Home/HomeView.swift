@@ -15,8 +15,9 @@ struct HomeView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack {
-                    MiniProfilPegawaiView()
-                        .environmentObject(homeViewModel)
+                    MiniProfilPegawaiView(pegawaiInitials: $homeViewModel.pegawaiInitials,
+                                          pegawaiName: $homeViewModel.pegawaiName,
+                                          pegawaiJabatan: $homeViewModel.pegawaiJabatan)
                     
                     Section {
                         DataKehadiranPegawaiView(hadir: $homeViewModel.hadirStats,
@@ -61,6 +62,7 @@ struct HomeView: View {
                 await homeViewModel.getAttendanceStats()
             }
             homeViewModel.setAttendanceStatsFromLocale()
+            homeViewModel.setMiniProfile()
         }
     }
 }

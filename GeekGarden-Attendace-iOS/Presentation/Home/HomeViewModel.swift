@@ -12,6 +12,9 @@ class HomeViewModel: ObservableObject {
     @Published var izinStats: String = "0"
     @Published var cutiStats: String = "0"
     @Published var lemburStats: String = "0"
+    @Published  var pegawaiInitials: String = ""
+    @Published  var pegawaiName: String = ""
+    @Published  var pegawaiJabatan: String = ""
     
     private let prefs: UserDefaults = UserDefaults()
     private var homeServices: HomeServicesProtocol
@@ -20,22 +23,22 @@ class HomeViewModel: ObservableObject {
         self.homeServices = homeServices
     }
     
-    func getDataPegawai() -> DataPegawaiModel {
+    private func getDataPegawai() -> DataPegawaiModel {
         guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
         return dataMapper(data: dataPegawai)
     }
     
-    func getPegawaiInitials() -> String {
+    private func setPegawaiInitials() {
         let name = getDataPegawai().nama
         let initials = name?.components(separatedBy: " ") ?? ["", ""]
         var res = [String]()
         for initial in initials {
             res.append(initial.first.map(String.init)!)
         }
-        return res.joined()
+        self.pegawaiInitials = res.joined()
     }
     
-    func dataMapper(data: LoginPegawaiResponseModel) -> DataPegawaiModel {
+    private func dataMapper(data: LoginPegawaiResponseModel)  -> DataPegawaiModel{
         let res: DataPegawaiModel = DataPegawaiModel(
             idPegawai: data.data?.idPegawai,
             nama: data.data?.nama,
@@ -45,6 +48,13 @@ class HomeViewModel: ObservableObject {
             jabatan: data.data?.jabatan,
             fotoProfile: data.data?.fotoProfile)
         return res
+    }
+    
+    func setMiniProfile() {
+        let data = getDataPegawai()
+        self.pegawaiName = data.nama ?? ""
+        self.pegawaiJabatan = data.jabatan ?? ""
+        setPegawaiInitials()
     }
     
     func getMadingGeekGarden() async {
