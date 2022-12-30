@@ -19,6 +19,7 @@ enum NetworkFactory {
     case postCheckOut(tempat: String, status: String, prog: String, long: String, lat: String, image: Data)
     case checkAttendance
     case getAttendanceStats
+    case getAttendanceHistory
 }
 
 extension NetworkFactory {
@@ -38,6 +39,8 @@ extension NetworkFactory {
             return "/api/absensi-pulang-ios"
         case .getAttendanceStats:
             return "/api/data-absensi"
+        case .getAttendanceHistory:
+            return "/api/riwayat-absensi"
         }
     }
     
@@ -46,7 +49,7 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return []
-        case .checkAttendance, .getAttendanceStats:
+        case .checkAttendance, .getAttendanceStats, .getAttendanceHistory:
             return []
         case .getMadingGeekGarden:
             return []
@@ -59,7 +62,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "5a93-2a09-bac1-34c0-628-00-1f1-21b.ap.ngrok.io"
+            return "5c98-182-253-183-10.ap.ngrok.io"
         }
     }
     
@@ -129,7 +132,7 @@ extension NetworkFactory {
         switch self {
         case .loginPegawai:
             return getHeaders(type: .anonymous)
-        case .getMadingGeekGarden, .checkAttendance, .getAttendanceStats:
+        case .getMadingGeekGarden, .checkAttendance, .getAttendanceStats, .getAttendanceHistory:
             return getHeaders(type: .appToken)
         case .postCheckIn:
             return getHeaders(type: .multiPart)

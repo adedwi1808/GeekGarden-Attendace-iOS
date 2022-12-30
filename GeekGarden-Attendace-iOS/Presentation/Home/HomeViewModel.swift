@@ -60,7 +60,6 @@ class HomeViewModel: ObservableObject {
         do {
             let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)
             saveAttendanceStatsToLocale(data)
-            print(data)
         } catch {
             print("err while do login")
         }
