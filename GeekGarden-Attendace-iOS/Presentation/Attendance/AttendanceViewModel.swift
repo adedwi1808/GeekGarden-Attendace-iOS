@@ -1,0 +1,141 @@
+//
+//  AttendanceViewModel.swift
+//  GeekGarden-Attendace-iOS
+//
+//  Created by Ade Dwi Prayitno on 24/12/22.
+//
+
+import Foundation
+import CoreLocation
+
+class AttendanceViewModel: ObservableObject {
+    @Published var date: Date = Date()
+    @Published var reversedGeoCodeLoc: String = "-"
+    @Published var longitude: String = ""
+    @Published var latitude: String = ""
+    @Published var tempat: Bool = false
+    @Published var numberOfAbsencesToday: Int = 0
+    @Published var checkInTime: String = "-"
+    @Published var checkOutTime: String = "-"
+    @Published var attendanceInterval: String = "-"
+    private var checkInDate: Date?
+    private var checkOutDate: Date?
+    
+    private var locA: CLLocation?
+    private var prefs = UserDefaults()
+    private var attendanceServices: AttendanceServicesProtocol
+    
+    init(attendanceServices: AttendanceServicesProtocol = AttendanceServices()) {
+        self.attendanceServices = attendanceServices
+    }
+    
+    private var remoteDateFormat: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }
+    
+    private var timeFormat: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh.mm"
+        return formatter
+    }
+    
+    private var dateFormat: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, dd MMMM yyyy"
+        return formatter
+    }
+    
+    var updateTimer: Timer {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
+            self.date = Date()
+        })
+    }
+    
+    func timeString(date: Date) -> String {
+        timeFormat.string(from: date)
+    }
+    
+    func dateString(date: Date) -> String {
+        dateFormat.string(from: date)
+    }
+    
+    func getReversedGeoCodeLoc() {
+        LocationManager.shared.getCurrentReverseGeoCodedLocation { (location:CLLocation?, placemark:CLPlacemark?, error:NSError?) in
+            
+            if let error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let location else {return}
+            self.locA = location
+            //            print("\(location.coordinate.latitude)")
+            self.latitude = "\(location.coordinate.latitude)"
+            self.longitude = "\(location.coordinate.longitude)"
+            guard let placemark = placemark else { return }
+            self.reversedGeoCodeLoc = "\(String(describing: placemark.description))"
+            
+            self.tempat = self.checkDistance()
+        }
+    }
+    
+    func checkDistance() -> Bool {
+        guard let locA = self.locA else { return false}
+        let locB = CLLocation(latitude: 7.75561, longitude: 110.38478)
+        return locA.distance(from: locB) > 25
+    }
+    
+    func checkAttendance() async {
+        do {
+            let data = try await attendanceServices.checkAttendance(endpoint: .checkAttendance)
+            saveCheckAttendanceToLocale(with: data)
+        } catch {
+            print("Check Attendance ERR")
+        }
+    }
+    
+    func checkHowManyAbsentToday() {
+        let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
+        self.numberOfAbsencesToday = data?.data?.jumlahAbsenHariIni ?? 0
+    }
+    
+    func getCheckInTime() {
+        let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
+        guard let time = data?.data?.jamHadir?.tanggal else { return }
+        guard let date = remoteDateFormat.date(from: time) else { return }
+        if Calendar.current.isDateInToday(date) {
+            self.checkInDate = date
+            self.checkInTime = timeString(date: date)
+        }
+    }
+    
+    func getCheckOutTime() {
+        let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
+        guard let time = data?.data?.jamPulang?.tanggal else { return }
+        guard let date = remoteDateFormat.date(from: time) else { return }
+        if Calendar.current.isDateInToday(date) {
+            self.checkOutDate = date
+            self.checkOutTime = timeString(date: date)
+        }
+    }
+    
+    func getAttendanceInterval(){
+        guard let checkInDate, let checkOutDate else { return }
+        
+        let calendar = Calendar.current
+        let totalComponents = calendar.dateComponents([.hour, .minute], from: checkInDate)
+        let userWalkedComponents = calendar.dateComponents([.hour, .minute], from: checkOutDate)
+        
+        let difference = calendar.dateComponents([.minute], from: totalComponents, to: userWalkedComponents).minute!
+        let differenceHour = difference / 60
+        let differenceFloating = difference % 60
+        self.attendanceInterval = "\(differenceHour).\(differenceFloating)"
+    }
+    
+    private func saveCheckAttendanceToLocale(with data: CheckAttendanceResponseModel) {
+        prefs.setDataToLocal(data.self, with: .checkAttendance)
+    }
+    
+}
