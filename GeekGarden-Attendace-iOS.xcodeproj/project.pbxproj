@@ -36,6 +36,7 @@
 		013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */; };
 		013BC876295CF13F00194B80 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC875295CF13F00194B80 /* HistoryView.swift */; };
 		013BC879295CF1D000194B80 /* AttendanceHistoryResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC878295CF1CF00194B80 /* AttendanceHistoryResponseModel.swift */; };
+		013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013BC87A295CF22200194B80 /* HistoryViewModel.swift */; };
 		014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1D2956C0B100991566 /* AttendanceView.swift */; };
 		014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB1F2956C22100991566 /* AttendanceViewModel.swift */; };
 		014BAB23295716AD00991566 /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BAB22295716AD00991566 /* CheckInView.swift */; };
@@ -52,6 +53,7 @@
 		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
 		015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenModel.swift */; };
 		015991772954C7AD00490EDC /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991762954C7AD00490EDC /* HomeServices.swift */; };
+		01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3148A295CF3E900D2017E /* HistoryServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,7 @@
 		013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatsResponseModel.swift; sourceTree = "<group>"; };
 		013BC875295CF13F00194B80 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		013BC878295CF1CF00194B80 /* AttendanceHistoryResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryResponseModel.swift; sourceTree = "<group>"; };
+		013BC87A295CF22200194B80 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		014BAB1D2956C0B100991566 /* AttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceView.swift; sourceTree = "<group>"; };
 		014BAB1F2956C22100991566 /* AttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceViewModel.swift; sourceTree = "<group>"; };
 		014BAB22295716AD00991566 /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		015991732954C65B00490EDC /* MadingGeekGardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenModel.swift; sourceTree = "<group>"; };
 		015991762954C7AD00490EDC /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		01D3148A295CF3E900D2017E /* HistoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +139,6 @@
 			children = (
 				0135C971294A425F008C7589 /* Assets.xcassets */,
 				014C77452950B2E600C253C3 /* Domainless */,
-				014C775A29542BE700C253C3 /* Extension */,
 				0135C97C294A42EA008C7589 /* InitializedApp */,
 				0135C991294A6DE7008C7589 /* Component */,
 				0135C97B294A42CD008C7589 /* Presentation */,
@@ -338,8 +341,10 @@
 		013BC874295CF12C00194B80 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				01D31489295CF3D600D2017E /* Services */,
 				013BC877295CF1C100194B80 /* Model */,
 				013BC875295CF13F00194B80 /* HistoryView.swift */,
+				013BC87A295CF22200194B80 /* HistoryViewModel.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -377,6 +382,7 @@
 		014C77452950B2E600C253C3 /* Domainless */ = {
 			isa = PBXGroup;
 			children = (
+				014C775A29542BE700C253C3 /* Extension */,
 				013BC871295CE74C00194B80 /* Utils */,
 				013BC84D2959FAD500194B80 /* LocationManager */,
 				013BC8452958CBDA00194B80 /* CameraPicker */,
@@ -434,6 +440,14 @@
 			isa = PBXGroup;
 			children = (
 				015991762954C7AD00490EDC /* HomeServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		01D31489295CF3D600D2017E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01D3148A295CF3E900D2017E /* HistoryServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -511,6 +525,7 @@
 				014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */,
 				0135C97F294A43C9008C7589 /* LoginView.swift in Sources */,
 				014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */,
+				01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */,
 				013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */,
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
@@ -543,6 +558,7 @@
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
+				013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
 				013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */,

@@ -35,7 +35,7 @@ struct TabBarView: View {
                     }
                 }
             
-            Text("History")
+            HistoryView()
                 .tabItem {
                     VStack {
                         Image(systemName: "clock.fill")

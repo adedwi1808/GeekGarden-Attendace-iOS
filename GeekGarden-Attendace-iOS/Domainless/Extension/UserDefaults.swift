@@ -26,5 +26,6 @@ extension UserDefaults {
         case madingGeekGarden
         case checkAttendance
         case attendanceStats
+        case attendanceHistory
     }
 }
