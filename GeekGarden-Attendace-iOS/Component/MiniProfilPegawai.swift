@@ -14,7 +14,9 @@ struct MiniProfilPegawaiView: View {
     @Binding var pegawaiJabatan: String
     
     var body: some View {
-        Group {
+        NavigationLink(destination: {
+            UpdateProfileView()
+        }, label: {
             HStack {
                 AsyncImage(url: URL(string: "https")) { Image in
                     Image
@@ -45,7 +47,7 @@ struct MiniProfilPegawaiView: View {
             .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
             .background(Color("PrimaryColor"))
             .cornerRadius(15)
-        }
+        })
         .foregroundColor(.white)
     }
 }

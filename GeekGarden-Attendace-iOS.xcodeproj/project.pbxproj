@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */; };
 		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
+		012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A429631B6400366C4A /* UpdateProfileView.swift */; };
+		012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 /* Begin PBXFileReference section */
 		0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonView.swift; sourceTree = "<group>"; };
 		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
+		012B31A429631B6400366C4A /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
+		012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012B31A329631B4C00366C4A /* UpdateProfile */ = {
+			isa = PBXGroup;
+			children = (
+				012B31A429631B6400366C4A /* UpdateProfileView.swift */,
+				012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */,
+			);
+			path = UpdateProfile;
+			sourceTree = "<group>";
+		};
 		0135C961294A425E008C7589 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +181,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				012B31A329631B4C00366C4A /* UpdateProfile */,
 				01D0C1CE295EDD6400F8A5F4 /* More */,
 				013BC874295CF12C00194B80 /* History */,
 				013BC866295CBAF500194B80 /* CheckOut */,
@@ -567,6 +581,7 @@
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
 				013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
+				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
 				013BC85F295C385500194B80 /* Data.swift in Sources */,
@@ -591,6 +606,7 @@
 				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
+				012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
 				0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */,
 				013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */,
