@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UpdateProfileView: View {
     @StateObject var updateProfileVM: UpdateProfileViewModel = UpdateProfileViewModel()
+    @State var isShowActionSheet: Bool = false
+    @State var selectedImageData: UIImage?
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -16,22 +18,33 @@ struct UpdateProfileView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 50) {
-                AsyncImage(url: URL(string: "https")) { Image in
-                    Image
-                        .resizable()
-                        .scaledToFit()
-                } placeholder: {
-                    ZStack {
-                        Color("PrimaryColor")
-                        Text("ADP")
-                            .font(.system(size: 24, weight: .bold))
-                            .foregroundColor(.white)
+                Button {
+                    isShowActionSheet.toggle()
+                } label: {
+                    AsyncImage(url: URL(string: "https")) { Image in
+                        Image
+                            .resizable()
+                            .scaledToFit()
+                    } placeholder: {
+                        if let selectedImageData{
+                            Image(uiImage: selectedImageData)
+                                .resizable()
+                                .scaledToFill()
+                        }
+                        else {
+                            ZStack {
+                                Color("PrimaryColor")
+                                Text("ADP")
+                                    .font(.system(size: 24, weight: .bold))
+                                    .foregroundColor(.white)
+                            }
+                        }
                     }
+                    .frame(width: 120, height: 120)
+                    .cornerRadius(60)
+                    .padding(.trailing, 5)
                 }
-                .frame(width: 120, height: 120)
-                .cornerRadius(60)
-                .padding(.trailing, 5)
-                
+
                 
                 Form {
                     Section("Profile") {
@@ -42,12 +55,31 @@ struct UpdateProfileView: View {
                         TextField("No. HP", text: $updateProfileVM.pegawaiPhoneNumber)
                     }
                     Section("Password") {
-                        TextField("Password", text: $updateProfileVM.pegawaiPassword)
+                        SecureField("Password", text: $updateProfileVM.pegawaiPassword)
                             .textContentType(.newPassword)
                     }
                 }
                 .background(.white)
             }
+        }
+        .actionSheet(isPresented: $isShowActionSheet) {
+            ActionSheet(title: Text("Camera / Galery"),
+                                message: Text("Silahkan Pilih Source Foto"),
+                                buttons: [
+                                    .cancel(),
+                                    .default(Text("Camera"),action: {
+                                        updateProfileVM.source = .camera
+                                        updateProfileVM.showPhotoPicker()
+                                    }),
+                                    .default(Text("Photo Galery"), action: {
+                                        updateProfileVM.source = .library
+                                        updateProfileVM.showPhotoPicker()
+                                    })
+                                ])
+        }
+        .fullScreenCover(isPresented: $updateProfileVM.showPicker) {
+            ImagePicker(sourceType: updateProfileVM.source == .camera ? .camera : .photoLibrary , selectedImage: $selectedImageData)
+                .ignoresSafeArea()
         }
         .toolbar {
             Button {
