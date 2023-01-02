@@ -19,6 +19,7 @@ struct CustomMoreButtonView<T: View>: View {
                 Image(buttonSymbol)
                     .resizable()
                     .scaledToFit()
+                    .foregroundColor(Color("PrimaryColor"))
                     .frame(width: 50, height: 50)
                 
                 Text(buttonName)
@@ -39,6 +40,6 @@ struct CustomMoreButtonView<T: View>: View {
 
 struct CustomMoreButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomMoreButtonView(buttonName: "Custom Button", buttonSymbol: "", destionation: EmptyView())
+        CustomMoreButtonView(buttonName: "Custom Button", buttonSymbol: "TaskRepairSymbol", destionation: EmptyView())
     }
 }

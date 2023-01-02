@@ -32,7 +32,7 @@ struct MoreView: View {
                 }
                 
                 Section {
-                    VStack {
+                    VStack(spacing: 0) {
                         ForEach(moreVM.destion, id: \.id) { item in
                             CustomMoreButtonView(buttonName: item.buttonName ?? "",
                                                  buttonSymbol: item.buttonSymbol ?? "",

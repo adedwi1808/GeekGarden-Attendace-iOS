@@ -17,9 +17,9 @@ class MoreViewModel: ObservableObject {
     @Published var pegawaiJabatan: String = ""
     var destion: [CustomMoreButtonModel] = [
         CustomMoreButtonModel(buttonName: "Pengajuan Izin", buttonSymbol: "TaskAddSymbol"),
-        CustomMoreButtonModel(buttonName: "Pengaduan Absensi", buttonSymbol: ""),
+        CustomMoreButtonModel(buttonName: "Pengaduan Absensi", buttonSymbol: "TaskReportSymbol"),
         CustomMoreButtonModel(buttonName: "Status Pengajuan Izin", buttonSymbol: "TaskHistorySymbol"),
-        CustomMoreButtonModel(buttonName: "Status Pengaduan", buttonSymbol: "")]
+        CustomMoreButtonModel(buttonName: "Status Pengaduan", buttonSymbol: "TaskRepairSymbol")]
     
     private let prefs: UserDefaults = UserDefaults()
         
