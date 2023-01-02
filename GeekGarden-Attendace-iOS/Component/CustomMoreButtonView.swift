@@ -20,7 +20,7 @@ struct CustomMoreButtonView<T: View>: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(Color("PrimaryColor"))
-                    .frame(width: 50, height: 50)
+                    .frame(width: 40, height: 40)
                 
                 Text(buttonName)
                     .font(.system(size: 22, weight: .regular))
@@ -32,8 +32,8 @@ struct CustomMoreButtonView<T: View>: View {
             .padding(10)
             .background(.white)
             .cornerRadius(10)
-            .shadow(radius: 2, y: 1)
-            .padding(3)
+            .shadow(radius: 1, y: 1)
+            .padding(2)
         }
     }
 }
