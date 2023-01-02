@@ -17,36 +17,11 @@ struct HistoryView: View {
             ScrollView(.vertical) {
                 VStack(spacing: 0) {
                     ForEach(historyVM.attendanceHistory, id: \.idAbsensi) { item in
-                        HStack(alignment: .center) {
-                            VStack {
-                                Text(historyVM.dateStringToDay(item.tanggal ?? ""))
-                                Text(historyVM.dateStringToMonth(item.tanggal ?? "")
-                                    .prefix(3))
-                            }
-                            .fontWeight(.semibold)
-                            .padding(5)
-                            .frame(width: 50)
-                            .background(.white)
-                            .foregroundColor(Color("PrimaryColor"))
-                            .cornerRadius(10)
-                            
-                            Text(item.status ?? "")
-                                .frame(width: 60)
-                                .foregroundColor(.gray)
-                            
-                            Text(historyVM.dateStringToTime(item.tanggal ?? ""))
-                                .frame(width: 50)
-                                .foregroundColor(.gray)
-                            
-                            Text(item.tempat ?? "")
-                                .frame(width: 150)
-                                .foregroundColor(.gray)
-                        }
-                        .padding(5)
-                        .frame(maxWidth: .infinity, maxHeight: 100, alignment: .center)
-                        .background(Color("SecondaryColor"))
-                        Color(.gray)
-                            .frame(height: 1)
+                        AttendanceHistoryItemView(date: historyVM.dateStringToDay(item.tanggal ?? ""),
+                                                  month: historyVM.dateStringToMonth(item.tanggal ?? ""),
+                                                  status: item.status ?? "",
+                                                  time: historyVM.dateStringToTime(item.tanggal ?? ""),
+                                                  attendancePlace: item.tempat ?? "")
                     }
                 }
                 
@@ -66,3 +41,4 @@ struct HistoryView_Previews: PreviewProvider {
         HistoryView()
     }
 }
+

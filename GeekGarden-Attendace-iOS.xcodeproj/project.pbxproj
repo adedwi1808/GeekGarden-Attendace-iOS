@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */; };
+		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonView.swift; sourceTree = "<group>"; };
+		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */,
 				014C77432950B03800C253C3 /* MiniProfilPegawai.swift */,
 				0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */,
+				0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -589,6 +592,7 @@
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
+				0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */,
 				013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */,
