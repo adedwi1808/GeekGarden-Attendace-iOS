@@ -61,32 +61,3 @@ struct MoreView_Previews: PreviewProvider {
     }
 }
 
-struct CustomMoreButtonView<T: View>: View {
-    var buttonName: String
-    var buttonSymbol: String
-    var destionation: T
-    var body: some View {
-        NavigationLink {
-            destionation
-        } label: {
-            HStack {
-                Image(buttonSymbol)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                
-                Text(buttonName)
-                    .font(.system(size: 22, weight: .regular))
-                    .foregroundColor(Color("PrimaryColor"))
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
-            .padding(10)
-            .background(.white)
-            .cornerRadius(10)
-            .shadow(radius: 2, y: 1)
-            .padding(3)
-        }
-    }
-}
