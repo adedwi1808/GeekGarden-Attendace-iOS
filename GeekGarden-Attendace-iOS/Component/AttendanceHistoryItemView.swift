@@ -23,7 +23,6 @@ struct AttendanceHistoryItemView: View {
             .fontWeight(.semibold)
             .padding(5)
             .frame(width: 50)
-//            .background(Color(s))
             .foregroundColor(Color("PrimaryColor"))
             .cornerRadius(10)
             
@@ -31,18 +30,17 @@ struct AttendanceHistoryItemView: View {
                 .padding(.vertical, 5)
                 .padding(.horizontal, 10)
                 .frame(width: 75)
-                .background(.red)
-                .foregroundColor(.white)
+                .foregroundColor(Color("PrimaryColor"))
                 .cornerRadius(20)
                 .padding(.trailing, 20)
 
             Text(time)
                 .frame(width: 50)
-                .foregroundColor(.gray)
+                .foregroundColor(Color("PrimaryColor"))
             
             Text(attendancePlace)
                 .frame(width: 130)
-                .foregroundColor(.gray)
+                .foregroundColor(Color("PrimaryColor"))
         }
         .padding(10)
         .frame(maxWidth: .infinity, maxHeight: 110, alignment: .center)
