@@ -11,6 +11,8 @@
 		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
 		012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A429631B6400366C4A /* UpdateProfileView.swift */; };
 		012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */; };
+		012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A92964383400366C4A /* UpdateProfilServices.swift */; };
+		012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
 		012B31A429631B6400366C4A /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
 		012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
+		012B31A92964383400366C4A /* UpdateProfilServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfilServices.swift; sourceTree = "<group>"; };
+		012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataPegawaiResponseModel.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,10 +139,28 @@
 		012B31A329631B4C00366C4A /* UpdateProfile */ = {
 			isa = PBXGroup;
 			children = (
+				012B31AB29643DED00366C4A /* Model */,
+				012B31A82964382200366C4A /* Services */,
 				012B31A429631B6400366C4A /* UpdateProfileView.swift */,
 				012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */,
 			);
 			path = UpdateProfile;
+			sourceTree = "<group>";
+		};
+		012B31A82964382200366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31A92964383400366C4A /* UpdateProfilServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31AB29643DED00366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0135C961294A425E008C7589 = {
@@ -587,11 +609,13 @@
 				013BC85F295C385500194B80 /* Data.swift in Sources */,
 				01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */,
 				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
+				012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */,
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
 				013BC857295B1D0600194B80 /* MarkerModel.swift in Sources */,
 				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
 				013BC852295A012400194B80 /* MapView.swift in Sources */,
+				012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,

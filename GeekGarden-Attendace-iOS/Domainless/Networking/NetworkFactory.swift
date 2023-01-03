@@ -20,6 +20,8 @@ enum NetworkFactory {
     case checkAttendance
     case getAttendanceStats
     case getAttendanceHistory
+    case updatePegawaiPhotoProfile(image: Data)
+    case updateDataPegawai(email: String, noHP: String, password: String)
 }
 
 extension NetworkFactory {
@@ -41,6 +43,10 @@ extension NetworkFactory {
             return "/api/data-absensi"
         case .getAttendanceHistory:
             return "/api/riwayat-absensi"
+        case .updatePegawaiPhotoProfile:
+            return "/api/foto-pegawai"
+        case .updateDataPegawai:
+            return "/api/update-pegawai"
         }
     }
     
@@ -54,6 +60,10 @@ extension NetworkFactory {
         case .getMadingGeekGarden:
             return []
         case .postCheckIn, .postCheckOut:
+            return []
+        case .updatePegawaiPhotoProfile:
+            return []
+        case .updateDataPegawai:
             return []
         }
     }
@@ -122,6 +132,8 @@ extension NetworkFactory {
             return image as Data?
         case .postCheckOut(_, _, _, _, _, let image):
             return image as Data?
+        case .updatePegawaiPhotoProfile(let image):
+            return image as Data?
         default:
             return Data()
         }
@@ -137,6 +149,10 @@ extension NetworkFactory {
         case .postCheckIn:
             return getHeaders(type: .multiPart)
         case .postCheckOut:
+            return getHeaders(type: .multiPart)
+        case .updatePegawaiPhotoProfile(image: _):
+            return getHeaders(type: .multiPart)
+        case .updateDataPegawai(email: _, noHP: _, password: _):
             return getHeaders(type: .multiPart)
         }
     }
