@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published  var pegawaiInitials: String = ""
     @Published  var pegawaiName: String = ""
     @Published  var pegawaiJabatan: String = ""
+    @Published  var pegawaiPhotoProfileURL: String = ""
     
     private let prefs: UserDefaults = UserDefaults()
     private var homeServices: HomeServicesProtocol
@@ -78,6 +79,7 @@ extension HomeViewModel {
         let data = getDataPegawai()
         self.pegawaiName = data.nama ?? ""
         self.pegawaiJabatan = data.jabatan ?? ""
+        self.pegawaiPhotoProfileURL = data.fotoProfile ?? ""
         setPegawaiInitials()
     }
 }

@@ -17,7 +17,7 @@ struct HomeView: View {
                 VStack {
                     MiniProfilPegawaiView(pegawaiInitials: $homeViewModel.pegawaiInitials,
                                           pegawaiName: $homeViewModel.pegawaiName,
-                                          pegawaiJabatan: $homeViewModel.pegawaiJabatan)
+                                          pegawaiJabatan: $homeViewModel.pegawaiJabatan, pegawaiPhotoProfileURL:$homeViewModel.pegawaiPhotoProfileURL)
                     
                     Section {
                         DataKehadiranPegawaiView(hadir: $homeViewModel.hadirStats,

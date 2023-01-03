@@ -15,6 +15,7 @@ class MoreViewModel: ObservableObject {
     @Published var pegawaiInitials: String = ""
     @Published var pegawaiName: String = ""
     @Published var pegawaiJabatan: String = ""
+    @Published var pegawaiPhotoProfileURL: String = ""
     var destion: [CustomMoreButtonModel] = [
         CustomMoreButtonModel(buttonName: "Pengajuan Izin", buttonSymbol: "TaskAddSymbol"),
         CustomMoreButtonModel(buttonName: "Pengaduan Absensi", buttonSymbol: "TaskReportSymbol"),
@@ -66,6 +67,7 @@ extension MoreViewModel {
         let data = getDataPegawai()
         self.pegawaiName = data.nama ?? ""
         self.pegawaiJabatan = data.jabatan ?? ""
+        self.pegawaiPhotoProfileURL = data.fotoProfile ?? ""
         setPegawaiInitials()
     }
 }

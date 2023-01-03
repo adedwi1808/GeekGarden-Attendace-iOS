@@ -72,7 +72,7 @@ extension NetworkFactory {
     var baseApi: String? {
         switch self {
         default:
-            return "5ff0-182-253-183-4.ap.ngrok.io"
+            return Constans().baseURL
         }
     }
     

@@ -21,10 +21,10 @@ struct UpdateProfileView: View {
                 Button {
                     isShowActionSheet.toggle()
                 } label: {
-                    AsyncImage(url: URL(string: "https")) { Image in
+                    AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/pegawai/\(updateProfileVM.pegawaiPhotoProfileURL)")) { Image in
                         Image
                             .resizable()
-                            .scaledToFit()
+                            .scaledToFill()
                     } placeholder: {
                         if let selectedImageData{
                             Image(uiImage: selectedImageData)
@@ -34,7 +34,7 @@ struct UpdateProfileView: View {
                         else {
                             ZStack {
                                 Color("PrimaryColor")
-                                Text("ADP")
+                                Text(updateProfileVM.pegawaiInitials)
                                     .font(.system(size: 24, weight: .bold))
                                     .foregroundColor(.white)
                             }
@@ -61,6 +61,9 @@ struct UpdateProfileView: View {
                 }
                 .background(.white)
             }
+        }
+        .onAppear {
+            updateProfileVM.setUserDataBefore()
         }
         .actionSheet(isPresented: $isShowActionSheet) {
             ActionSheet(title: Text("Camera / Galery"),

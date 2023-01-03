@@ -11,16 +11,17 @@ struct MiniProfilPegawaiView: View {
     @Binding var pegawaiInitials: String
     @Binding var pegawaiName: String
     @Binding var pegawaiJabatan: String
+    @Binding var pegawaiPhotoProfileURL: String
     
     var body: some View {
         NavigationLink(destination: {
             UpdateProfileView()
         }, label: {
             HStack {
-                AsyncImage(url: URL(string: "https")) { Image in
+                AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/pegawai/\(pegawaiPhotoProfileURL)")) { Image in
                     Image
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                 } placeholder: {
                     ZStack {
                         Color.white

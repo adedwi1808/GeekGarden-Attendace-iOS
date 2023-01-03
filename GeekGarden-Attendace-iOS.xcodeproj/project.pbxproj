@@ -13,6 +13,7 @@
 		012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */; };
 		012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A92964383400366C4A /* UpdateProfilServices.swift */; };
 		012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */; };
+		012B31AF2964578D00366C4A /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AE2964578D00366C4A /* Constans.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
 		012B31A92964383400366C4A /* UpdateProfilServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfilServices.swift; sourceTree = "<group>"; };
 		012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataPegawaiResponseModel.swift; sourceTree = "<group>"; };
+		012B31AE2964578D00366C4A /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 		013BC871295CE74C00194B80 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				012B31AE2964578D00366C4A /* Constans.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
 				013BC852295A012400194B80 /* MapView.swift in Sources */,
 				012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */,
+				012B31AF2964578D00366C4A /* Constans.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,

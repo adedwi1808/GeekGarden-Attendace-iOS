@@ -18,7 +18,7 @@ struct MoreView: View {
             ScrollView(.vertical) {
                 MiniProfilPegawaiView(pegawaiInitials: $moreVM.pegawaiInitials,
                                       pegawaiName: $moreVM.pegawaiName,
-                                      pegawaiJabatan: $moreVM.pegawaiJabatan)
+                                      pegawaiJabatan: $moreVM.pegawaiJabatan, pegawaiPhotoProfileURL: $moreVM.pegawaiPhotoProfileURL)
                 Section {
                     DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
                                              izin: $moreVM.izinStats,
