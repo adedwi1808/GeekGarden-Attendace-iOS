@@ -17,6 +17,12 @@ class UpdateProfileViewModel: ObservableObject {
     @Published var pegawaiPhoneNumber: String = "082255275887"
     @Published var pegawaiPassword: String = "123123"
     
+    private var updateProfileServices: UpdateProfileServiceProtocol
+    
+    init(updateProfileServices: UpdateProfileServiceProtocol = UpdateProfileServices()) {
+        self.updateProfileServices = updateProfileServices
+    }
+    
     func showPhotoPicker() {
         do {
             if source == .camera {
