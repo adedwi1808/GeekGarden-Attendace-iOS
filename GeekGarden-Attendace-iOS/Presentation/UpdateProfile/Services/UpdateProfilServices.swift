@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol UpdateProfilServiceProtocol: AnyObject {
+protocol UpdateProfileServiceProtocol: AnyObject {
     var networker: NetworkerProtocol { get }
     
     func updatePegawaiPhotoProfile(endpoint: NetworkFactory) async throws -> UpdateDataPegawaiResponse
     func updateDataPegawai(endpoint: NetworkFactory) async throws -> UpdateDataPegawaiResponse
 }
 
-final class UpdateProfilService: UpdateProfilServiceProtocol {
+final class UpdateProfileServices: UpdateProfileServiceProtocol {
     var networker: NetworkerProtocol
     
     init(networker: NetworkerProtocol = Networker()){
