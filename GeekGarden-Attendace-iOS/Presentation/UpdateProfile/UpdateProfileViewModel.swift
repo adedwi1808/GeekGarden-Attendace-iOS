@@ -26,6 +26,19 @@ class UpdateProfileViewModel: ObservableObject {
         self.updateProfileServices = updateProfileServices
     }
     
+    func updatePegawaiProfile() {
+        if pegawaiEmail.count > 6, pegawaiPhoneNumber.count > 10 {
+            if pegawaiPassword.count > 1,
+               pegawaiPassword.count < 6 {
+            } else {
+                Task {
+                    await postUpdateProfile()
+                }
+            }
+        }
+        print("form not valid")
+    }
+    
     func showPhotoPicker() {
         do {
             if source == .camera {
@@ -38,15 +51,29 @@ class UpdateProfileViewModel: ObservableObject {
         }
     }
     
-    func postUpdateProfile(image: Data) async {
+    func postUpdatePhotoProfile(image: Data) async {
         do {
-            let data = try await updateProfileServices.updateDataPegawai(endpoint: .updatePegawaiPhotoProfile(image: image))
+            let data = try await updateProfileServices.updatePegawaiPhotoProfile(endpoint:
+                    .updatePegawaiPhotoProfile(image: image))
+            saveUpdateData(using: data.data)
         } catch {
             print("ERR while post update profile")
         }
     }
     
-    func saveUpdateData(using data: UpdateDataPegawaiResponse) {
+    func postUpdateProfile() async {
+        do {
+            let data = try await updateProfileServices.updateDataPegawai(endpoint:
+                    .updateDataPegawai(email: pegawaiEmail,
+                                       noHP: pegawaiPhoneNumber,
+                                       password: pegawaiPassword))
+            saveUpdateData(using: data.data)
+        } catch {
+            print("ERR while post update profile")
+        }
+    }
+    
+    func saveUpdateData(using data: DataPegawaiModel) {
         DispatchQueue.main.async {
             self.prefs.setDataToLocal(data.self, with: .dataPegawai)
         }

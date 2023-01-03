@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct UpdateProfileView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject var updateProfileVM: UpdateProfileViewModel = UpdateProfileViewModel()
     @State var isShowActionSheet: Bool = false
+    @State var isShowAlert: Bool = false
     @State var selectedImageData: UIImage?
     
     var body: some View {
@@ -86,7 +88,8 @@ struct UpdateProfileView: View {
         }
         .toolbar {
             Button {
-                //
+                updateProfileVM.updatePegawaiProfile()
+                dismiss()
             } label: {
                 Text("Done")
             }

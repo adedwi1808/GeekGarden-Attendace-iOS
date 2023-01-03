@@ -46,7 +46,7 @@ extension NetworkFactory {
         case .updatePegawaiPhotoProfile:
             return "/api/foto-pegawai"
         case .updateDataPegawai:
-            return "/api/update-pegawai"
+            return "/api/update-pegawai-ios"
         }
     }
     
@@ -97,6 +97,8 @@ extension NetworkFactory {
             return .post
         case .postCheckIn, .postCheckOut:
             return .post
+        case .updateDataPegawai:
+            return .post
         default:
             return .get
         }
@@ -120,6 +122,10 @@ extension NetworkFactory {
             return ["tempat": tempat, "status": status, "longitude": long, "latitude": lat]
         case .postCheckOut(let tempat, let status, let prog, let long, let lat, _):
             return ["tempat": tempat, "status":status, "progress_hari_ini": prog, "longitude":long, "latitude":lat]
+        case .updateDataPegawai(let email, let noHP, let password):
+            return ["email": email,
+                    "nomor_hp": noHP,
+                    "password": password]
         default:
             return [:]
         }
