@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MiniProfilPegawaiView: View {
-    @EnvironmentObject var homeViewModel: HomeViewModel
     @Binding var pegawaiInitials: String
     @Binding var pegawaiName: String
     @Binding var pegawaiJabatan: String
@@ -54,6 +53,6 @@ struct MiniProfilPegawaiView: View {
 
 //struct MiniProfilPegawaiView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        MiniProfilPegawaiView()
+//        MiniProfilPegawaiView(pegawaiInitials: "ADEDP", pegawaiName: "Ade Dwi Prayitno", pegawaiJabatan: "Mobile Engineer")
 //    }
 //}
