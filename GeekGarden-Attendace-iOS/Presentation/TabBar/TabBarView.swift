@@ -13,13 +13,15 @@ struct TabBarView: View {
     @State var selectedTab: Tab = .home
     
     init() {
-            //Use this if NavigationBarTitle is with Large Font
-            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
-
-            //Use this if NavigationBarTitle is with displayMode = .inline
-            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
-        }
-
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
+        
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
+        
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
+    
     var body: some View {
         TabView(selection: $selectedTab) {
             HomeView()
@@ -59,22 +61,23 @@ struct TabBarView: View {
                 .tag(Tab.more)
         }
         .onAppear {
-                LocationManager.shared.getLocation { (location:CLLocation?, error:NSError?) in
-
-                            if let error = error {
-                                print(error.localizedDescription)
-                                return
-                            }
-                            
-                            guard let location = location else {
-                                return
-                            }
-                            print("Latitude: \(location.coordinate.latitude) Longitude: \(location.coordinate.longitude)")
-                        }
+            LocationManager.shared.getLocation { (location:CLLocation?, error:NSError?) in
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let location = location else {
+                    return
+                }
+                print("Latitude: \(location.coordinate.latitude) Longitude: \(location.coordinate.longitude)")
+            }
         }
         .navigationTitle(selectedTab.rawValue)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+        .tint(Color("PrimaryColor"))
     }
 }
 
