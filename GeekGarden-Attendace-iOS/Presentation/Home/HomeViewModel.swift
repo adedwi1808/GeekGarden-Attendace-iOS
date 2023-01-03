@@ -49,8 +49,8 @@ extension HomeViewModel {
     }
     
     private func getDataPegawai() -> DataPegawaiModel {
-        guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
-        return dataMapper(data: dataPegawai)
+        guard let dataPegawai = prefs.getDataFromLocal(DataPegawaiModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
+        return dataPegawai
     }
     
     private func setPegawaiInitials() {
@@ -61,18 +61,6 @@ extension HomeViewModel {
             res.append(initial.first.map(String.init)!)
         }
         self.pegawaiInitials = res.joined()
-    }
-    
-    private func dataMapper(data: LoginPegawaiResponseModel)  -> DataPegawaiModel{
-        let res: DataPegawaiModel = DataPegawaiModel(
-            idPegawai: data.data?.idPegawai,
-            nama: data.data?.nama,
-            jenisKelamin: data.data?.jenisKelamin,
-            nomorHP: data.data?.nomorHP,
-            email: data.data?.email,
-            jabatan: data.data?.jabatan,
-            fotoProfile: data.data?.fotoProfile)
-        return res
     }
     
     func setMiniProfile() {

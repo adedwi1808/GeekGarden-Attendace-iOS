@@ -38,6 +38,24 @@ class UpdateProfileViewModel: ObservableObject {
         }
     }
     
+    func postUpdateProfile(image: Data) async {
+        do {
+            let data = try await updateProfileServices.updateDataPegawai(endpoint: .updatePegawaiPhotoProfile(image: image))
+        } catch {
+            print("ERR while post update profile")
+        }
+    }
+    
+    func saveUpdateData(using data: UpdateDataPegawaiResponse) {
+        DispatchQueue.main.async {
+            self.prefs.setDataToLocal(data.self, with: .dataPegawai)
+        }
+    }
+
+}
+
+//MARK: - Setup Data
+extension UpdateProfileViewModel {
     func setUserDataBefore() {
         let data = getDataPegawai()
         setPegawaiInitials()
@@ -48,8 +66,8 @@ class UpdateProfileViewModel: ObservableObject {
     }
     
     private func getDataPegawai() -> DataPegawaiModel {
-        guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
-        return dataMapper(data: dataPegawai)
+        guard let dataPegawai = prefs.getDataFromLocal(DataPegawaiModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
+        return dataPegawai
     }
     
     private func setPegawaiInitials() {
@@ -61,16 +79,5 @@ class UpdateProfileViewModel: ObservableObject {
         }
         self.pegawaiInitials = res.joined()
     }
-    
-    private func dataMapper(data: LoginPegawaiResponseModel)  -> DataPegawaiModel{
-        let res: DataPegawaiModel = DataPegawaiModel(
-            idPegawai: data.data?.idPegawai,
-            nama: data.data?.nama,
-            jenisKelamin: data.data?.jenisKelamin,
-            nomorHP: data.data?.nomorHP,
-            email: data.data?.email,
-            jabatan: data.data?.jabatan,
-            fotoProfile: data.data?.fotoProfile)
-        return res
-    }
+
 }

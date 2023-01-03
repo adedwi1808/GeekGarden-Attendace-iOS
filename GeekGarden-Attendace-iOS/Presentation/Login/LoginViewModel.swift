@@ -33,7 +33,7 @@ class LoginViewModel: ObservableObject {
         DispatchQueue.main.async {
             guard let appToken = data.token else { return }
             self.isLoggedIn = true
-            self.prefs.setDataToLocal(data.self, with: .dataPegawai)
+            self.prefs.setDataToLocal(data.data.self, with: .dataPegawai)
             self.prefs.setDataToLocal(appToken.self, with: .appToken)
         }
     }
