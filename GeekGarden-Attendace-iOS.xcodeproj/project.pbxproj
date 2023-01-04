@@ -22,6 +22,10 @@
 		012B31BF29658D6500366C4A /* ReportAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */; };
 		012B31C42965A5E200366C4A /* ReportAttendanceResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */; };
 		012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31C52965A62400366C4A /* ReportAttendanceServices.swift */; };
+		012B31CC2965B7C700366C4A /* ListReportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31CB2965B7C700366C4A /* ListReportStatusView.swift */; };
+		012B31CE2965B85C00366C4A /* ListReportStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31CD2965B85C00366C4A /* ListReportStatusViewModel.swift */; };
+		012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */; };
+		012B31D42965BAF000366C4A /* ListReportStatusServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D32965BAF000366C4A /* ListReportStatusServices.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -90,6 +94,10 @@
 		012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceViewModel.swift; sourceTree = "<group>"; };
 		012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceResponseModel.swift; sourceTree = "<group>"; };
 		012B31C52965A62400366C4A /* ReportAttendanceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceServices.swift; sourceTree = "<group>"; };
+		012B31CB2965B7C700366C4A /* ListReportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusView.swift; sourceTree = "<group>"; };
+		012B31CD2965B85C00366C4A /* ListReportStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusViewModel.swift; sourceTree = "<group>"; };
+		012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponseStatusModel.swift; sourceTree = "<group>"; };
+		012B31D32965BAF000366C4A /* ListReportStatusServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusServices.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -235,6 +243,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		012B31CA2965B75B00366C4A /* ListReportStatus */ = {
+			isa = PBXGroup;
+			children = (
+				012B31D22965BAD000366C4A /* Services */,
+				012B31CF2965B8BA00366C4A /* Model */,
+				012B31CB2965B7C700366C4A /* ListReportStatusView.swift */,
+				012B31CD2965B85C00366C4A /* ListReportStatusViewModel.swift */,
+			);
+			path = ListReportStatus;
+			sourceTree = "<group>";
+		};
+		012B31CF2965B8BA00366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		012B31D22965BAD000366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31D32965BAF000366C4A /* ListReportStatusServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0135C961294A425E008C7589 = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +310,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				012B31CA2965B75B00366C4A /* ListReportStatus */,
 				012B31BB29658CAF00366C4A /* ReportAttendance */,
 				012B31B029653EDC00366C4A /* WorkPermit */,
 				012B31A329631B4C00366C4A /* UpdateProfile */,
@@ -670,6 +706,7 @@
 				01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */,
 				013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */,
 				012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */,
+				012B31D42965BAF000366C4A /* ListReportStatusServices.swift in Sources */,
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
@@ -690,6 +727,7 @@
 				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
 				012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */,
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
+				012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
 				013BC857295B1D0600194B80 /* MarkerModel.swift in Sources */,
 				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
@@ -704,10 +742,12 @@
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
 				013BC865295CB0F700194B80 /* AttendanceServices.swift in Sources */,
+				012B31CE2965B85C00366C4A /* ListReportStatusViewModel.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
 				01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
+				012B31CC2965B7C700366C4A /* ListReportStatusView.swift in Sources */,
 				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,

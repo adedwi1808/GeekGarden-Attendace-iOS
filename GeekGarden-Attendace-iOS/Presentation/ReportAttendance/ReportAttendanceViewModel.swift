@@ -30,7 +30,7 @@ class ReportAttendanceViewModel: ObservableObject {
         }
         
         do {
-            let data = try await reportAttendanceServices.postReportAttendance(endPoint:
+            _ = try await reportAttendanceServices.postReportAttendance(endPoint:
                     .postReportAttendance(tanggal: remoteDateFormat.string(from: attendanceDate),
                                           keteranganLaporan: reportDec))
         } catch  {

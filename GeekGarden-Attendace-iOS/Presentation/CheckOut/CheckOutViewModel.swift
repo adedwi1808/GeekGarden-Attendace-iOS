@@ -34,7 +34,7 @@ class CheckOutViewModel: ObservableObject {
     
     func postCheckOut(long: String, lat: String, tempat: Bool, foto: Data, prog: String) async {
         do {
-            let data = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
+            _ = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
         } catch  {
             print("Checkout ERR: \(error)")
         }

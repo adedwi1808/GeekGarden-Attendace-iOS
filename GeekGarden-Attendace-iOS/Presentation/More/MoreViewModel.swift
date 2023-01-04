@@ -24,14 +24,15 @@ class MoreViewModel: ObservableObject {
         
         CustomMoreButtonModel(buttonName: "Pengaduan Absensi",
                               buttonSymbol: "TaskReportSymbol",
-                              
                               destination: AnyView(ReportAttendanceView())),
+        
         CustomMoreButtonModel(buttonName: "Status Pengajuan Izin",
                               
-                              buttonSymbol: "TaskHistorySymbol", destination: AnyView(WorkPermitView())),
+                              buttonSymbol: "TaskHistorySymbol",
+                              destination: AnyView(ListReportStatusView())),
         CustomMoreButtonModel(buttonName: "Status Pengaduan",
                               buttonSymbol: "TaskRepairSymbol",
-                              destination: AnyView(WorkPermitView()))]
+                              destination: AnyView(ListReportStatusView()))]
     
     private let prefs: UserDefaults = UserDefaults()
         

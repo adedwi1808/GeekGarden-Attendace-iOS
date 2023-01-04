@@ -32,7 +32,7 @@ class CheckInViewModel: ObservableObject {
     
     func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async {
         do {
-            let data = try await checkInServices.postCheckIn(
+            _ = try await checkInServices.postCheckIn(
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
         } catch let DecodingError.dataCorrupted(context) {
             print(context)
