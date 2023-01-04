@@ -44,7 +44,7 @@ extension NetworkFactory {
         case .getAttendanceHistory:
             return "/api/riwayat-absensi"
         case .updatePegawaiPhotoProfile:
-            return "/api/foto-pegawai"
+            return "/api/foto-pegawai-ios"
         case .updateDataPegawai:
             return "/api/update-pegawai-ios"
         }
@@ -98,6 +98,8 @@ extension NetworkFactory {
         case .postCheckIn, .postCheckOut:
             return .post
         case .updateDataPegawai:
+            return .post
+        case .updatePegawaiPhotoProfile:
             return .post
         default:
             return .get

@@ -44,7 +44,7 @@ struct CheckInView: View {
                     }
                 }
                 .fullScreenCover(isPresented: $checkInViewModel.showPicker) {
-                    ImagePicker(sourceType: .camera , selectedImage: $selectedImageData)
+                    ImagePicker(sourceType: .camera, allowEdit: false, selectedImage: $selectedImageData)
                         .ignoresSafeArea()
                 }
                 .alert("Error", isPresented: $checkInViewModel.showCameraAlert, presenting: checkInViewModel.cameraError, actions: { cameraError in

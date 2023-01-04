@@ -46,7 +46,7 @@ struct CheckOutView: View {
                     }
                 }
                 .fullScreenCover(isPresented: $checkOutVM.showPicker) {
-                    ImagePicker(sourceType: .camera , selectedImage: $selectedImageData)
+                    ImagePicker(sourceType: .camera, allowEdit: false, selectedImage: $selectedImageData)
                         .ignoresSafeArea()
                 }
                 .alert("Error", isPresented: $checkOutVM.showCameraAlert, presenting: checkOutVM.cameraError, actions: { cameraError in

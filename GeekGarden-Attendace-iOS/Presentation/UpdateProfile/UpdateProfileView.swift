@@ -45,6 +45,11 @@ struct UpdateProfileView: View {
                     .frame(width: 120, height: 120)
                     .cornerRadius(60)
                     .padding(.trailing, 5)
+                    .onChange(of: selectedImageData) { image in
+                        Task {
+                            await updateProfileVM.postUpdatePhotoProfile(image: image!.jpegData(compressionQuality: 0.4)!)
+                        }
+                    }
                 }
 
                 
@@ -83,7 +88,7 @@ struct UpdateProfileView: View {
                                 ])
         }
         .fullScreenCover(isPresented: $updateProfileVM.showPicker) {
-            ImagePicker(sourceType: updateProfileVM.source == .camera ? .camera : .photoLibrary , selectedImage: $selectedImageData)
+            ImagePicker(sourceType: updateProfileVM.source == .camera ? .camera : .photoLibrary, allowEdit: true, selectedImage: $selectedImageData)
                 .ignoresSafeArea()
         }
         .toolbar {
