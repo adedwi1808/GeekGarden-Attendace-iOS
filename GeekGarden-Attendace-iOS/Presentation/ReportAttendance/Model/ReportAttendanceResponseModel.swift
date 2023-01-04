@@ -18,9 +18,9 @@ struct ReportAttendanceResponseModel: Codable {
 struct ReportAttendanceModel: Codable {
     let idPengaduanAbsensi, idPegawai: Int
     let idAdmin: Int?
-    let tanggalAbsen, keteranganPengaduan: String
+    let tanggalAbsen, keteranganPengaduan: String?
     let keteranganAdmin: String?
-    let tanggalPengaduan, statusPengaduan: String
+    let tanggalPengaduan, statusPengaduan: String?
     let admin: AdminModel?
 
     enum CodingKeys: String, CodingKey {

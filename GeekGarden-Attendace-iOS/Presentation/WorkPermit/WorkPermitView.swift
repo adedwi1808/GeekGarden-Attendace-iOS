@@ -120,5 +120,5 @@ enum PermitReasons: String, CaseIterable, Identifiable {
     
     case sakit = "Sakit"
     case cuti = "Cuti"
-    case lainnya = "Lainnya"
+    case lainnya = "Keperluan Lainnya"
 }

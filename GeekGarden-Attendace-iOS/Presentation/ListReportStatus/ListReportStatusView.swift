@@ -12,13 +12,18 @@ struct ListReportStatusView: View {
     var body: some View {
         ScrollView(.vertical) {
             ForEach(listReportStatusVM.reportStatusData, id: \.idPengaduanAbsensi) { item in
-                Text(item.statusPengaduan)
+                ReportStatusItemView(date: listReportStatusVM.dateStringToDay(item.tanggalPengaduan ?? ""),
+                                     month: listReportStatusVM.dateStringToMonth(item.tanggalPengaduan ?? ""),
+                                     status: item.statusPengaduan ?? "",
+                                     fullDate: listReportStatusVM.dateStringToDateOnly(item.tanggalAbsen ?? ""),
+                                     adminName: item.admin?.nama ?? "-")
             }
         }
         .onAppear {
             Task {
                 await listReportStatusVM.getReportStatusData()
             }
+            listReportStatusVM.getReportStatusDataFromLocale()
         }
     }
 }
