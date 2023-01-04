@@ -16,10 +16,12 @@ struct WorkPermitResponseModel: Codable {
 // MARK: - DataClass
 struct WorkPermitModel: Codable {
     let idPengajuanIzin, idPegawai: Int
-    let idAdmin: String?
+    let idAdmin: Int?
     let jenisIzin, tanggalMulaiIzin, tanggalSelesaiIzin, alasanIzin: String
     let keteranganAdmin: String?
-    let suratIzin, statusIzin, tanggalMengajukanIzin: String
+    let suratIzin: String?
+    let statusIzin, tanggalMengajukanIzin: String
+    let admin: AdminModel?
 
     enum CodingKeys: String, CodingKey {
         case idPengajuanIzin = "id_pengajuan_izin"
@@ -33,5 +35,6 @@ struct WorkPermitModel: Codable {
         case suratIzin = "surat_izin"
         case statusIzin = "status_izin"
         case tanggalMengajukanIzin = "tanggal_mengajukan_izin"
+        case admin
     }
 }

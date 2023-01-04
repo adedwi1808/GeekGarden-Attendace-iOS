@@ -22,6 +22,7 @@ enum NetworkFactory {
     case getAttendanceHistory
     //Permit
     case workPermit(jenisIzin: String, tanggalMulai: String, tanggalSelesai: String, alasanIzin: String, suratIzin: Data)
+    case getWorkPermitStatus
     //Report
     case postReportAttendance(tanggal: String, keteranganLaporan: String)
     case getReportStatus
@@ -59,6 +60,8 @@ extension NetworkFactory {
             return "/api/pengaduan-absensi"
         case .getReportStatus:
             return "/api/riwayat-pengaduan-absensi"
+        case .getWorkPermitStatus:
+            return "/api/riwayat-pengajuan-izin"
         }
     }
     
@@ -82,6 +85,8 @@ extension NetworkFactory {
         case .postReportAttendance:
             return []
         case .getReportStatus:
+            return []
+        case .getWorkPermitStatus:
             return []
         }
     }
@@ -200,6 +205,8 @@ extension NetworkFactory {
         case .postReportAttendance:
             return getHeaders(type: .appToken)
         case .getReportStatus:
+            return getHeaders(type: .appToken)
+        case .getWorkPermitStatus:
             return getHeaders(type: .appToken)
         }
     }

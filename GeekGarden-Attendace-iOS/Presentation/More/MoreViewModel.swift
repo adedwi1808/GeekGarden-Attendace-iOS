@@ -29,7 +29,7 @@ class MoreViewModel: ObservableObject {
         CustomMoreButtonModel(buttonName: "Status Pengajuan Izin",
                               
                               buttonSymbol: "TaskHistorySymbol",
-                              destination: AnyView(ListReportStatusView())),
+                              destination: AnyView(ListWorkPermitStatusView())),
         CustomMoreButtonModel(buttonName: "Status Pengaduan",
                               buttonSymbol: "TaskRepairSymbol",
                               destination: AnyView(ListReportStatusView()))]

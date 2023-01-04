@@ -27,6 +27,11 @@
 		012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */; };
 		012B31D42965BAF000366C4A /* ListReportStatusServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D32965BAF000366C4A /* ListReportStatusServices.swift */; };
 		012B31D62965BD9E00366C4A /* ReportStatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D52965BD9D00366C4A /* ReportStatusItemView.swift */; };
+		012B31D92965C98F00366C4A /* ListWorkPermitStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D82965C98F00366C4A /* ListWorkPermitStatusView.swift */; };
+		012B31DB2965C9C800366C4A /* WorkPermitStatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31DA2965C9C800366C4A /* WorkPermitStatusItemView.swift */; };
+		012B31DD2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */; };
+		012B31E32965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */; };
+		012B31E52965CDFC00366C4A /* ListWorkPermitStatusServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -100,6 +105,11 @@
 		012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponseStatusModel.swift; sourceTree = "<group>"; };
 		012B31D32965BAF000366C4A /* ListReportStatusServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusServices.swift; sourceTree = "<group>"; };
 		012B31D52965BD9D00366C4A /* ReportStatusItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStatusItemView.swift; sourceTree = "<group>"; };
+		012B31D82965C98F00366C4A /* ListWorkPermitStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusView.swift; sourceTree = "<group>"; };
+		012B31DA2965C9C800366C4A /* WorkPermitStatusItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitStatusItemView.swift; sourceTree = "<group>"; };
+		012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusViewModel.swift; sourceTree = "<group>"; };
+		012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusResponseModel.swift; sourceTree = "<group>"; };
+		012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusServices.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -272,6 +282,33 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		012B31D72965C96D00366C4A /* ListWorkPermitStatus */ = {
+			isa = PBXGroup;
+			children = (
+				012B31DF2965CD8C00366C4A /* Model */,
+				012B31DE2965CD8500366C4A /* Services */,
+				012B31D82965C98F00366C4A /* ListWorkPermitStatusView.swift */,
+				012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */,
+			);
+			path = ListWorkPermitStatus;
+			sourceTree = "<group>";
+		};
+		012B31DE2965CD8500366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31DF2965CD8C00366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0135C961294A425E008C7589 = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +349,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				012B31D72965C96D00366C4A /* ListWorkPermitStatus */,
 				012B31CA2965B75B00366C4A /* ListReportStatus */,
 				012B31BB29658CAF00366C4A /* ReportAttendance */,
 				012B31B029653EDC00366C4A /* WorkPermit */,
@@ -387,6 +425,7 @@
 				0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */,
 				0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */,
 				012B31D52965BD9D00366C4A /* ReportStatusItemView.swift */,
+				012B31DA2965C9C800366C4A /* WorkPermitStatusItemView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -706,8 +745,10 @@
 				014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */,
 				0135C97F294A43C9008C7589 /* LoginView.swift in Sources */,
 				014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */,
+				012B31E52965CDFC00366C4A /* ListWorkPermitStatusServices.swift in Sources */,
 				01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */,
 				013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */,
+				012B31E32965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift in Sources */,
 				012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */,
 				012B31D42965BAF000366C4A /* ListReportStatusServices.swift in Sources */,
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
@@ -732,6 +773,7 @@
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
 				012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
+				012B31DD2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift in Sources */,
 				013BC857295B1D0600194B80 /* MarkerModel.swift in Sources */,
 				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
 				013BC852295A012400194B80 /* MapView.swift in Sources */,
@@ -741,6 +783,7 @@
 				013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */,
 				012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
+				012B31D92965C98F00366C4A /* ListWorkPermitStatusView.swift in Sources */,
 				01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
@@ -755,6 +798,7 @@
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
 				012B31D62965BD9E00366C4A /* ReportStatusItemView.swift in Sources */,
+				012B31DB2965C9C800366C4A /* WorkPermitStatusItemView.swift in Sources */,
 				012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
 				0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */,
