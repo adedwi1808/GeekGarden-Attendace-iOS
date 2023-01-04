@@ -9,8 +9,8 @@ import Foundation
 
 class CheckOutViewModel: ObservableObject {
     @Published var showPicker: Bool = false
-    @Published var source: Picker.Source = .library
-    @Published var cameraError: Picker.CameraErrorType?
+    @Published var source: ImagePickerFactory.Source = .library
+    @Published var cameraError: ImagePickerFactory.CameraErrorType?
     @Published var showCameraAlert: Bool = false
     @Published var progressPegawai: String = ""
     private var checkOutServices: CheckOutServicesProtocol
@@ -23,12 +23,12 @@ class CheckOutViewModel: ObservableObject {
     func showPhotoPicker() {
         do {
             if source == .camera {
-                try Picker.checkPermissions()
+                try ImagePickerFactory.checkPermissions()
             }
             showPicker = true
         } catch {
             showCameraAlert = true
-            cameraError = Picker.CameraErrorType(error: error as! Picker.PickerError)
+            cameraError = ImagePickerFactory.CameraErrorType(error: error as! ImagePickerFactory.PickerError)
         }
     }
     

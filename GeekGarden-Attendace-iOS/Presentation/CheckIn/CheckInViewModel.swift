@@ -9,8 +9,8 @@ import Foundation
 
 class CheckInViewModel: ObservableObject {
     @Published var showPicker = false
-    @Published var source: Picker.Source = .library
-    @Published var cameraError: Picker.CameraErrorType?
+    @Published var source: ImagePickerFactory.Source = .library
+    @Published var cameraError: ImagePickerFactory.CameraErrorType?
     @Published var showCameraAlert = false
     private var checkInServices: CheckInServicesProtocol
     
@@ -21,12 +21,12 @@ class CheckInViewModel: ObservableObject {
     func showPhotoPicker() {
         do {
             if source == .camera {
-                try Picker.checkPermissions()
+                try ImagePickerFactory.checkPermissions()
             }
             showPicker = true
         } catch {
             showCameraAlert = true
-            cameraError = Picker.CameraErrorType(error: error as! Picker.PickerError)
+            cameraError = ImagePickerFactory.CameraErrorType(error: error as! ImagePickerFactory.PickerError)
         }
     }
     
