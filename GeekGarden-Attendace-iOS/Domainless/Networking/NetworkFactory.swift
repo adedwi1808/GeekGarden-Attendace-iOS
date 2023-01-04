@@ -22,6 +22,7 @@ enum NetworkFactory {
     case getAttendanceHistory
     case updatePegawaiPhotoProfile(image: Data)
     case updateDataPegawai(email: String, noHP: String, password: String)
+    case workPermit(jenisIzin: String, tanggalMulai: String, tanggalSelesai: String, alasanIzin: String, suratIzin: Data)
 }
 
 extension NetworkFactory {
@@ -47,6 +48,8 @@ extension NetworkFactory {
             return "/api/foto-pegawai-ios"
         case .updateDataPegawai:
             return "/api/update-pegawai-ios"
+        case .workPermit:
+            return "/api/pengajuan-izin-ios"
         }
     }
     
@@ -64,6 +67,8 @@ extension NetworkFactory {
         case .updatePegawaiPhotoProfile:
             return []
         case .updateDataPegawai:
+            return []
+        case .workPermit:
             return []
         }
     }
@@ -101,6 +106,8 @@ extension NetworkFactory {
             return .post
         case .updatePegawaiPhotoProfile:
             return .post
+        case .workPermit:
+            return .post
         default:
             return .get
         }
@@ -128,6 +135,12 @@ extension NetworkFactory {
             return ["email": email,
                     "nomor_hp": noHP,
                     "password": password]
+        case .workPermit(let jenisIzin, let tanggalMulai, let tanggalSelesai, let alasanIzin, _):
+            return ["jenis_izin": jenisIzin,
+                    "tanggal_mulai_izin": tanggalMulai,
+                    "tanggal_selesai_izin": tanggalSelesai,
+                    "alasan_izin": alasanIzin,
+                    "status_izin": "diAjukan"]
         default:
             return [:]
         }
@@ -141,6 +154,8 @@ extension NetworkFactory {
         case .postCheckOut(_, _, _, _, _, let image):
             return image as Data?
         case .updatePegawaiPhotoProfile(let image):
+            return image as Data?
+        case .workPermit( _, _, _, _, let image):
             return image as Data?
         default:
             return Data()
@@ -161,6 +176,8 @@ extension NetworkFactory {
         case .updatePegawaiPhotoProfile(image: _):
             return getHeaders(type: .multiPart)
         case .updateDataPegawai(email: _, noHP: _, password: _):
+            return getHeaders(type: .multiPart)
+        case .workPermit:
             return getHeaders(type: .multiPart)
         }
     }

@@ -16,6 +16,8 @@
 		012B31AF2964578D00366C4A /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AE2964578D00366C4A /* Constans.swift */; };
 		012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B129653EEB00366C4A /* WorkPermitView.swift */; };
 		012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B329655DD700366C4A /* WorkPermitViewModel.swift */; };
+		012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B62965820F00366C4A /* WorkPermitServices.swift */; };
+		012B31BA2965846500366C4A /* WorkPermitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B92965846500366C4A /* WorkPermitResponseModel.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -78,6 +80,8 @@
 		012B31AE2964578D00366C4A /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		012B31B129653EEB00366C4A /* WorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitView.swift; sourceTree = "<group>"; };
 		012B31B329655DD700366C4A /* WorkPermitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitViewModel.swift; sourceTree = "<group>"; };
+		012B31B62965820F00366C4A /* WorkPermitServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitServices.swift; sourceTree = "<group>"; };
+		012B31B92965846500366C4A /* WorkPermitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitResponseModel.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,10 +176,28 @@
 		012B31B029653EDC00366C4A /* WorkPermit */ = {
 			isa = PBXGroup;
 			children = (
+				012B31B82965845500366C4A /* Model */,
+				012B31B5296581F600366C4A /* Services */,
 				012B31B129653EEB00366C4A /* WorkPermitView.swift */,
 				012B31B329655DD700366C4A /* WorkPermitViewModel.swift */,
 			);
 			path = WorkPermit;
+			sourceTree = "<group>";
+		};
+		012B31B5296581F600366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31B62965820F00366C4A /* WorkPermitServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31B82965845500366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31B92965846500366C4A /* WorkPermitResponseModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0135C961294A425E008C7589 = {
@@ -611,6 +633,7 @@
 				014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */,
 				01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */,
 				013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */,
+				012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */,
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
@@ -660,6 +683,7 @@
 				013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */,
 				013BC879295CF1D000194B80 /* AttendanceHistoryResponseModel.swift in Sources */,
 				013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */,
+				012B31BA2965846500366C4A /* WorkPermitResponseModel.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
 				014C774F2953EDCE00C253C3 /* LoginServices.swift in Sources */,

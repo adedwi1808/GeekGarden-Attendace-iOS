@@ -70,7 +70,9 @@ struct WorkPermitView: View {
                 
                 Spacer()
                 Button {
-                    //
+                    Task {
+                        await workPermitVM.postWorkPermit(image: selectedImageData?.jpegData(compressionQuality: 0.4))
+                    }
                 } label: {
                     Text("Submit")
                         .font(.system(size: 23, weight: .semibold))
