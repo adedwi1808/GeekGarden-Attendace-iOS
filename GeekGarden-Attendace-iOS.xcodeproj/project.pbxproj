@@ -18,6 +18,10 @@
 		012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B329655DD700366C4A /* WorkPermitViewModel.swift */; };
 		012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B62965820F00366C4A /* WorkPermitServices.swift */; };
 		012B31BA2965846500366C4A /* WorkPermitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B92965846500366C4A /* WorkPermitResponseModel.swift */; };
+		012B31BD29658CFB00366C4A /* ReportAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31BC29658CFB00366C4A /* ReportAttendanceView.swift */; };
+		012B31BF29658D6500366C4A /* ReportAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */; };
+		012B31C42965A5E200366C4A /* ReportAttendanceResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */; };
+		012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31C52965A62400366C4A /* ReportAttendanceServices.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -82,6 +86,10 @@
 		012B31B329655DD700366C4A /* WorkPermitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitViewModel.swift; sourceTree = "<group>"; };
 		012B31B62965820F00366C4A /* WorkPermitServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitServices.swift; sourceTree = "<group>"; };
 		012B31B92965846500366C4A /* WorkPermitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitResponseModel.swift; sourceTree = "<group>"; };
+		012B31BC29658CFB00366C4A /* ReportAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceView.swift; sourceTree = "<group>"; };
+		012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceViewModel.swift; sourceTree = "<group>"; };
+		012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceResponseModel.swift; sourceTree = "<group>"; };
+		012B31C52965A62400366C4A /* ReportAttendanceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceServices.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -200,6 +208,33 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		012B31BB29658CAF00366C4A /* ReportAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				012B31C22965A50200366C4A /* Model */,
+				012B31C02965A4EB00366C4A /* Services */,
+				012B31BC29658CFB00366C4A /* ReportAttendanceView.swift */,
+				012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */,
+			);
+			path = ReportAttendance;
+			sourceTree = "<group>";
+		};
+		012B31C02965A4EB00366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31C52965A62400366C4A /* ReportAttendanceServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31C22965A50200366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0135C961294A425E008C7589 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +275,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				012B31BB29658CAF00366C4A /* ReportAttendance */,
 				012B31B029653EDC00366C4A /* WorkPermit */,
 				012B31A329631B4C00366C4A /* UpdateProfile */,
 				01D0C1CE295EDD6400F8A5F4 /* More */,
@@ -637,10 +673,12 @@
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
+				012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */,
 				013BC876295CF13F00194B80 /* HistoryView.swift in Sources */,
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
 				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
+				012B31BF29658D6500366C4A /* ReportAttendanceViewModel.swift in Sources */,
 				013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
 				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
@@ -678,7 +716,9 @@
 				0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */,
 				013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
+				012B31C42965A5E200366C4A /* ReportAttendanceResponseModel.swift in Sources */,
 				0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */,
+				012B31BD29658CFB00366C4A /* ReportAttendanceView.swift in Sources */,
 				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
 				013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */,
 				013BC879295CF1D000194B80 /* AttendanceHistoryResponseModel.swift in Sources */,

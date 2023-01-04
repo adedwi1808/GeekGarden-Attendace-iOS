@@ -78,9 +78,10 @@ struct WorkPermitView: View {
                         .font(.system(size: 23, weight: .semibold))
                         .foregroundColor(.white)
                 }
-                .frame(width: 250, height: 80)
+                .frame(width: 200, height: 60)
                 .background(.green)
                 .cornerRadius(20)
+                Spacer()
                 Spacer()
             }
             .padding(.horizontal, 15)
@@ -104,6 +105,7 @@ struct WorkPermitView: View {
                     .ignoresSafeArea()
             }
         }
+        .navigationTitle("Form Izin")
     }
 }
 

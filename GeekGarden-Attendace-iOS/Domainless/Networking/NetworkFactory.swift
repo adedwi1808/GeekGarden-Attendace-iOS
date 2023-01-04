@@ -20,9 +20,12 @@ enum NetworkFactory {
     case checkAttendance
     case getAttendanceStats
     case getAttendanceHistory
+    case workPermit(jenisIzin: String, tanggalMulai: String, tanggalSelesai: String, alasanIzin: String, suratIzin: Data)
+    case postReportAttendance(tanggal: String, keteranganLaporan: String)
+    
+    //Profile
     case updatePegawaiPhotoProfile(image: Data)
     case updateDataPegawai(email: String, noHP: String, password: String)
-    case workPermit(jenisIzin: String, tanggalMulai: String, tanggalSelesai: String, alasanIzin: String, suratIzin: Data)
 }
 
 extension NetworkFactory {
@@ -50,6 +53,8 @@ extension NetworkFactory {
             return "/api/update-pegawai-ios"
         case .workPermit:
             return "/api/pengajuan-izin-ios"
+        case .postReportAttendance:
+            return "/api/pengaduan-absensi"
         }
     }
     
@@ -69,6 +74,8 @@ extension NetworkFactory {
         case .updateDataPegawai:
             return []
         case .workPermit:
+            return []
+        case .postReportAttendance:
             return []
         }
     }
@@ -108,6 +115,8 @@ extension NetworkFactory {
             return .post
         case .workPermit:
             return .post
+        case .postReportAttendance:
+            return .post
         default:
             return .get
         }
@@ -141,6 +150,9 @@ extension NetworkFactory {
                     "tanggal_selesai_izin": tanggalSelesai,
                     "alasan_izin": alasanIzin,
                     "status_izin": "diAjukan"]
+        case .postReportAttendance(let tanggal, let keterangan):
+            return ["tanggal_absen" : tanggal,
+                    "keterangan_pengaduan" : keterangan]
         default:
             return [:]
         }
@@ -179,6 +191,8 @@ extension NetworkFactory {
             return getHeaders(type: .multiPart)
         case .workPermit:
             return getHeaders(type: .multiPart)
+        case .postReportAttendance:
+            return getHeaders(type: .appToken)
         }
     }
     
