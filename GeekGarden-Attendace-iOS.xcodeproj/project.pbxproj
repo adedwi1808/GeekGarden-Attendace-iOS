@@ -14,6 +14,8 @@
 		012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A92964383400366C4A /* UpdateProfilServices.swift */; };
 		012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */; };
 		012B31AF2964578D00366C4A /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AE2964578D00366C4A /* Constans.swift */; };
+		012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B129653EEB00366C4A /* WorkPermitView.swift */; };
+		012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B329655DD700366C4A /* WorkPermitViewModel.swift */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		012B31A92964383400366C4A /* UpdateProfilServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfilServices.swift; sourceTree = "<group>"; };
 		012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataPegawaiResponseModel.swift; sourceTree = "<group>"; };
 		012B31AE2964578D00366C4A /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		012B31B129653EEB00366C4A /* WorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitView.swift; sourceTree = "<group>"; };
+		012B31B329655DD700366C4A /* WorkPermitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitViewModel.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -165,6 +169,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		012B31B029653EDC00366C4A /* WorkPermit */ = {
+			isa = PBXGroup;
+			children = (
+				012B31B129653EEB00366C4A /* WorkPermitView.swift */,
+				012B31B329655DD700366C4A /* WorkPermitViewModel.swift */,
+			);
+			path = WorkPermit;
+			sourceTree = "<group>";
+		};
 		0135C961294A425E008C7589 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +218,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				012B31B029653EDC00366C4A /* WorkPermit */,
 				012B31A329631B4C00366C4A /* UpdateProfile */,
 				01D0C1CE295EDD6400F8A5F4 /* More */,
 				013BC874295CF12C00194B80 /* History */,
@@ -609,6 +623,7 @@
 				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
+				012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */,
 				013BC85F295C385500194B80 /* Data.swift in Sources */,
 				01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */,
 				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
@@ -622,6 +637,7 @@
 				012B31AF2964578D00366C4A /* Constans.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */,
+				012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
 				01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,

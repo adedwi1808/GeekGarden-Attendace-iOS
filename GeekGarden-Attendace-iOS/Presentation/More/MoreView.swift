@@ -36,7 +36,7 @@ struct MoreView: View {
                         ForEach(moreVM.destion, id: \.id) { item in
                             CustomMoreButtonView(buttonName: item.buttonName ?? "",
                                                  buttonSymbol: item.buttonSymbol ?? "",
-                                                 destionation: Text("Hello World"))
+                                                 destionation: item.destination)
                         }
                     }
                 } header: {

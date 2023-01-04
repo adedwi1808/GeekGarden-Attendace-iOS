@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class MoreViewModel: ObservableObject {
     @Published var hadirStats: String = "0"
@@ -17,10 +18,20 @@ class MoreViewModel: ObservableObject {
     @Published var pegawaiJabatan: String = ""
     @Published var pegawaiPhotoProfileURL: String = ""
     var destion: [CustomMoreButtonModel] = [
-        CustomMoreButtonModel(buttonName: "Pengajuan Izin", buttonSymbol: "TaskAddSymbol"),
-        CustomMoreButtonModel(buttonName: "Pengaduan Absensi", buttonSymbol: "TaskReportSymbol"),
-        CustomMoreButtonModel(buttonName: "Status Pengajuan Izin", buttonSymbol: "TaskHistorySymbol"),
-        CustomMoreButtonModel(buttonName: "Status Pengaduan", buttonSymbol: "TaskRepairSymbol")]
+        CustomMoreButtonModel(buttonName: "Pengajuan Izin",
+                              buttonSymbol: "TaskAddSymbol",
+                              destination: AnyView(WorkPermitView())),
+        
+        CustomMoreButtonModel(buttonName: "Pengaduan Absensi",
+                              buttonSymbol: "TaskReportSymbol",
+                              
+                              destination: AnyView(WorkPermitView())),
+        CustomMoreButtonModel(buttonName: "Status Pengajuan Izin",
+                              
+                              buttonSymbol: "TaskHistorySymbol", destination: AnyView(WorkPermitView())),
+        CustomMoreButtonModel(buttonName: "Status Pengaduan",
+                              buttonSymbol: "TaskRepairSymbol",
+                              destination: AnyView(WorkPermitView()))]
     
     private let prefs: UserDefaults = UserDefaults()
         
