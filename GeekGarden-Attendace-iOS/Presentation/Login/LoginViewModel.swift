@@ -38,4 +38,11 @@ class LoginViewModel: ObservableObject {
             self.prefs.setDataToLocal(appToken.self, with: .appToken)
         }
     }
+    
+    func resetLocalStorage() {
+        let prefsKey: [String] = ["dataPegawai", "appToken", "madingGeekGarden", "checkAttendance", "attendanceStats", "attendanceHistory", "reportStatus"]
+        for key in prefsKey {
+            prefs.removeObject(forKey: key)
+        }
+    }
 }

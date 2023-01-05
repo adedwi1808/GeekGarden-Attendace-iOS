@@ -56,6 +56,9 @@ struct LoginView: View {
                 .cornerRadius(15)
                 .padding(.horizontal, 20)
             }
+            .onAppear {
+                loginViewModel.resetLocalStorage()
+            }
             .padding(15)
         }
     }
