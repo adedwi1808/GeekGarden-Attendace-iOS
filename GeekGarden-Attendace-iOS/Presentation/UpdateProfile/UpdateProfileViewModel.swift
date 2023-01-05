@@ -32,7 +32,7 @@ class UpdateProfileViewModel: ObservableObject {
                pegawaiPassword.count < 6 {
             } else {
                 Task {
-                    await postUpdateProfile()
+                    try await postUpdateProfile()
                 }
             }
         }
@@ -61,15 +61,15 @@ class UpdateProfileViewModel: ObservableObject {
         }
     }
     
-    func postUpdateProfile() async {
+    func postUpdateProfile() async throws{
         do {
             let data = try await updateProfileServices.updateDataPegawai(endpoint:
                     .updateDataPegawai(email: pegawaiEmail,
                                        noHP: pegawaiPhoneNumber,
                                        password: pegawaiPassword))
             saveUpdateData(using: data.data)
-        } catch {
-            print("ERR while post update profile")
+        } catch let err as NetworkError {
+            print(err.localizedDescription)
         }
     }
     

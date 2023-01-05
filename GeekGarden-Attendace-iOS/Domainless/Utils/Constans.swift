@@ -8,5 +8,5 @@
 import Foundation
 
 class Constans {
-    let baseURL: String = "4c6b-182-253-183-7.ap.ngrok.io"
+    let baseURL: String = "c99b-182-253-183-7.ap.ngrok.io"
 }

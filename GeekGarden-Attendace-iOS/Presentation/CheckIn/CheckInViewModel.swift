@@ -34,17 +34,6 @@ class CheckInViewModel: ObservableObject {
         do {
             _ = try await checkInServices.postCheckIn(
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
-        } catch let DecodingError.dataCorrupted(context) {
-            print(context)
-        } catch let DecodingError.keyNotFound(key, context) {
-            print("Key '\(key)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch let DecodingError.valueNotFound(value, context) {
-            print("Value '\(value)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch let DecodingError.typeMismatch(type, context)  {
-            print("Type '\(type)' mismatch:", context.debugDescription)
-            print("codingPath:", context.codingPath)
         } catch {
             print("error: ", error)
         }
