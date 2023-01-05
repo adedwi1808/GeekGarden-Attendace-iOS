@@ -43,7 +43,7 @@ struct LoginView: View {
                 
                 Button {
                     Task {
-                        await loginViewModel.loginPegawai()
+                        try await loginViewModel.loginPegawai()
                     }
                 } label: {
                     Text("Login")
