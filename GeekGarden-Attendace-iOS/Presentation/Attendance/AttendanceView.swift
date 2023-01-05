@@ -32,7 +32,7 @@ struct AttendanceView: View {
                     )) {
                         AttendanceButtonView()
                     }
-                } else {
+                } else if attendanceVM.numberOfAbsencesToday == 2 {
                     NavigationLink(destination: CheckOutView(
                         latitude: attendanceVM.latitude,
                         longitude: attendanceVM.longitude,
@@ -40,6 +40,8 @@ struct AttendanceView: View {
                     )) {
                         AttendanceButtonView()
                     }
+                } else {
+                    //
                 }
                 
                 NavigationLink(destination: MapView()) {
