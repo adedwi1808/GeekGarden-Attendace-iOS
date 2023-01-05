@@ -32,6 +32,7 @@
 		012B31DD2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */; };
 		012B31E32965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */; };
 		012B31E52965CDFC00366C4A /* ListWorkPermitStatusServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */; };
+		012B31E8296726F700366C4A /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 012B31E7296726F700366C4A /* AlertToast */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -168,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012B31E8296726F700366C4A /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,6 +690,9 @@
 			dependencies = (
 			);
 			name = "GeekGarden-Attendace-iOS";
+			packageProductDependencies = (
+				012B31E7296726F700366C4A /* AlertToast */,
+			);
 			productName = "GeekGarden-Attendace-iOS";
 			productReference = 0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -716,6 +721,9 @@
 				Base,
 			);
 			mainGroup = 0135C961294A425E008C7589;
+			packageReferences = (
+				012B31E6296726F600366C4A /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = 0135C96B294A425E008C7589 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1023,6 +1031,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		012B31E6296726F600366C4A /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		012B31E7296726F700366C4A /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 012B31E6296726F600366C4A /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0135C962294A425E008C7589 /* Project object */;
 }
