@@ -32,7 +32,7 @@ extension HomeViewModel {
             let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)
             saveAttendanceStatsToLocale(data)
         } catch {
-            print("err while do login")
+            print("err while do get attendance stats")
         }
     }
     
@@ -78,7 +78,7 @@ extension HomeViewModel {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
             saveMadingGeekGardenLocale(data)
         } catch {
-            print("err while do login")
+            print("err while do getmading geek garden")
         }
     }
     

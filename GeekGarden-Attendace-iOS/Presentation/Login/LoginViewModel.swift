@@ -20,12 +20,13 @@ class LoginViewModel: ObservableObject {
         self.loginPegawaiServices = loginPegawaiServices
     }
     
-    func loginPegawai() async {
+    func loginPegawai() async throws{
         do {
             let data = try await loginPegawaiServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
-        } catch {
-            print("err while do login")
+        } catch let err as NetworkError {
+//            print("err while do login")
+            print(err.localizedDescription)
         }
     }
     
