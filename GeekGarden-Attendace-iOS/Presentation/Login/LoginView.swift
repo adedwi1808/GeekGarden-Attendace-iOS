@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 15/12/22.
 //
 
+import AlertToast
 import SwiftUI
 
 struct LoginView: View {
@@ -56,10 +57,13 @@ struct LoginView: View {
                 .cornerRadius(15)
                 .padding(.horizontal, 20)
             }
+            .padding(15)
             .onAppear {
                 loginViewModel.resetLocalStorage()
             }
-            .padding(15)
+            .toast(isPresenting: $loginViewModel.isLoading) {
+                AlertToast(type: .loading, title: "Loading")
+            }
         }
     }
 }
