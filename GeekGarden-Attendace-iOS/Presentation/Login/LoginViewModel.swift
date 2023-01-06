@@ -12,6 +12,8 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = "123123"
     @Published var isLoggedIn: Bool = false
     @Published var isLoading: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
     private let prefs = UserDefaults()
     
     private var loginPegawaiServices: LoginServicesProtocol
@@ -21,14 +23,21 @@ class LoginViewModel: ObservableObject {
     }
     
     func loginPegawai() async throws{
-        isLoading.toggle()
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
         do {
             let data = try await loginPegawaiServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
-
         } catch let err as NetworkError {
 //            print("err while do login")
-            print(err.localizedDescription)
+            DispatchQueue.main.async {
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+            }
+        }
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
         }
     }
     

@@ -64,6 +64,9 @@ struct LoginView: View {
             .toast(isPresenting: $loginViewModel.isLoading) {
                 AlertToast(type: .loading, title: "Loading")
             }
+            .toast(isPresenting: $loginViewModel.showAlert, duration: 2) {
+                AlertToast(displayMode: .banner(.pop), type: .systemImage("exclamationmark.triangle", .red), title: loginViewModel.alertMessage)
+            }
         }
     }
 }
