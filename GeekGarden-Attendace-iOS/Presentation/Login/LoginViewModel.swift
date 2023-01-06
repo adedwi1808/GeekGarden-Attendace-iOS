@@ -21,9 +21,11 @@ class LoginViewModel: ObservableObject {
     }
     
     func loginPegawai() async throws{
+        isLoading.toggle()
         do {
             let data = try await loginPegawaiServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
+
         } catch let err as NetworkError {
 //            print("err while do login")
             print(err.localizedDescription)
@@ -40,9 +42,6 @@ class LoginViewModel: ObservableObject {
     }
     
     func resetLocalStorage() {
-        let prefsKey: [String] = ["dataPegawai", "appToken", "madingGeekGarden", "checkAttendance", "attendanceStats", "attendanceHistory", "reportStatus"]
-        for key in prefsKey {
-            prefs.removeObject(forKey: key)
-        }
+        prefs.resetLocale()
     }
 }
