@@ -9,14 +9,14 @@ import Foundation
 
 
 // MARK: - MadingGeekGardenModel
-struct MadingGeekGardenModel: Codable {
+struct MadingGeekGardenResponseModel: Codable {
     let code: Int?
     let message: String?
-    let data: [Datum]?
+    let data: [MadingGeekGardenModel]?
 }
 
 // MARK: - Datum
-struct Datum: Codable {
+struct MadingGeekGardenModel: Codable {
     let idMading, idAdmin: Int?
     let judul, informasi, foto, createAt: String?
 

@@ -16,6 +16,7 @@ class HomeViewModel: ObservableObject {
     @Published  var pegawaiName: String = ""
     @Published  var pegawaiJabatan: String = ""
     @Published  var pegawaiPhotoProfileURL: String = ""
+    @Published var madingData: [MadingGeekGardenModel] = []
     
     private let prefs: UserDefaults = UserDefaults()
     private var homeServices: HomeServicesProtocol
@@ -76,18 +77,20 @@ extension HomeViewModel {
     func getMadingGeekGarden() async {
         do {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
-            saveMadingGeekGardenLocale(data)
+            DispatchQueue.main.async {
+                self.saveMadingGeekGardenLocale(data)
+            }
         } catch {
             print("err while do getmading geek garden")
         }
     }
     
-    func saveMadingGeekGardenLocale(_ data: MadingGeekGardenModel) {
+    func saveMadingGeekGardenLocale(_ data: MadingGeekGardenResponseModel) {
         prefs.setDataToLocal(data.self, with: .madingGeekGarden)
     }
     
-    func getMadingGeekGardenFromLocale() -> MadingGeekGardenModel {
-        guard let mading = prefs.getDataFromLocal(MadingGeekGardenModel.self, with: .madingGeekGarden) else { return MadingGeekGardenModel(code: nil, message: nil, data: nil)}
+    func getMadingGeekGardenFromLocale() -> MadingGeekGardenResponseModel {
+        guard let mading = prefs.getDataFromLocal(MadingGeekGardenResponseModel.self, with: .madingGeekGarden) else { return MadingGeekGardenResponseModel(code: nil, message: nil, data: nil)}
         return mading
     }
 }
