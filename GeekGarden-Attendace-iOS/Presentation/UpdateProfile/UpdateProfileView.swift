@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 02/01/23.
 //
 
+import AlertToast
 import SwiftUI
 
 struct UpdateProfileView: View {
@@ -47,7 +48,7 @@ struct UpdateProfileView: View {
                     .padding(.trailing, 5)
                     .onChange(of: selectedImageData) { image in
                         Task {
-                            await updateProfileVM.postUpdatePhotoProfile(image: image!.jpegData(compressionQuality: 0.4)!)
+                            try await updateProfileVM.postUpdatePhotoProfile(image: image!.jpegData(compressionQuality: 0.4)!)
                         }
                     }
                 }
@@ -69,6 +70,7 @@ struct UpdateProfileView: View {
                 .background(.white)
             }
         }
+        .accentColor(Color("PrimaryColor"))
         .onAppear {
             updateProfileVM.setUserDataBefore()
         }
@@ -94,12 +96,19 @@ struct UpdateProfileView: View {
         .toolbar {
             Button {
                 updateProfileVM.updatePegawaiProfile()
-                dismiss()
             } label: {
                 Text("Done")
             }
         }
-        .accentColor(Color("PrimaryColor"))
+        .onChange(of: updateProfileVM.updateSuccess, perform: { newValue in
+            dismiss()
+        })
+        .toast(isPresenting: $updateProfileVM.isLoading) {
+            AlertToast(type: .loading, title: "Loading")
+        }
+        .toast(isPresenting: $updateProfileVM.showAlert) {
+            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upss!", subTitle: updateProfileVM.alertMessage)
+        }
     }
 }
 

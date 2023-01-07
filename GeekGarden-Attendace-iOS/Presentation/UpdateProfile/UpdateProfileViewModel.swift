@@ -19,6 +19,11 @@ class UpdateProfileViewModel: ObservableObject {
     @Published var pegawaiPassword: String = ""
     @Published var pegawaiPhotoProfileURL: String = ""
     
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
+    @Published var isLoading: Bool = false
+    @Published var updateSuccess: Bool = false
+    
     private var prefs = UserDefaults()
     private var updateProfileServices: UpdateProfileServiceProtocol
     
@@ -27,16 +32,17 @@ class UpdateProfileViewModel: ObservableObject {
     }
     
     func updatePegawaiProfile() {
-        if pegawaiEmail.count > 6, pegawaiPhoneNumber.count > 10 {
-            if pegawaiPassword.count > 1,
-               pegawaiPassword.count < 6 {
-            } else {
-                Task {
-                    try await postUpdateProfile()
-                }
+        if pegawaiPassword.count > 1,
+           pegawaiPassword.count < 6 {
+            DispatchQueue.main.async {
+                self.showAlert.toggle()
+                self.alertMessage = "Password not valid"
+            }
+        } else {
+            Task {
+                try await postUpdateProfile()
             }
         }
-        print("form not valid")
     }
     
     func showPhotoPicker() {
@@ -51,25 +57,46 @@ class UpdateProfileViewModel: ObservableObject {
         }
     }
     
-    func postUpdatePhotoProfile(image: Data) async {
+    func postUpdatePhotoProfile(image: Data) async throws{
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
         do {
             let data = try await updateProfileServices.updatePegawaiPhotoProfile(endpoint:
                     .updatePegawaiPhotoProfile(image: image))
             saveUpdateData(using: data.data)
-        } catch {
-            print("ERR while post update profile")
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+            }
         }
     }
     
     func postUpdateProfile() async throws{
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
         do {
             let data = try await updateProfileServices.updateDataPegawai(endpoint:
                     .updateDataPegawai(email: pegawaiEmail,
                                        noHP: pegawaiPhoneNumber,
                                        password: pegawaiPassword))
             saveUpdateData(using: data.data)
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.updateSuccess.toggle()
+            }
         } catch let err as NetworkError {
-            print(err.localizedDescription)
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+            }
         }
     }
     
@@ -78,7 +105,7 @@ class UpdateProfileViewModel: ObservableObject {
             self.prefs.setDataToLocal(data.self, with: .dataPegawai)
         }
     }
-
+    
 }
 
 //MARK: - Setup Data
@@ -106,5 +133,5 @@ extension UpdateProfileViewModel {
         }
         self.pegawaiInitials = res.joined()
     }
-
+    
 }
