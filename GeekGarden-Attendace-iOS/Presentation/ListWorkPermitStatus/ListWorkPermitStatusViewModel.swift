@@ -20,7 +20,7 @@ class ListWorkPermitStatusViewModel: ObservableObject {
         do {
             let data = try await listWorkPermitStatusServices.getListWorkPermitStatus(endpoint: .getWorkPermitStatus)
             DispatchQueue.main.async {
-                self.workPermitData = data.data
+                self.workPermitData.append(contentsOf: data.data)
             }
         } catch {
             print("ERR while get list work permit status")

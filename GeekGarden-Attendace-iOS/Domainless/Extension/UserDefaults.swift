@@ -33,6 +33,5 @@ extension UserDefaults {
         case checkAttendance
         case attendanceStats
         case attendanceHistory
-        case reportStatus
     }
 }

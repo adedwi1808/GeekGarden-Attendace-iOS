@@ -20,19 +20,12 @@ class ListReportStatusViewModel: ObservableObject {
     func getReportStatusData() async {
         do {
             let data = try await listReportStatusServices.getListReportStatus(endpoint: .getReportStatus)
-            saveReportStatusDataToLocale(data: data.data)
+            DispatchQueue.main.async {
+                self.reportStatusData.append(contentsOf: data.data)
+            }
         } catch {
             print("ERR while get list report status")
         }
-    }
-    
-    func saveReportStatusDataToLocale(data: [ReportAttendanceModel]) {
-        prefs.setDataToLocal(data.self, with: .reportStatus)
-    }
-    
-    func getReportStatusDataFromLocale() {
-        guard let data = prefs.getDataFromLocal([ReportAttendanceModel].self, with: .reportStatus) else { return }
-        self.reportStatusData = data
     }
 }
 

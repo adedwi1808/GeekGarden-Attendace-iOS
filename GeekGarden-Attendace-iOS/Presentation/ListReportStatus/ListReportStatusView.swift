@@ -29,7 +29,6 @@ struct ListReportStatusView: View {
             Task {
                 await listReportStatusVM.getReportStatusData()
             }
-            listReportStatusVM.getReportStatusDataFromLocale()
         }
         .navigationTitle("Pengaduan Absensi")
     }
