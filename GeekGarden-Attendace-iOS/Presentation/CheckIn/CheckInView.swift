@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 24/12/22.
 //
 
+import AlertToast
 import PhotosUI
 import SwiftUI
 
@@ -52,12 +53,20 @@ struct CheckInView: View {
                 }, message: { cameraError in
                     Text(cameraError.message)
                 })
+                .toast(isPresenting: $checkInViewModel.isLoading) {
+                    AlertToast(type: .loading, title: "Loading")
+                }
+                .toast(isPresenting: $checkInViewModel.showAlert) {
+                    AlertToast(displayMode: .banner(.pop),
+                               type: .error(.red),
+                               title: checkInViewModel.alertMessage)
+                }
                 
                 
                 Button {
                     if let selectedImageData {
                         Task {
-                            await checkInViewModel.postCheckIn(lat: latitude, long: longitude, tempat: tempat, foto: (selectedImageData.jpegData(compressionQuality: 0.4))!)
+                            try await checkInViewModel.postCheckIn(lat: latitude, long: longitude, tempat: tempat, foto: (selectedImageData.jpegData(compressionQuality: 0.4))!)
                         }
                     }
                 } label: {

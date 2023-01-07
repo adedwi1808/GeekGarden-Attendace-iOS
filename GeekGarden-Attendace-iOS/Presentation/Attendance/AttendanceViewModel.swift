@@ -102,6 +102,11 @@ class AttendanceViewModel: ObservableObject {
     func checkHowManyAbsentToday() {
         let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
         self.numberOfAbsencesToday = data?.data?.jumlahAbsenHariIni ?? 0
+        if numberOfAbsencesToday == 0 {
+            self.checkInTime = "-"
+            self.checkOutTime = "-"
+            self.attendanceInterval = "-"
+        }
     }
     
     func getCheckInTime() {

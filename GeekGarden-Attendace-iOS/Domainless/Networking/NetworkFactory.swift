@@ -257,7 +257,7 @@ extension NetworkFactory {
         
         body.append("\r\n--\(boundary)\r\n")
         
-        if let imageDataKey {
+        if let imageDataKey, imageDataKey != Data() {
             body.append("Content-Disposition: form-data; name=\"\(filePath)\"; filename=\"\(fileName)\"\r\n")
             body.append("Content-Type: \(mimetype)\r\n\r\n")
             body.append(imageDataKey)

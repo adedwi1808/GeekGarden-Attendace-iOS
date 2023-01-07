@@ -11,7 +11,11 @@ class CheckInViewModel: ObservableObject {
     @Published var showPicker = false
     @Published var source: ImagePickerFactory.Source = .library
     @Published var cameraError: ImagePickerFactory.CameraErrorType?
-    @Published var showCameraAlert = false
+    @Published var showCameraAlert: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var isLoading: Bool = false
+    @Published var alertMessage: String = ""
+    
     private var checkInServices: CheckInServicesProtocol
     
     init(checkInServices: CheckInServicesProtocol = CheckInServices()) {
@@ -30,12 +34,22 @@ class CheckInViewModel: ObservableObject {
         }
     }
     
-    func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async {
+    func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async throws{
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
         do {
             _ = try await checkInServices.postCheckIn(
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
-        } catch {
-            print("error: ", error)
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async {
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+                self.isLoading.toggle()
+            }
         }
     }
 }
