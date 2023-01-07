@@ -10,6 +10,10 @@ import Foundation
 class ReportAttendanceViewModel: ObservableObject {
     @Published var attendanceDate: Date = Date()
     @Published var reportDec: String = ""
+    @Published var isLoading: Bool = false
+    @Published var reportSuccess: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
     
     private var reportAttendanceServices: ReportAttendanceServicesProtocol
     
@@ -23,18 +27,24 @@ class ReportAttendanceViewModel: ObservableObject {
         return dateFormatter
     }
     
-    func postReportAttendance() async {
-        if reportDec.count < 5 {
-            print("Silahkan Isi Form Terlebih Dahulu")
-            return
+    func postReportAttendance() async throws {
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
         }
-        
         do {
             _ = try await reportAttendanceServices.postReportAttendance(endPoint:
                     .postReportAttendance(tanggal: remoteDateFormat.string(from: attendanceDate),
                                           keteranganLaporan: reportDec))
-        } catch  {
-            print("ERR while post report attendance")
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.reportSuccess.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+            }
         }
     }
 }

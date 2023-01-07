@@ -5,10 +5,11 @@
 //  Created by Ade Dwi Prayitno on 04/01/23.
 //
 
+import AlertToast
 import SwiftUI
 
 struct ReportAttendanceView: View {
-    
+    @Environment(\.dismiss) var dismiss
     @StateObject private var reportAttendanceVM: ReportAttendanceViewModel = ReportAttendanceViewModel()
     
     var body: some View {
@@ -45,7 +46,7 @@ struct ReportAttendanceView: View {
                 Spacer()
                 Button {
                     Task {
-                        await reportAttendanceVM.postReportAttendance()
+                        try await reportAttendanceVM.postReportAttendance()
                     }
                 } label: {
                     Text("Submit")
@@ -63,6 +64,15 @@ struct ReportAttendanceView: View {
             .padding(.horizontal, 15)
         }
         .navigationTitle("Form Mengadukan Absensi")
+        .toast(isPresenting: $reportAttendanceVM.isLoading) {
+            AlertToast(type: .loading, title: "Loading")
+        }
+        .toast(isPresenting: $reportAttendanceVM.showAlert) {
+            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upss!", subTitle: reportAttendanceVM.alertMessage)
+        }
+        .onChange(of: reportAttendanceVM.reportSuccess) { newValue in
+            dismiss()
+        }
     }
 }
 
