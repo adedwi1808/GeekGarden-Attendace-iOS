@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 04/01/23.
 //
 
+import AlertToast
 import SwiftUI
 
 struct WorkPermitView: View {
@@ -71,7 +72,7 @@ struct WorkPermitView: View {
                 Spacer()
                 Button {
                     Task {
-                        await workPermitVM.postWorkPermit(image: selectedImageData?.jpegData(compressionQuality: 0.4))
+                        try await workPermitVM.postWorkPermit(image: selectedImageData?.jpegData(compressionQuality: 0.4) ?? Data())
                     }
                 } label: {
                     Text("Submit")
@@ -106,6 +107,15 @@ struct WorkPermitView: View {
             }
         }
         .navigationTitle("Form Izin")
+        .toast(isPresenting: $workPermitVM.isLoading) {
+            AlertToast(type: .loading, title: "Loading")
+        }
+        .toast(isPresenting: $workPermitVM.showAlert, duration: 3) {
+            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upps", subTitle: workPermitVM.alertMessage)
+        }
+        .onChange(of: workPermitVM.permitSuccess) { newValue in
+            dismiss()
+        }
     }
 }
 

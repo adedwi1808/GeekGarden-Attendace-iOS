@@ -64,8 +64,9 @@ struct ImagePicker: UIViewControllerRepresentable {
                         to: cropRect
                     )!
                     parent.selectedImage = UIImage(cgImage: croppedCGImage)
+                } else {
+                    parent.selectedImage = image
                 }
-                parent.selectedImage = image
             }
             parent.presentationMode.wrappedValue.dismiss()
         }

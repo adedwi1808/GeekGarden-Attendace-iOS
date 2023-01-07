@@ -18,7 +18,11 @@ class WorkPermitViewModel: ObservableObject {
     @Published var permitDateStart: Date = Date()
     @Published var permitDateEnd: Date = Date()
     @Published var isShowActionSheet: Bool = false
-    @Published var isShowAlert: Bool = false
+
+    @Published var isLoading: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
+    @Published var permitSuccess: Bool = false
     
     private var workPermitServices: WorkPermitServicesProtocol
     
@@ -32,24 +36,24 @@ class WorkPermitViewModel: ObservableObject {
         return dateFormatter
     }
     
-    func checkForm() -> Bool {
-        if permitReasonDec.count > 0 {
-            return true
-        }
-        return false
-    }
     
-    func postWorkPermit(image: Data?) async {
-        
-        if checkForm() == false {
-            print("check form")
-            return
+    func postWorkPermit(image: Data) async throws{
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
         }
         
         do {
-            _ = try await workPermitServices.postWorkPermit(endPoint: .workPermit(jenisIzin: selectedReason.rawValue, tanggalMulai: remoteDateFormat.string(from: permitDateStart), tanggalSelesai: remoteDateFormat.string(from: permitDateEnd), alasanIzin: permitReasonDec, suratIzin: image ?? Data()))
-        } catch  {
-            print("ERR when post work permit")
+            _ = try await workPermitServices.postWorkPermit(endPoint: .workPermit(jenisIzin: selectedReason.rawValue, tanggalMulai: remoteDateFormat.string(from: permitDateStart), tanggalSelesai: remoteDateFormat.string(from: permitDateEnd), alasanIzin: permitReasonDec, suratIzin: image))
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.permitSuccess.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async {
+                self.alertMessage = err.localizedDescription
+                self.isLoading.toggle()
+                self.showAlert.toggle()
+            }
         }
     }
     
