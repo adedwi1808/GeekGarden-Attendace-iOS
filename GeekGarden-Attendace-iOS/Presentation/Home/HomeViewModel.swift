@@ -17,6 +17,7 @@ class HomeViewModel: ObservableObject {
     @Published  var pegawaiJabatan: String = ""
     @Published  var pegawaiPhotoProfileURL: String = ""
     @Published var madingData: [MadingGeekGardenModel] = []
+    @Published var madingDataOfflineReady: Bool = false
     
     private let prefs: UserDefaults = UserDefaults()
     private var homeServices: HomeServicesProtocol
@@ -78,6 +79,7 @@ extension HomeViewModel {
         do {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
             DispatchQueue.main.async {
+                self.madingData.append(contentsOf: data.data!)
                 self.saveMadingGeekGardenLocale(data)
             }
         } catch {
@@ -87,6 +89,7 @@ extension HomeViewModel {
     
     func saveMadingGeekGardenLocale(_ data: MadingGeekGardenResponseModel) {
         prefs.setDataToLocal(data.self, with: .madingGeekGarden)
+        self.madingDataOfflineReady = true
     }
     
     func getMadingGeekGardenFromLocale() -> MadingGeekGardenResponseModel {
