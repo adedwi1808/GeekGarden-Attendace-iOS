@@ -107,7 +107,7 @@ struct AttendanceView: View {
             attendanceVM.getAttendanceInterval()
         }
         .toast(isPresenting: $attendanceVM.showAlert) {
-            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: attendanceVM.alertMessage)
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Yeay", subTitle: attendanceVM.alertMessage)
         }
     }
 }
