@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 29/12/22.
 //
 
+import AlertToast
 import SwiftUI
 
 struct CheckOutView: View {
@@ -14,6 +15,7 @@ struct CheckOutView: View {
     @StateObject var checkOutVM: CheckOutViewModel = CheckOutViewModel()
     @State private var selectedImageData: UIImage?
     @FocusState private var focusedField: Field?
+    @Environment(\.dismiss) var dismiss
     let latitude: String
     let longitude: String
     let tempat: Bool
@@ -46,7 +48,7 @@ struct CheckOutView: View {
                     }
                 }
                 .fullScreenCover(isPresented: $checkOutVM.showPicker) {
-                    ImagePicker(sourceType: .camera, allowEdit: false, selectedImage: $selectedImageData)
+                    ImagePicker(sourceType: .photoLibrary, allowEdit: false, selectedImage: $selectedImageData)
                         .ignoresSafeArea()
                 }
                 .alert("Error", isPresented: $checkOutVM.showCameraAlert, presenting: checkOutVM.cameraError, actions: { cameraError in
@@ -57,20 +59,19 @@ struct CheckOutView: View {
                 
                 TextField("Progress Hari Ini", text: $checkOutVM.progressPegawai, axis: .vertical)
                     .focused($focusedField, equals: .progress)
-                    .lineLimit(2)
+                    .lineLimit(2, reservesSpace: true)
                     .padding(15)
                     .frame(width:350)
                     .background(.white)
                     .cornerRadius(20)
                 
                 Button {
-                    if let selectedImageData, checkOutVM.progressPegawai.count > 2 {
-                        Task {
-                            await checkOutVM.postCheckOut(long:longitude,
+                    Task {
+                        try await checkOutVM.postCheckOut(long:longitude,
                                                           lat:latitude,
                                                           tempat: tempat,
-                                                          foto:selectedImageData.jpegData(compressionQuality: 0.5)!, prog: checkOutVM.progressPegawai)
-                        }
+                                                          foto:selectedImageData?.jpegData(compressionQuality: 0.5) ?? Data(),
+                                                          prog: checkOutVM.progressPegawai)
                     }
                 } label: {
                     ZStack {
@@ -85,6 +86,12 @@ struct CheckOutView: View {
             }
             .padding(.top, 60)
         }
+        .toast(isPresenting: $checkOutVM.showAlert, duration: 3) {
+            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: checkOutVM.alertMessage)
+        }
+        .onChange(of: checkOutVM.attendanceSuccess, perform: { newValue in
+            dismiss()
+        })
         .toolbar {
             ToolbarItem(placement: .keyboard) {
                 Button("Done") {
