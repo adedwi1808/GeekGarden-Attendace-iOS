@@ -18,7 +18,7 @@ struct MoreView: View {
             ScrollView(.vertical) {
                 MiniProfilPegawaiView(pegawaiInitials: $moreVM.pegawaiInitials,
                                       pegawaiName: $moreVM.pegawaiName,
-                                      pegawaiJabatan: $moreVM.pegawaiJabatan)
+                                      pegawaiJabatan: $moreVM.pegawaiJabatan, pegawaiPhotoProfileURL: $moreVM.pegawaiPhotoProfileURL)
                 Section {
                     DataKehadiranPegawaiView(hadir: $moreVM.hadirStats,
                                              izin: $moreVM.izinStats,
@@ -32,11 +32,11 @@ struct MoreView: View {
                 }
                 
                 Section {
-                    VStack {
+                    VStack(spacing: 4) {
                         ForEach(moreVM.destion, id: \.id) { item in
                             CustomMoreButtonView(buttonName: item.buttonName ?? "",
                                                  buttonSymbol: item.buttonSymbol ?? "",
-                                                 destionation: Text("Hello World"))
+                                                 destionation: item.destination)
                         }
                     }
                 } header: {
@@ -61,32 +61,3 @@ struct MoreView_Previews: PreviewProvider {
     }
 }
 
-struct CustomMoreButtonView<T: View>: View {
-    var buttonName: String
-    var buttonSymbol: String
-    var destionation: T
-    var body: some View {
-        NavigationLink {
-            destionation
-        } label: {
-            HStack {
-                Image(buttonSymbol)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                
-                Text(buttonName)
-                    .font(.system(size: 22, weight: .regular))
-                    .foregroundColor(Color("PrimaryColor"))
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.gray)
-            }
-            .padding(10)
-            .background(.white)
-            .cornerRadius(10)
-            .shadow(radius: 2, y: 1)
-            .padding(3)
-        }
-    }
-}

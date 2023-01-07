@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class MoreViewModel: ObservableObject {
     @Published var hadirStats: String = "0"
@@ -15,11 +16,23 @@ class MoreViewModel: ObservableObject {
     @Published var pegawaiInitials: String = ""
     @Published var pegawaiName: String = ""
     @Published var pegawaiJabatan: String = ""
+    @Published var pegawaiPhotoProfileURL: String = ""
     var destion: [CustomMoreButtonModel] = [
-        CustomMoreButtonModel(buttonName: "Pengajuan Izin", buttonSymbol: "TaskAddSymbol"),
-        CustomMoreButtonModel(buttonName: "Pengaduan Absensi", buttonSymbol: ""),
-        CustomMoreButtonModel(buttonName: "Status Pengajuan Izin", buttonSymbol: "TaskHistorySymbol"),
-        CustomMoreButtonModel(buttonName: "Status Pengaduan", buttonSymbol: "")]
+        CustomMoreButtonModel(buttonName: "Pengajuan Izin",
+                              buttonSymbol: "TaskAddSymbol",
+                              destination: AnyView(WorkPermitView())),
+        
+        CustomMoreButtonModel(buttonName: "Pengaduan Absensi",
+                              buttonSymbol: "TaskReportSymbol",
+                              destination: AnyView(ReportAttendanceView())),
+        
+        CustomMoreButtonModel(buttonName: "Status Pengajuan Izin",
+                              
+                              buttonSymbol: "TaskHistorySymbol",
+                              destination: AnyView(ListWorkPermitStatusView())),
+        CustomMoreButtonModel(buttonName: "Status Pengaduan",
+                              buttonSymbol: "TaskRepairSymbol",
+                              destination: AnyView(ListReportStatusView()))]
     
     private let prefs: UserDefaults = UserDefaults()
         
@@ -36,8 +49,8 @@ extension MoreViewModel {
     }
     
     private func getDataPegawai() -> DataPegawaiModel {
-        guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
-        return dataMapper(data: dataPegawai)
+        guard let dataPegawai = prefs.getDataFromLocal(DataPegawaiModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
+        return dataPegawai
     }
     
     private func setPegawaiInitials() {
@@ -50,22 +63,11 @@ extension MoreViewModel {
         self.pegawaiInitials = res.joined()
     }
     
-    private func dataMapper(data: LoginPegawaiResponseModel)  -> DataPegawaiModel{
-        let res: DataPegawaiModel = DataPegawaiModel(
-            idPegawai: data.data?.idPegawai,
-            nama: data.data?.nama,
-            jenisKelamin: data.data?.jenisKelamin,
-            nomorHP: data.data?.nomorHP,
-            email: data.data?.email,
-            jabatan: data.data?.jabatan,
-            fotoProfile: data.data?.fotoProfile)
-        return res
-    }
-    
     func setMiniProfile() {
         let data = getDataPegawai()
         self.pegawaiName = data.nama ?? ""
         self.pegawaiJabatan = data.jabatan ?? ""
+        self.pegawaiPhotoProfileURL = data.fotoProfile ?? ""
         setPegawaiInitials()
     }
 }

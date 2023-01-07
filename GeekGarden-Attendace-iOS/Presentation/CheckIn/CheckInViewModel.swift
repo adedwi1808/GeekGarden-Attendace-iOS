@@ -9,9 +9,14 @@ import Foundation
 
 class CheckInViewModel: ObservableObject {
     @Published var showPicker = false
-    @Published var source: Picker.Source = .library
-    @Published var cameraError: Picker.CameraErrorType?
-    @Published var showCameraAlert = false
+    @Published var source: ImagePickerFactory.Source = .library
+    @Published var cameraError: ImagePickerFactory.CameraErrorType?
+    @Published var showCameraAlert: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var isLoading: Bool = false
+    @Published var alertMessage: String = ""
+    @Published var attendanceSuccess: Bool = false
+    
     private var checkInServices: CheckInServicesProtocol
     
     init(checkInServices: CheckInServicesProtocol = CheckInServices()) {
@@ -21,32 +26,32 @@ class CheckInViewModel: ObservableObject {
     func showPhotoPicker() {
         do {
             if source == .camera {
-                try Picker.checkPermissions()
+                try ImagePickerFactory.checkPermissions()
             }
             showPicker = true
         } catch {
             showCameraAlert = true
-            cameraError = Picker.CameraErrorType(error: error as! Picker.PickerError)
+            cameraError = ImagePickerFactory.CameraErrorType(error: error as! ImagePickerFactory.PickerError)
         }
     }
     
-    func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async {
+    func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async throws{
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
         do {
-            let data = try await checkInServices.postCheckIn(
+            _ = try await checkInServices.postCheckIn(
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
-        } catch let DecodingError.dataCorrupted(context) {
-            print(context)
-        } catch let DecodingError.keyNotFound(key, context) {
-            print("Key '\(key)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch let DecodingError.valueNotFound(value, context) {
-            print("Value '\(value)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch let DecodingError.typeMismatch(type, context)  {
-            print("Type '\(type)' mismatch:", context.debugDescription)
-            print("codingPath:", context.codingPath)
-        } catch {
-            print("error: ", error)
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.attendanceSuccess.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+            }
         }
     }
 }

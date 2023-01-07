@@ -15,6 +15,9 @@ class HomeViewModel: ObservableObject {
     @Published  var pegawaiInitials: String = ""
     @Published  var pegawaiName: String = ""
     @Published  var pegawaiJabatan: String = ""
+    @Published  var pegawaiPhotoProfileURL: String = ""
+    @Published var madingData: [MadingGeekGardenModel] = []
+    @Published var madingDataOfflineReady: Bool = false
     
     private let prefs: UserDefaults = UserDefaults()
     private var homeServices: HomeServicesProtocol
@@ -31,7 +34,7 @@ extension HomeViewModel {
             let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)
             saveAttendanceStatsToLocale(data)
         } catch {
-            print("err while do login")
+            print("err while do get attendance stats")
         }
     }
     
@@ -48,8 +51,8 @@ extension HomeViewModel {
     }
     
     private func getDataPegawai() -> DataPegawaiModel {
-        guard let dataPegawai = prefs.getDataFromLocal(LoginPegawaiResponseModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
-        return dataMapper(data: dataPegawai)
+        guard let dataPegawai = prefs.getDataFromLocal(DataPegawaiModel.self, with: .dataPegawai) else { return DataPegawaiModel(idPegawai: 0, nama: "-", jenisKelamin: "-", nomorHP: "-", email: "-", jabatan: "-", fotoProfile: "") }
+        return dataPegawai
     }
     
     private func setPegawaiInitials() {
@@ -62,22 +65,11 @@ extension HomeViewModel {
         self.pegawaiInitials = res.joined()
     }
     
-    private func dataMapper(data: LoginPegawaiResponseModel)  -> DataPegawaiModel{
-        let res: DataPegawaiModel = DataPegawaiModel(
-            idPegawai: data.data?.idPegawai,
-            nama: data.data?.nama,
-            jenisKelamin: data.data?.jenisKelamin,
-            nomorHP: data.data?.nomorHP,
-            email: data.data?.email,
-            jabatan: data.data?.jabatan,
-            fotoProfile: data.data?.fotoProfile)
-        return res
-    }
-    
     func setMiniProfile() {
         let data = getDataPegawai()
         self.pegawaiName = data.nama ?? ""
         self.pegawaiJabatan = data.jabatan ?? ""
+        self.pegawaiPhotoProfileURL = data.fotoProfile ?? ""
         setPegawaiInitials()
     }
 }
@@ -86,18 +78,22 @@ extension HomeViewModel {
     func getMadingGeekGarden() async {
         do {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
-            saveMadingGeekGardenLocale(data)
+            DispatchQueue.main.async {
+                self.madingData.append(contentsOf: data.data!)
+                self.saveMadingGeekGardenLocale(data)
+            }
         } catch {
-            print("err while do login")
+            print("err while do getmading geek garden")
         }
     }
     
-    func saveMadingGeekGardenLocale(_ data: MadingGeekGardenModel) {
+    func saveMadingGeekGardenLocale(_ data: MadingGeekGardenResponseModel) {
         prefs.setDataToLocal(data.self, with: .madingGeekGarden)
+        self.madingDataOfflineReady = true
     }
     
-    func getMadingGeekGardenFromLocale() -> MadingGeekGardenModel {
-        guard let mading = prefs.getDataFromLocal(MadingGeekGardenModel.self, with: .madingGeekGarden) else { return MadingGeekGardenModel(code: nil, message: nil, data: nil)}
+    func getMadingGeekGardenFromLocale() -> MadingGeekGardenResponseModel {
+        guard let mading = prefs.getDataFromLocal(MadingGeekGardenResponseModel.self, with: .madingGeekGarden) else { return MadingGeekGardenResponseModel(code: nil, message: nil, data: nil)}
         return mading
     }
 }

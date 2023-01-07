@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 24/12/22.
 //
 
+import AlertToast
 import SwiftUI
 import CoreLocation
 
@@ -24,7 +25,7 @@ struct AttendanceView: View {
                     .font(.system(size: 24, weight: .regular))
                     .foregroundColor(Color("PrimaryColor"))
                 
-                if attendanceVM.numberOfAbsencesToday < 1 {
+                if attendanceVM.numberOfAbsencesToday == 0 {
                     NavigationLink(destination: CheckInView(
                         latitude: attendanceVM.latitude,
                         longitude: attendanceVM.longitude,
@@ -32,7 +33,7 @@ struct AttendanceView: View {
                     )) {
                         AttendanceButtonView()
                     }
-                } else {
+                } else if attendanceVM.numberOfAbsencesToday == 1 {
                     NavigationLink(destination: CheckOutView(
                         latitude: attendanceVM.latitude,
                         longitude: attendanceVM.longitude,
@@ -40,6 +41,11 @@ struct AttendanceView: View {
                     )) {
                         AttendanceButtonView()
                     }
+                } else {
+                    AttendanceButtonView()
+                        .onTapGesture {
+                            attendanceVM.showAlert.toggle()
+                        }
                 }
                 
                 NavigationLink(destination: MapView()) {
@@ -99,6 +105,9 @@ struct AttendanceView: View {
             attendanceVM.getCheckInTime()
             attendanceVM.getCheckOutTime()
             attendanceVM.getAttendanceInterval()
+        }
+        .toast(isPresenting: $attendanceVM.showAlert) {
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Yeay", subTitle: attendanceVM.alertMessage)
         }
     }
 }

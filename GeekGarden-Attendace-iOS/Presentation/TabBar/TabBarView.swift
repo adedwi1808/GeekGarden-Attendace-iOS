@@ -9,16 +9,21 @@ import SwiftUI
 import CoreLocation
 
 struct TabBarView: View {
+    
+    @State var selectedTab: Tab = .home
+    
     init() {
-            //Use this if NavigationBarTitle is with Large Font
-            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
-
-            //Use this if NavigationBarTitle is with displayMode = .inline
-            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
-        }
-
+        //Use this if NavigationBarTitle is with Large Font
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
+        
+        //Use this if NavigationBarTitle is with displayMode = .inline
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(Color("PrimaryColor"))]
+        
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
+    
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             HomeView()
                 .tabItem {
                     VStack {
@@ -26,6 +31,7 @@ struct TabBarView: View {
                         Text("Home")
                     }
                 }
+                .tag(Tab.home)
             
             AttendanceView()
                 .tabItem {
@@ -34,6 +40,7 @@ struct TabBarView: View {
                         Text("Attendance")
                     }
                 }
+                .tag(Tab.attendance)
             
             HistoryView()
                 .tabItem {
@@ -42,6 +49,7 @@ struct TabBarView: View {
                         Text("History")
                     }
                 }
+                .tag(Tab.history)
             
             MoreView()
                 .tabItem {
@@ -50,29 +58,40 @@ struct TabBarView: View {
                         Text("More")
                     }
                 }
+                .tag(Tab.more)
         }
         .onAppear {
-                LocationManager.shared.getLocation { (location:CLLocation?, error:NSError?) in
-
-                            if let error = error {
-                                print(error.localizedDescription)
-                                return
-                            }
-                            
-                            guard let location = location else {
-                                return
-                            }
-                            print("Latitude: \(location.coordinate.latitude) Longitude: \(location.coordinate.longitude)")
-                        }
+            LocationManager.shared.getLocation { (location:CLLocation?, error:NSError?) in
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let location = location else {
+                    return
+                }
+                print("Latitude: \(location.coordinate.latitude) Longitude: \(location.coordinate.longitude)")
+            }
         }
-        .navigationTitle("GeekGarden Attendance")
+        .navigationTitle(selectedTab.rawValue)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+        .tint(Color("PrimaryColor"))
     }
 }
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView()
+    }
+}
+
+extension TabBarView {
+    enum Tab: String {
+        case home = "GeekGarden Attendance"
+        case attendance = "Attendance"
+        case history = "History"
+        case more = "More"
     }
 }

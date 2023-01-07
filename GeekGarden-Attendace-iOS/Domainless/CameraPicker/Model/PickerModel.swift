@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-enum Picker {
+enum ImagePickerFactory {
     enum Source: String {
         case library, camera
     }
@@ -47,7 +47,7 @@ enum Picker {
     }
     
     struct CameraErrorType {
-        let error: Picker.PickerError
+        let error: ImagePickerFactory.PickerError
         var message: String {
             error.localizedDescription
         }

@@ -12,6 +12,8 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = "123123"
     @Published var isLoggedIn: Bool = false
     @Published var isLoading: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
     private let prefs = UserDefaults()
     
     private var loginPegawaiServices: LoginServicesProtocol
@@ -20,12 +22,22 @@ class LoginViewModel: ObservableObject {
         self.loginPegawaiServices = loginPegawaiServices
     }
     
-    func loginPegawai() async {
+    func loginPegawai() async throws{
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
         do {
             let data = try await loginPegawaiServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
-        } catch {
-            print("err while do login")
+        } catch let err as NetworkError {
+//            print("err while do login")
+            DispatchQueue.main.async {
+                self.showAlert.toggle()
+                self.alertMessage = err.localizedDescription
+            }
+        }
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
         }
     }
     
@@ -33,8 +45,12 @@ class LoginViewModel: ObservableObject {
         DispatchQueue.main.async {
             guard let appToken = data.token else { return }
             self.isLoggedIn = true
-            self.prefs.setDataToLocal(data.self, with: .dataPegawai)
+            self.prefs.setDataToLocal(data.data.self, with: .dataPegawai)
             self.prefs.setDataToLocal(appToken.self, with: .appToken)
         }
+    }
+    
+    func resetLocalStorage() {
+        prefs.resetLocale()
     }
 }

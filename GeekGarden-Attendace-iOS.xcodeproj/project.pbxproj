@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */; };
+		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
+		012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A429631B6400366C4A /* UpdateProfileView.swift */; };
+		012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */; };
+		012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A92964383400366C4A /* UpdateProfilServices.swift */; };
+		012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */; };
+		012B31AF2964578D00366C4A /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31AE2964578D00366C4A /* Constans.swift */; };
+		012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B129653EEB00366C4A /* WorkPermitView.swift */; };
+		012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B329655DD700366C4A /* WorkPermitViewModel.swift */; };
+		012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B62965820F00366C4A /* WorkPermitServices.swift */; };
+		012B31BA2965846500366C4A /* WorkPermitResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31B92965846500366C4A /* WorkPermitResponseModel.swift */; };
+		012B31BD29658CFB00366C4A /* ReportAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31BC29658CFB00366C4A /* ReportAttendanceView.swift */; };
+		012B31BF29658D6500366C4A /* ReportAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */; };
+		012B31C42965A5E200366C4A /* ReportAttendanceResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */; };
+		012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31C52965A62400366C4A /* ReportAttendanceServices.swift */; };
+		012B31CC2965B7C700366C4A /* ListReportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31CB2965B7C700366C4A /* ListReportStatusView.swift */; };
+		012B31CE2965B85C00366C4A /* ListReportStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31CD2965B85C00366C4A /* ListReportStatusViewModel.swift */; };
+		012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */; };
+		012B31D42965BAF000366C4A /* ListReportStatusServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D32965BAF000366C4A /* ListReportStatusServices.swift */; };
+		012B31D62965BD9E00366C4A /* ReportStatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D52965BD9D00366C4A /* ReportStatusItemView.swift */; };
+		012B31D92965C98F00366C4A /* ListWorkPermitStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31D82965C98F00366C4A /* ListWorkPermitStatusView.swift */; };
+		012B31DB2965C9C800366C4A /* WorkPermitStatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31DA2965C9C800366C4A /* WorkPermitStatusItemView.swift */; };
+		012B31DD2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */; };
+		012B31E32965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */; };
+		012B31E52965CDFC00366C4A /* ListWorkPermitStatusServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */; };
+		012B31E8296726F700366C4A /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 012B31E7296726F700366C4A /* AlertToast */; };
 		0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */; };
 		0135C970294A425E008C7589 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0135C96F294A425E008C7589 /* ContentView.swift */; };
 		0135C972294A425F008C7589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0135C971294A425F008C7589 /* Assets.xcassets */; };
@@ -51,7 +77,7 @@
 		014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775529541E5C00C253C3 /* HomeViewModel.swift */; };
 		014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C77582954211E00C253C3 /* DataPegawaiModel.swift */; };
 		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
-		015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenModel.swift */; };
+		015991742954C65B00490EDC /* MadingGeekGardenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */; };
 		015991772954C7AD00490EDC /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991762954C7AD00490EDC /* HomeServices.swift */; };
 		01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */; };
 		01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */; };
@@ -60,6 +86,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonView.swift; sourceTree = "<group>"; };
+		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
+		012B31A429631B6400366C4A /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
+		012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileViewModel.swift; sourceTree = "<group>"; };
+		012B31A92964383400366C4A /* UpdateProfilServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfilServices.swift; sourceTree = "<group>"; };
+		012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDataPegawaiResponseModel.swift; sourceTree = "<group>"; };
+		012B31AE2964578D00366C4A /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		012B31B129653EEB00366C4A /* WorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitView.swift; sourceTree = "<group>"; };
+		012B31B329655DD700366C4A /* WorkPermitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitViewModel.swift; sourceTree = "<group>"; };
+		012B31B62965820F00366C4A /* WorkPermitServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitServices.swift; sourceTree = "<group>"; };
+		012B31B92965846500366C4A /* WorkPermitResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitResponseModel.swift; sourceTree = "<group>"; };
+		012B31BC29658CFB00366C4A /* ReportAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceView.swift; sourceTree = "<group>"; };
+		012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceViewModel.swift; sourceTree = "<group>"; };
+		012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceResponseModel.swift; sourceTree = "<group>"; };
+		012B31C52965A62400366C4A /* ReportAttendanceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAttendanceServices.swift; sourceTree = "<group>"; };
+		012B31CB2965B7C700366C4A /* ListReportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusView.swift; sourceTree = "<group>"; };
+		012B31CD2965B85C00366C4A /* ListReportStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusViewModel.swift; sourceTree = "<group>"; };
+		012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponseStatusModel.swift; sourceTree = "<group>"; };
+		012B31D32965BAF000366C4A /* ListReportStatusServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListReportStatusServices.swift; sourceTree = "<group>"; };
+		012B31D52965BD9D00366C4A /* ReportStatusItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStatusItemView.swift; sourceTree = "<group>"; };
+		012B31D82965C98F00366C4A /* ListWorkPermitStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusView.swift; sourceTree = "<group>"; };
+		012B31DA2965C9C800366C4A /* WorkPermitStatusItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPermitStatusItemView.swift; sourceTree = "<group>"; };
+		012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusViewModel.swift; sourceTree = "<group>"; };
+		012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusResponseModel.swift; sourceTree = "<group>"; };
+		012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWorkPermitStatusServices.swift; sourceTree = "<group>"; };
 		0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GeekGarden-Attendace-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0135C96D294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeekGarden_Attendace_iOSApp.swift; sourceTree = "<group>"; };
 		0135C96F294A425E008C7589 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,7 +156,7 @@
 		014C775529541E5C00C253C3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		014C77582954211E00C253C3 /* DataPegawaiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPegawaiModel.swift; sourceTree = "<group>"; };
 		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
-		015991732954C65B00490EDC /* MadingGeekGardenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenModel.swift; sourceTree = "<group>"; };
+		015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenResponseModel.swift; sourceTree = "<group>"; };
 		015991762954C7AD00490EDC /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
 		01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
@@ -118,12 +169,148 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				012B31E8296726F700366C4A /* AlertToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		012B31A329631B4C00366C4A /* UpdateProfile */ = {
+			isa = PBXGroup;
+			children = (
+				012B31AB29643DED00366C4A /* Model */,
+				012B31A82964382200366C4A /* Services */,
+				012B31A429631B6400366C4A /* UpdateProfileView.swift */,
+				012B31A629631CDA00366C4A /* UpdateProfileViewModel.swift */,
+			);
+			path = UpdateProfile;
+			sourceTree = "<group>";
+		};
+		012B31A82964382200366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31A92964383400366C4A /* UpdateProfilServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31AB29643DED00366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31AC296440D500366C4A /* UpdateDataPegawaiResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		012B31B029653EDC00366C4A /* WorkPermit */ = {
+			isa = PBXGroup;
+			children = (
+				012B31B82965845500366C4A /* Model */,
+				012B31B5296581F600366C4A /* Services */,
+				012B31B129653EEB00366C4A /* WorkPermitView.swift */,
+				012B31B329655DD700366C4A /* WorkPermitViewModel.swift */,
+			);
+			path = WorkPermit;
+			sourceTree = "<group>";
+		};
+		012B31B5296581F600366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31B62965820F00366C4A /* WorkPermitServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31B82965845500366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31B92965846500366C4A /* WorkPermitResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		012B31BB29658CAF00366C4A /* ReportAttendance */ = {
+			isa = PBXGroup;
+			children = (
+				012B31C22965A50200366C4A /* Model */,
+				012B31C02965A4EB00366C4A /* Services */,
+				012B31BC29658CFB00366C4A /* ReportAttendanceView.swift */,
+				012B31BE29658D6500366C4A /* ReportAttendanceViewModel.swift */,
+			);
+			path = ReportAttendance;
+			sourceTree = "<group>";
+		};
+		012B31C02965A4EB00366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31C52965A62400366C4A /* ReportAttendanceServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31C22965A50200366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31C32965A5E200366C4A /* ReportAttendanceResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		012B31CA2965B75B00366C4A /* ListReportStatus */ = {
+			isa = PBXGroup;
+			children = (
+				012B31D22965BAD000366C4A /* Services */,
+				012B31CF2965B8BA00366C4A /* Model */,
+				012B31CB2965B7C700366C4A /* ListReportStatusView.swift */,
+				012B31CD2965B85C00366C4A /* ListReportStatusViewModel.swift */,
+			);
+			path = ListReportStatus;
+			sourceTree = "<group>";
+		};
+		012B31CF2965B8BA00366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31D02965B9E100366C4A /* ListResponseStatusModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		012B31D22965BAD000366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31D32965BAF000366C4A /* ListReportStatusServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31D72965C96D00366C4A /* ListWorkPermitStatus */ = {
+			isa = PBXGroup;
+			children = (
+				012B31DF2965CD8C00366C4A /* Model */,
+				012B31DE2965CD8500366C4A /* Services */,
+				012B31D82965C98F00366C4A /* ListWorkPermitStatusView.swift */,
+				012B31DC2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift */,
+			);
+			path = ListWorkPermitStatus;
+			sourceTree = "<group>";
+		};
+		012B31DE2965CD8500366C4A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				012B31E42965CDFC00366C4A /* ListWorkPermitStatusServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		012B31DF2965CD8C00366C4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				012B31E22965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0135C961294A425E008C7589 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +351,11 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				012B31D72965C96D00366C4A /* ListWorkPermitStatus */,
+				012B31CA2965B75B00366C4A /* ListReportStatus */,
+				012B31BB29658CAF00366C4A /* ReportAttendance */,
+				012B31B029653EDC00366C4A /* WorkPermit */,
+				012B31A329631B4C00366C4A /* UpdateProfile */,
 				01D0C1CE295EDD6400F8A5F4 /* More */,
 				013BC874295CF12C00194B80 /* History */,
 				013BC866295CBAF500194B80 /* CheckOut */,
@@ -232,6 +424,10 @@
 				014C773F2950A6F300C253C3 /* DataKehadiranPegawaiView.swift */,
 				014C77412950AFD600C253C3 /* MadingGeekGardenView.swift */,
 				014C77432950B03800C253C3 /* MiniProfilPegawai.swift */,
+				0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */,
+				0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */,
+				012B31D52965BD9D00366C4A /* ReportStatusItemView.swift */,
+				012B31DA2965C9C800366C4A /* WorkPermitStatusItemView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -341,6 +537,7 @@
 		013BC871295CE74C00194B80 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				012B31AE2964578D00366C4A /* Constans.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -428,7 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				014C77582954211E00C253C3 /* DataPegawaiModel.swift */,
-				015991732954C65B00490EDC /* MadingGeekGardenModel.swift */,
+				015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */,
 				013BC872295CECBF00194B80 /* AttendanceStatsResponseModel.swift */,
 			);
 			path = Model;
@@ -493,6 +690,9 @@
 			dependencies = (
 			);
 			name = "GeekGarden-Attendace-iOS";
+			packageProductDependencies = (
+				012B31E7296726F700366C4A /* AlertToast */,
+			);
 			productName = "GeekGarden-Attendace-iOS";
 			productReference = 0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -521,6 +721,9 @@
 				Base,
 			);
 			mainGroup = 0135C961294A425E008C7589;
+			packageReferences = (
+				012B31E6296726F600366C4A /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
 			productRefGroup = 0135C96B294A425E008C7589 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -550,48 +753,73 @@
 				014C775629541E5C00C253C3 /* HomeViewModel.swift in Sources */,
 				0135C97F294A43C9008C7589 /* LoginView.swift in Sources */,
 				014C77592954211E00C253C3 /* DataPegawaiModel.swift in Sources */,
+				012B31E52965CDFC00366C4A /* ListWorkPermitStatusServices.swift in Sources */,
 				01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */,
 				013BC84C2959E9E300194B80 /* PickerModel.swift in Sources */,
+				012B31E32965CDBE00366C4A /* ListWorkPermitStatusResponseModel.swift in Sources */,
+				012B31B72965820F00366C4A /* WorkPermitServices.swift in Sources */,
+				012B31D42965BAF000366C4A /* ListReportStatusServices.swift in Sources */,
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
+				012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */,
 				013BC876295CF13F00194B80 /* HistoryView.swift in Sources */,
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
 				014C774C2950B38800C253C3 /* Networker.swift in Sources */,
 				0135C990294A6466008C7589 /* HomeView.swift in Sources */,
+				012B31BF29658D6500366C4A /* ReportAttendanceViewModel.swift in Sources */,
 				013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
+				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
+				012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */,
 				013BC85F295C385500194B80 /* Data.swift in Sources */,
 				01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */,
 				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
+				012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */,
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
+				012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
+				012B31DD2965CB8500366C4A /* ListWorkPermitStatusViewModel.swift in Sources */,
 				013BC857295B1D0600194B80 /* MarkerModel.swift in Sources */,
-				015991742954C65B00490EDC /* MadingGeekGardenModel.swift in Sources */,
+				015991742954C65B00490EDC /* MadingGeekGardenResponseModel.swift in Sources */,
 				013BC852295A012400194B80 /* MapView.swift in Sources */,
+				012B31AD296440D500366C4A /* UpdateDataPegawaiResponseModel.swift in Sources */,
+				012B31AF2964578D00366C4A /* Constans.swift in Sources */,
 				0135C98B294A5EB1008C7589 /* LoginViewModel.swift in Sources */,
 				013BC8472958CBF100194B80 /* ImagePicker.swift in Sources */,
+				012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
+				012B31D92965C98F00366C4A /* ListWorkPermitStatusView.swift in Sources */,
 				01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
 				013BC865295CB0F700194B80 /* AttendanceServices.swift in Sources */,
+				012B31CE2965B85C00366C4A /* ListReportStatusViewModel.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
 				01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
+				012B31CC2965B7C700366C4A /* ListReportStatusView.swift in Sources */,
 				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,
 				013BC86B295CBB5E00194B80 /* CheckOutViewModel.swift in Sources */,
+				012B31D62965BD9E00366C4A /* ReportStatusItemView.swift in Sources */,
+				012B31DB2965C9C800366C4A /* WorkPermitStatusItemView.swift in Sources */,
+				012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
+				0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */,
 				013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
+				012B31C42965A5E200366C4A /* ReportAttendanceResponseModel.swift in Sources */,
+				0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */,
+				012B31BD29658CFB00366C4A /* ReportAttendanceView.swift in Sources */,
 				014BAB23295716AD00991566 /* CheckInView.swift in Sources */,
 				013BC86D295CCC9C00194B80 /* CheckOutServices.swift in Sources */,
 				013BC879295CF1D000194B80 /* AttendanceHistoryResponseModel.swift in Sources */,
 				013BC84F2959FAE900194B80 /* LocationManager.swift in Sources */,
+				012B31BA2965846500366C4A /* WorkPermitResponseModel.swift in Sources */,
 				0135C96E294A425E008C7589 /* GeekGarden_Attendace_iOSApp.swift in Sources */,
 				0135C993294A6F3A008C7589 /* LoginForm.swift in Sources */,
 				014C774F2953EDCE00C253C3 /* LoginServices.swift in Sources */,
@@ -803,6 +1031,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		012B31E6296726F600366C4A /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		012B31E7296726F700366C4A /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 012B31E6296726F600366C4A /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0135C962294A425E008C7589 /* Project object */;
 }

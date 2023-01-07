@@ -17,10 +17,16 @@ extension UserDefaults {
         let data = try? encoder.encode(object)
         self.set(data, forKey: key.rawValue)
     }
+    
+    func resetLocale() {
+        for key in Key.allCases {
+            self.removeObject(forKey: key.rawValue)
+        }
+    }
 }
 
 extension UserDefaults {
-    enum Key: String {
+    enum Key: String, CaseIterable {
         case dataPegawai
         case appToken
         case madingGeekGarden

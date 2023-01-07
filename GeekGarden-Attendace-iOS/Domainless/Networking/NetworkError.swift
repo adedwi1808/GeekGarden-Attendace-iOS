@@ -20,15 +20,18 @@ enum NetworkError: Error, LocalizedError {
 }
 
 struct NetworkHandle: Decodable, Error, LocalizedError {
-    let success: Bool
-    let data: NetworkHandleData
+//    let success: Bool
+//    let data: NetworkHandleData
     let message: String
     let code: Int
-    let codeName: String
+//    let codeName: String
     
     enum CodingKeys: String, CodingKey {
-        case success, data, message, code
-        case codeName = "code_name"
+//        case success
+//        case data
+        case message
+        case code
+//        case codeName = "code_name"
     }
 }
 

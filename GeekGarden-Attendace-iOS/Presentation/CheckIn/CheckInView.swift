@@ -5,11 +5,12 @@
 //  Created by Ade Dwi Prayitno on 24/12/22.
 //
 
+import AlertToast
 import PhotosUI
 import SwiftUI
 
 struct CheckInView: View {
-    
+    @Environment(\.dismiss) var dismiss
     @StateObject var checkInViewModel: CheckInViewModel = CheckInViewModel()
     @State private var selectedImageData: UIImage?
     let latitude: String
@@ -44,7 +45,7 @@ struct CheckInView: View {
                     }
                 }
                 .fullScreenCover(isPresented: $checkInViewModel.showPicker) {
-                    ImagePicker(sourceType: .camera , selectedImage: $selectedImageData)
+                    ImagePicker(sourceType: .camera, allowEdit: false, selectedImage: $selectedImageData)
                         .ignoresSafeArea()
                 }
                 .alert("Error", isPresented: $checkInViewModel.showCameraAlert, presenting: checkInViewModel.cameraError, actions: { cameraError in
@@ -52,12 +53,21 @@ struct CheckInView: View {
                 }, message: { cameraError in
                     Text(cameraError.message)
                 })
+                .toast(isPresenting: $checkInViewModel.isLoading) {
+                    AlertToast(type: .loading, title: "Loading")
+                }
+                .toast(isPresenting: $checkInViewModel.showAlert, duration: 3) {
+                    AlertToast(displayMode: .banner(.pop),
+                               type: .error(.red),
+                               title: "Upss",
+                               subTitle: checkInViewModel.alertMessage)
+                }
                 
                 
                 Button {
                     if let selectedImageData {
                         Task {
-                            await checkInViewModel.postCheckIn(lat: latitude, long: longitude, tempat: tempat, foto: (selectedImageData.jpegData(compressionQuality: 0.4))!)
+                            try await checkInViewModel.postCheckIn(lat: latitude, long: longitude, tempat: tempat, foto: (selectedImageData.jpegData(compressionQuality: 0.4))!)
                         }
                     }
                 } label: {
@@ -72,6 +82,9 @@ struct CheckInView: View {
                 .cornerRadius(20)
             }.padding(.top, 60)
         }
+        .onChange(of: checkInViewModel.attendanceSuccess, perform: { newValue in
+            dismiss()
+        })
         .navigationTitle("Check In")
     }
 }

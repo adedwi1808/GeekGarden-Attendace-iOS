@@ -18,6 +18,9 @@ class AttendanceViewModel: ObservableObject {
     @Published var checkInTime: String = "-"
     @Published var checkOutTime: String = "-"
     @Published var attendanceInterval: String = "-"
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = "Anda Sudah Memenuhi Absent, Terima Kasih"
+    
     private var checkInDate: Date?
     private var checkOutDate: Date?
     
@@ -99,6 +102,11 @@ class AttendanceViewModel: ObservableObject {
     func checkHowManyAbsentToday() {
         let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
         self.numberOfAbsencesToday = data?.data?.jumlahAbsenHariIni ?? 0
+        if numberOfAbsencesToday == 0 {
+            self.checkInTime = "-"
+            self.checkOutTime = "-"
+            self.attendanceInterval = "-"
+        }
     }
     
     func getCheckInTime() {

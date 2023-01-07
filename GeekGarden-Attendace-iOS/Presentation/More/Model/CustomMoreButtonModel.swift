@@ -5,10 +5,11 @@
 //  Created by Ade Dwi Prayitno on 30/12/22.
 //
 
-import Foundation
+import SwiftUI
 
-struct CustomMoreButtonModel: Codable, Identifiable{
+struct CustomMoreButtonModel: Identifiable{
     var id = UUID()
     let buttonName: String?
     let buttonSymbol: String?
+    let destination: AnyView?
 }

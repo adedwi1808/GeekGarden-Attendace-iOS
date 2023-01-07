@@ -5,6 +5,7 @@
 //  Created by Ade Dwi Prayitno on 15/12/22.
 //
 
+import AlertToast
 import SwiftUI
 
 struct LoginView: View {
@@ -43,7 +44,7 @@ struct LoginView: View {
                 
                 Button {
                     Task {
-                        await loginViewModel.loginPegawai()
+                        try await loginViewModel.loginPegawai()
                     }
                 } label: {
                     Text("Login")
@@ -57,6 +58,15 @@ struct LoginView: View {
                 .padding(.horizontal, 20)
             }
             .padding(15)
+            .onAppear {
+                loginViewModel.resetLocalStorage()
+            }
+            .toast(isPresenting: $loginViewModel.isLoading) {
+                AlertToast(type: .loading, title: "Loading")
+            }
+            .toast(isPresenting: $loginViewModel.showAlert, duration: 2) {
+                AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upss",subTitle: loginViewModel.alertMessage)
+            }
         }
     }
 }

@@ -9,10 +9,14 @@ import Foundation
 
 class CheckOutViewModel: ObservableObject {
     @Published var showPicker: Bool = false
-    @Published var source: Picker.Source = .library
-    @Published var cameraError: Picker.CameraErrorType?
+    @Published var source: ImagePickerFactory.Source = .library
+    @Published var cameraError: ImagePickerFactory.CameraErrorType?
     @Published var showCameraAlert: Bool = false
     @Published var progressPegawai: String = ""
+    @Published var isLoading: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
+    @Published var attendanceSuccess: Bool = false
     private var checkOutServices: CheckOutServicesProtocol
     
     init(checkOutServices: CheckOutServicesProtocol = CheckOutServices()) {
@@ -23,20 +27,31 @@ class CheckOutViewModel: ObservableObject {
     func showPhotoPicker() {
         do {
             if source == .camera {
-                try Picker.checkPermissions()
+                try ImagePickerFactory.checkPermissions()
             }
             showPicker = true
         } catch {
             showCameraAlert = true
-            cameraError = Picker.CameraErrorType(error: error as! Picker.PickerError)
+            cameraError = ImagePickerFactory.CameraErrorType(error: error as! ImagePickerFactory.PickerError)
         }
     }
     
-    func postCheckOut(long: String, lat: String, tempat: Bool, foto: Data, prog: String) async {
+    func postCheckOut(long: String, lat: String, tempat: Bool, foto: Data, prog: String) async throws{
+        DispatchQueue.main.async{
+            self.isLoading.toggle()
+        }
         do {
-            let data = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
-        } catch  {
-            print("Checkout ERR: \(error)")
+            _ = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
+            DispatchQueue.main.async{
+                self.isLoading.toggle()
+                self.attendanceSuccess.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async{
+                self.alertMessage = err.localizedDescription
+                self.isLoading.toggle()
+                self.showAlert.toggle()
+            }
         }
     }
 }

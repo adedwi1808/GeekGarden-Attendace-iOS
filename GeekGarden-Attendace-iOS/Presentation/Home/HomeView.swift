@@ -17,7 +17,7 @@ struct HomeView: View {
                 VStack {
                     MiniProfilPegawaiView(pegawaiInitials: $homeViewModel.pegawaiInitials,
                                           pegawaiName: $homeViewModel.pegawaiName,
-                                          pegawaiJabatan: $homeViewModel.pegawaiJabatan)
+                                          pegawaiJabatan: $homeViewModel.pegawaiJabatan, pegawaiPhotoProfileURL:$homeViewModel.pegawaiPhotoProfileURL)
                     
                     Section {
                         DataKehadiranPegawaiView(hadir: $homeViewModel.hadirStats,
@@ -35,8 +35,15 @@ struct HomeView: View {
                     Section {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                if let mading = homeViewModel.getMadingGeekGardenFromLocale().data {
-                                    ForEach(mading, id: \.idMading) { mading in
+                                if homeViewModel.madingDataOfflineReady {
+                                    ForEach(homeViewModel.getMadingGeekGardenFromLocale().data!, id: \.idMading) { mading in
+                                        MadingGeekGardenView(
+                                            judulMading: mading.judul ?? "",
+                                            isiMading: mading.informasi ?? "",
+                                            fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                                    }
+                                } else {
+                                    ForEach(homeViewModel.madingData, id: \.idMading) { mading in
                                         MadingGeekGardenView(
                                             judulMading: mading.judul ?? "",
                                             isiMading: mading.informasi ?? "",
@@ -58,7 +65,9 @@ struct HomeView: View {
         }
         .onAppear {
             Task {
-                await homeViewModel.getMadingGeekGarden()
+                if !homeViewModel.madingDataOfflineReady {
+                    await homeViewModel.getMadingGeekGarden()
+                }
                 await homeViewModel.getAttendanceStats()
             }
             homeViewModel.setAttendanceStatsFromLocale()
