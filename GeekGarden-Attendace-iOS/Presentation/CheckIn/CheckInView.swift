@@ -10,7 +10,7 @@ import PhotosUI
 import SwiftUI
 
 struct CheckInView: View {
-    
+    @Environment(\.dismiss) var dismiss
     @StateObject var checkInViewModel: CheckInViewModel = CheckInViewModel()
     @State private var selectedImageData: UIImage?
     let latitude: String
@@ -56,10 +56,11 @@ struct CheckInView: View {
                 .toast(isPresenting: $checkInViewModel.isLoading) {
                     AlertToast(type: .loading, title: "Loading")
                 }
-                .toast(isPresenting: $checkInViewModel.showAlert) {
+                .toast(isPresenting: $checkInViewModel.showAlert, duration: 3) {
                     AlertToast(displayMode: .banner(.pop),
                                type: .error(.red),
-                               title: checkInViewModel.alertMessage)
+                               title: "Upss",
+                               subTitle: checkInViewModel.alertMessage)
                 }
                 
                 
@@ -81,6 +82,9 @@ struct CheckInView: View {
                 .cornerRadius(20)
             }.padding(.top, 60)
         }
+        .onChange(of: checkInViewModel.attendanceSuccess, perform: { newValue in
+            dismiss()
+        })
         .navigationTitle("Check In")
     }
 }

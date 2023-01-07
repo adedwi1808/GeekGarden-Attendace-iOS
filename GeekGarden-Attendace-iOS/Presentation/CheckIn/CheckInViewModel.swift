@@ -15,6 +15,7 @@ class CheckInViewModel: ObservableObject {
     @Published var showAlert: Bool = false
     @Published var isLoading: Bool = false
     @Published var alertMessage: String = ""
+    @Published var attendanceSuccess: Bool = false
     
     private var checkInServices: CheckInServicesProtocol
     
@@ -43,12 +44,13 @@ class CheckInViewModel: ObservableObject {
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
             DispatchQueue.main.async {
                 self.isLoading.toggle()
+                self.attendanceSuccess.toggle()
             }
         } catch let err as NetworkError {
             DispatchQueue.main.async {
+                self.isLoading.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = err.localizedDescription
-                self.isLoading.toggle()
             }
         }
     }
