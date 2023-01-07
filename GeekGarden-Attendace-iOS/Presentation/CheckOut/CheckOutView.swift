@@ -89,6 +89,9 @@ struct CheckOutView: View {
         .toast(isPresenting: $checkOutVM.showAlert, duration: 3) {
             AlertToast(displayMode: .banner(.pop), type: .error(.red), title: checkOutVM.alertMessage)
         }
+        .toast(isPresenting: $checkOutVM.isLoading) {
+            AlertToast(type: .loading, title: "Loading")
+        }
         .onChange(of: checkOutVM.attendanceSuccess, perform: { newValue in
             dismiss()
         })
