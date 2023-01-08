@@ -17,6 +17,12 @@ class MoreViewModel: ObservableObject {
     @Published var pegawaiName: String = ""
     @Published var pegawaiJabatan: String = ""
     @Published var pegawaiPhotoProfileURL: String = ""
+    
+    @Published var isLoading: Bool = false
+    @Published var signOutSuccess: Bool = false
+    
+    private let prefs: UserDefaults = UserDefaults()
+    private var moreServices: MoreServicesProtocol
     var destion: [CustomMoreButtonModel] = [
         CustomMoreButtonModel(buttonName: "Pengajuan Izin",
                               buttonSymbol: "TaskAddSymbol",
@@ -34,7 +40,9 @@ class MoreViewModel: ObservableObject {
                               buttonSymbol: "TaskRepairSymbol",
                               destination: AnyView(ListReportStatusView()))]
     
-    private let prefs: UserDefaults = UserDefaults()
+    init(moreServices: MoreServicesProtocol = MoreServices()) {
+        self.moreServices = moreServices
+    }
         
 }
 
@@ -74,7 +82,21 @@ extension MoreViewModel {
 
 //MARK: - Custom Button
 extension MoreViewModel {
-    func destionView(name: String) {
-        
+    func signOut() async throws {
+        DispatchQueue.main.async {
+            self.isLoading.toggle()
+        }
+        do {
+            try await moreServices.signOut(endpoint: .signOut)
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+                self.signOutSuccess.toggle()
+            }
+        } catch let err as NetworkError {
+            DispatchQueue.main.async {
+                self.isLoading.toggle()
+            }
+            print(err)
+        }
     }
 }

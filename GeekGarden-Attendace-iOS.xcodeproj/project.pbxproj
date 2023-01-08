@@ -83,6 +83,8 @@
 		01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */; };
 		01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */; };
 		01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3148A295CF3E900D2017E /* HistoryServices.swift */; };
+		01D38845296B3F8800A6DF0F /* MoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38844296B3F8800A6DF0F /* MoreServices.swift */; };
+		01D38847296B400F00A6DF0F /* SignOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +164,8 @@
 		01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonModel.swift; sourceTree = "<group>"; };
 		01D3148A295CF3E900D2017E /* HistoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryServices.swift; sourceTree = "<group>"; };
+		01D38844296B3F8800A6DF0F /* MoreServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreServices.swift; sourceTree = "<group>"; };
+		01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -651,6 +655,7 @@
 		01D0C1CE295EDD6400F8A5F4 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				01D38843296B3F7800A6DF0F /* Services */,
 				01D0C1D3295F377E00F8A5F4 /* Model */,
 				01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */,
 				01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */,
@@ -662,6 +667,7 @@
 			isa = PBXGroup;
 			children = (
 				01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */,
+				01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -670,6 +676,14 @@
 			isa = PBXGroup;
 			children = (
 				01D3148A295CF3E900D2017E /* HistoryServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		01D38843296B3F7800A6DF0F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01D38844296B3F8800A6DF0F /* MoreServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -778,6 +792,7 @@
 				01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */,
 				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
 				012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */,
+				01D38845296B3F8800A6DF0F /* MoreServices.swift in Sources */,
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
 				012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
@@ -792,6 +807,7 @@
 				012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
 				012B31D92965C98F00366C4A /* ListWorkPermitStatusView.swift in Sources */,
+				01D38847296B400F00A6DF0F /* SignOutResponseModel.swift in Sources */,
 				01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
