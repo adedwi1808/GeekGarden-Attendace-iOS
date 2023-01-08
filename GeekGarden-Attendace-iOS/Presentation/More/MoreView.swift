@@ -73,7 +73,7 @@ struct MoreView: View {
                 moreVM.setAttendanceStatsFromLocale()
             }
             .onChange(of: moreVM.signOutSuccess, perform: { newValue in
-                dismiss()e
+                dismiss()
             })
             .toast(isPresenting: $moreVM.isLoading) {
                 AlertToast(type: .loading, title: "Signing Out..")
