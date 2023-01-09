@@ -41,10 +41,12 @@ class CheckOutViewModel: ObservableObject {
             self.isLoading.toggle()
         }
         do {
-            _ = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
+            let data = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
             DispatchQueue.main.async{
+                self.alertMessage = data.message ?? ""
                 self.isLoading.toggle()
                 self.attendanceSuccess.toggle()
+                self.showAlert.toggle()
             }
         } catch let err as NetworkError {
             DispatchQueue.main.async{

@@ -86,14 +86,10 @@ struct CheckOutView: View {
             }
             .padding(.top, 60)
         }
-        .toast(isPresenting: $checkOutVM.showAlert, duration: 3) {
-            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: checkOutVM.alertMessage)
-        }
-        .toast(isPresenting: $checkOutVM.isLoading) {
-            AlertToast(type: .loading, title: "Loading")
-        }
         .onChange(of: checkOutVM.attendanceSuccess, perform: { newValue in
-            dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
+                dismiss()
+            }
         })
         .toolbar {
             ToolbarItem(placement: .keyboard) {
@@ -103,6 +99,18 @@ struct CheckOutView: View {
             }
         }
         .navigationTitle("Check Out")
+        .toast(isPresenting: $checkOutVM.showAlert) {
+            checkOutVM.attendanceSuccess ?
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Success",subTitle: checkOutVM.alertMessage)
+            :
+            AlertToast(displayMode: .banner(.pop),
+                       type: .error(.red),
+                       title: "Upss",
+                       subTitle: checkOutVM.alertMessage)
+        }
+        .toast(isPresenting: $checkOutVM.isLoading) {
+            AlertToast(type: .loading, title: "Loading")
+        }
     }
 }
 
