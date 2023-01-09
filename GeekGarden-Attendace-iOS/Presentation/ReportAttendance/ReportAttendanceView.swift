@@ -68,10 +68,18 @@ struct ReportAttendanceView: View {
             AlertToast(type: .loading, title: "Loading")
         }
         .toast(isPresenting: $reportAttendanceVM.showAlert) {
-            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upss!", subTitle: reportAttendanceVM.alertMessage)
+            reportAttendanceVM.reportSuccess ?
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Success",subTitle: reportAttendanceVM.alertMessage)
+            :
+            AlertToast(displayMode: .banner(.pop),
+                       type: .error(.red),
+                       title: "Upss",
+                       subTitle: reportAttendanceVM.alertMessage)
         }
         .onChange(of: reportAttendanceVM.reportSuccess) { newValue in
-            dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
+                dismiss()
+            }
         }
     }
 }

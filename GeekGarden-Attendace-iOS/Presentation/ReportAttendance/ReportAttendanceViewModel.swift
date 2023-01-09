@@ -32,12 +32,14 @@ class ReportAttendanceViewModel: ObservableObject {
             self.isLoading.toggle()
         }
         do {
-            _ = try await reportAttendanceServices.postReportAttendance(endPoint:
+            let data = try await reportAttendanceServices.postReportAttendance(endPoint:
                     .postReportAttendance(tanggal: remoteDateFormat.string(from: attendanceDate),
                                           keteranganLaporan: reportDec))
             DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.reportSuccess.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = data.message
             }
         } catch let err as NetworkError {
             DispatchQueue.main.async {
