@@ -82,6 +82,10 @@
 		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
 		015991742954C65B00490EDC /* MadingGeekGardenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */; };
 		015991772954C7AD00490EDC /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991762954C7AD00490EDC /* HomeServices.swift */; };
+		01B07BF8296C57EA00E4A2FC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */; };
+		01B07BFA296C71A600E4A2FC /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */; };
+		01B07BFD296C757200E4A2FC /* ForgotPasswordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */; };
+		01B07C00296C780400E4A2FC /* ForgotPasswordResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BFF296C780400E4A2FC /* ForgotPasswordResponseModel.swift */; };
 		01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */; };
 		01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */; };
 		01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */; };
@@ -166,6 +170,10 @@
 		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenResponseModel.swift; sourceTree = "<group>"; };
 		015991762954C7AD00490EDC /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordServices.swift; sourceTree = "<group>"; };
+		01B07BFF296C780400E4A2FC /* ForgotPasswordResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponseModel.swift; sourceTree = "<group>"; };
 		01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonModel.swift; sourceTree = "<group>"; };
@@ -385,6 +393,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				01B07BF6296C57C600E4A2FC /* ForgotPassword */,
 				01153D6D296C0BDF002DB143 /* DetailListReportStatus */,
 				01153D6A296C043E002DB143 /* DetailListWorkPermit */,
 				01153D65296BF68F002DB143 /* DetailMading */,
@@ -685,6 +694,33 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		01B07BF6296C57C600E4A2FC /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				01B07BFE296C77F000E4A2FC /* Model */,
+				01B07BFB296C756000E4A2FC /* Services */,
+				01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */,
+				01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		01B07BFB296C756000E4A2FC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		01B07BFE296C77F000E4A2FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01B07BFF296C780400E4A2FC /* ForgotPasswordResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		01D0C1CE295EDD6400F8A5F4 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,6 +855,7 @@
 				013BC85A295B2B5200194B80 /* CheckInServices.swift in Sources */,
 				0135C989294A5CB1008C7589 /* NavigationViewModel.swift in Sources */,
 				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
+				01B07BF8296C57EA00E4A2FC /* ForgotPasswordView.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
 				01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */,
@@ -850,8 +887,10 @@
 				012B31CE2965B85C00366C4A /* ListReportStatusViewModel.swift in Sources */,
 				0135C983294A48B9008C7589 /* TabBarView.swift in Sources */,
 				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
+				01B07C00296C780400E4A2FC /* ForgotPasswordResponseModel.swift in Sources */,
 				01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
+				01B07BFA296C71A600E4A2FC /* ForgotPasswordViewModel.swift in Sources */,
 				01153D6C296C0456002DB143 /* DetaiListWorkPermitView.swift in Sources */,
 				012B31CC2965B7C700366C4A /* ListReportStatusView.swift in Sources */,
 				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
@@ -862,6 +901,7 @@
 				012B31A729631CDA00366C4A /* UpdateProfileViewModel.swift in Sources */,
 				013BC869295CBB0D00194B80 /* CheckOutView.swift in Sources */,
 				0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */,
+				01B07BFD296C757200E4A2FC /* ForgotPasswordServices.swift in Sources */,
 				013BC87B295CF22200194B80 /* HistoryViewModel.swift in Sources */,
 				014C774A2950B35B00C253C3 /* NetworkError.swift in Sources */,
 				012B31C42965A5E200366C4A /* ReportAttendanceResponseModel.swift in Sources */,

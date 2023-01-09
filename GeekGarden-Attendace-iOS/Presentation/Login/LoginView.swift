@@ -31,14 +31,17 @@ struct LoginView: View {
                 
                 LoginForm(type: "Password", value: $loginViewModel.password)
                 
-                HStack {
-                    Text("Lupa Password ?")
-                        .foregroundColor(Color("PrimaryColor"))
-                    
-                    Text("Klik Disini")
-                        .foregroundColor(.blue)
+                NavigationLink {
+                    ForgotPasswordView()
+                } label: {
+                    HStack {
+                        Text("Lupa Password ?")
+                            .foregroundColor(Color("PrimaryColor"))
+                        Text("Klik Disini")
+                            .foregroundColor(.blue)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .trailing)
                 }
-                .frame(maxWidth: .infinity, alignment: .trailing)
                 
                 NavigationLink(destination: TabBarView(), isActive: $loginViewModel.isLoggedIn, label: {EmptyView()})
                 
