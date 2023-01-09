@@ -23,6 +23,8 @@ struct CheckInView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 30) {
+                Spacer()
+                
                 Button {
                     checkInViewModel.source = .camera
                     checkInViewModel.showPhotoPicker()
@@ -53,16 +55,6 @@ struct CheckInView: View {
                 }, message: { cameraError in
                     Text(cameraError.message)
                 })
-                .toast(isPresenting: $checkInViewModel.isLoading) {
-                    AlertToast(type: .loading, title: "Loading")
-                }
-                .toast(isPresenting: $checkInViewModel.showAlert, duration: 3) {
-                    AlertToast(displayMode: .banner(.pop),
-                               type: .error(.red),
-                               title: "Upss",
-                               subTitle: checkInViewModel.alertMessage)
-                }
-                
                 
                 Button {
                     if let selectedImageData {
@@ -80,12 +72,28 @@ struct CheckInView: View {
                 .frame(width:300 ,height: 80)
                 .background(.green)
                 .cornerRadius(20)
-            }.padding(.top, 60)
+                
+                Spacer()
+            }
         }
         .onChange(of: checkInViewModel.attendanceSuccess, perform: { newValue in
-            dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                dismiss()
+            }
         })
         .navigationTitle("Check In")
+        .toast(isPresenting: $checkInViewModel.isLoading) {
+            AlertToast(type: .loading, title: "Loading")
+        }
+        .toast(isPresenting: $checkInViewModel.showAlert) {
+            checkInViewModel.attendanceSuccess ?
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Success",subTitle: checkInViewModel.alertMessage)
+            :
+            AlertToast(displayMode: .banner(.pop),
+                       type: .error(.red),
+                       title: "Upss",
+                       subTitle: checkInViewModel.alertMessage)
+        }
     }
 }
 
