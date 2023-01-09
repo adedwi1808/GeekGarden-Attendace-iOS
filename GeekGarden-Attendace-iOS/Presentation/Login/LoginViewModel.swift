@@ -16,10 +16,10 @@ class LoginViewModel: ObservableObject {
     @Published var alertMessage: String = ""
     private let prefs = UserDefaults()
     
-    private var loginPegawaiServices: LoginServicesProtocol
+    private var loginServices: LoginServicesProtocol
     
-    init(loginPegawaiServices: LoginServicesProtocol = LoginPegawaiServices()) {
-        self.loginPegawaiServices = loginPegawaiServices
+    init(loginServices: LoginServicesProtocol = LoginPegawaiServices()) {
+        self.loginServices = loginServices
     }
     
     func loginPegawai() async throws{
@@ -27,7 +27,7 @@ class LoginViewModel: ObservableObject {
             self.isLoading.toggle()
         }
         do {
-            let data = try await loginPegawaiServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
+            let data = try await loginServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
         } catch let err as NetworkError {
 //            print("err while do login")
