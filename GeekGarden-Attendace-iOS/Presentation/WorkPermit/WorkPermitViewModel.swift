@@ -43,9 +43,11 @@ class WorkPermitViewModel: ObservableObject {
         }
         
         do {
-            _ = try await workPermitServices.postWorkPermit(endPoint: .workPermit(jenisIzin: selectedReason.rawValue, tanggalMulai: remoteDateFormat.string(from: permitDateStart), tanggalSelesai: remoteDateFormat.string(from: permitDateEnd), alasanIzin: permitReasonDec, suratIzin: image))
+            let data = try await workPermitServices.postWorkPermit(endPoint: .workPermit(jenisIzin: selectedReason.rawValue, tanggalMulai: remoteDateFormat.string(from: permitDateStart), tanggalSelesai: remoteDateFormat.string(from: permitDateEnd), alasanIzin: permitReasonDec, suratIzin: image))
             DispatchQueue.main.async {
+                self.alertMessage = data.message
                 self.isLoading.toggle()
+                self.showAlert.toggle()
                 self.permitSuccess.toggle()
             }
         } catch let err as NetworkError {

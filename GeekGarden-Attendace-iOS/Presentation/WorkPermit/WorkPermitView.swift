@@ -110,11 +110,19 @@ struct WorkPermitView: View {
         .toast(isPresenting: $workPermitVM.isLoading) {
             AlertToast(type: .loading, title: "Loading")
         }
-        .toast(isPresenting: $workPermitVM.showAlert, duration: 3) {
-            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upps", subTitle: workPermitVM.alertMessage)
+        .toast(isPresenting: $workPermitVM.showAlert) {
+            workPermitVM.permitSuccess ?
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Success",subTitle: workPermitVM.alertMessage)
+            :
+            AlertToast(displayMode: .banner(.pop),
+                       type: .error(.red),
+                       title: "Upss",
+                       subTitle: workPermitVM.alertMessage)
         }
         .onChange(of: workPermitVM.permitSuccess) { newValue in
-            dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
+                dismiss()
+            }
         }
     }
 }
