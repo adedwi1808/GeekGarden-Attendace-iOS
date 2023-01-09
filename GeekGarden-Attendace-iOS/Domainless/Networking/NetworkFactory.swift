@@ -13,6 +13,10 @@ enum NetworkFactory {
     case loginPegawai(email: String, password: String)
     case signOut
     
+    //FORGOT PASSWORD
+    case forgotPassword(email: String)
+    
+    //MADING
     case getMadingGeekGarden
     
     //ATTENDANCE
@@ -65,6 +69,8 @@ extension NetworkFactory {
             return "/api/riwayat-pengajuan-izin"
         case .signOut:
             return "/api/logout-pegawai"
+        case .forgotPassword:
+            return "/api/lupa-password"
         }
     }
     
@@ -90,6 +96,8 @@ extension NetworkFactory {
         case .getReportStatus:
             return []
         case .getWorkPermitStatus:
+            return []
+        case .forgotPassword:
             return []
         }
     }
@@ -131,6 +139,8 @@ extension NetworkFactory {
             return .post
         case .postReportAttendance:
             return .post
+        case .forgotPassword:
+            return .post
         default:
             return .get
         }
@@ -167,6 +177,8 @@ extension NetworkFactory {
         case .postReportAttendance(let tanggal, let keterangan):
             return ["tanggal_absen" : tanggal,
                     "keterangan_pengaduan" : keterangan]
+        case .forgotPassword(let email):
+            return ["email":email]
         default:
             return [:]
         }
@@ -213,6 +225,8 @@ extension NetworkFactory {
             return getHeaders(type: .appToken)
         case .signOut:
             return getHeaders(type: .appToken)
+        case .forgotPassword:
+            return getHeaders(type: .anonymous)
         }
     }
     

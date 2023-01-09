@@ -23,6 +23,7 @@ class UpdateProfileViewModel: ObservableObject {
     @Published var alertMessage: String = ""
     @Published var isLoading: Bool = false
     @Published var updateSuccess: Bool = false
+    @Published var updatePhotoProfileSuccess: Bool = false
     
     private var prefs = UserDefaults()
     private var updateProfileServices: UpdateProfileServiceProtocol
@@ -67,6 +68,9 @@ class UpdateProfileViewModel: ObservableObject {
             saveUpdateData(using: data.data)
             DispatchQueue.main.async {
                 self.isLoading.toggle()
+                self.updatePhotoProfileSuccess.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = "Berhasil mengubah foto profil"
             }
         } catch let err as NetworkError {
             DispatchQueue.main.async {
@@ -90,6 +94,8 @@ class UpdateProfileViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.updateSuccess.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = "Berhasil mengupdate profil"
             }
         } catch let err as NetworkError {
             DispatchQueue.main.async {

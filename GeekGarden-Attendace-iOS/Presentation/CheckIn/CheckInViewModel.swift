@@ -40,11 +40,13 @@ class CheckInViewModel: ObservableObject {
             self.isLoading.toggle()
         }
         do {
-            _ = try await checkInServices.postCheckIn(
+            let data = try await checkInServices.postCheckIn(
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
             DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.attendanceSuccess.toggle()
+                self.showAlert.toggle()
+                self.alertMessage = data.message
             }
         } catch let err as NetworkError {
             DispatchQueue.main.async {
