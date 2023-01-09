@@ -86,6 +86,7 @@
 		01B07BFA296C71A600E4A2FC /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */; };
 		01B07BFD296C757200E4A2FC /* ForgotPasswordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */; };
 		01B07C00296C780400E4A2FC /* ForgotPasswordResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BFF296C780400E4A2FC /* ForgotPasswordResponseModel.swift */; };
+		01B07C0F296C8EFE00E4A2FC /* LoginViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07C0E296C8EFE00E4A2FC /* LoginViewModel-Test.swift */; };
 		01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */; };
 		01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */; };
 		01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */; };
@@ -93,6 +94,16 @@
 		01D38845296B3F8800A6DF0F /* MoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38844296B3F8800A6DF0F /* MoreServices.swift */; };
 		01D38847296B400F00A6DF0F /* SignOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		01B07C09296C8E8100E4A2FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0135C962294A425E008C7589 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0135C969294A425E008C7589;
+			remoteInfo = "GeekGarden-Attendace-iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		01153D66296BF69E002DB143 /* DetailMadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMadingView.swift; sourceTree = "<group>"; };
@@ -174,6 +185,8 @@
 		01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordServices.swift; sourceTree = "<group>"; };
 		01B07BFF296C780400E4A2FC /* ForgotPasswordResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponseModel.swift; sourceTree = "<group>"; };
+		01B07C05296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GeekGarden-Attendace-iOS-UnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		01B07C0E296C8EFE00E4A2FC /* LoginViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewModel-Test.swift"; sourceTree = "<group>"; };
 		01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreView.swift; sourceTree = "<group>"; };
 		01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonModel.swift; sourceTree = "<group>"; };
@@ -188,6 +201,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				012B31E8296726F700366C4A /* AlertToast in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01B07C02296C8E8100E4A2FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				0135C96C294A425E008C7589 /* GeekGarden-Attendace-iOS */,
+				01B07C06296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests */,
 				0135C96B294A425E008C7589 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -365,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */,
+				01B07C05296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -721,6 +743,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		01B07C06296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				01B07C0E296C8EFE00E4A2FC /* LoginViewModel-Test.swift */,
+			);
+			path = "GeekGarden-Attendace-iOS-UnitTests";
+			sourceTree = "<group>";
+		};
 		01D0C1CE295EDD6400F8A5F4 /* More */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +810,24 @@
 			productReference = 0135C96A294A425E008C7589 /* GeekGarden-Attendace-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
+		01B07C04296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01B07C0D296C8E8100E4A2FC /* Build configuration list for PBXNativeTarget "GeekGarden-Attendace-iOS-UnitTests" */;
+			buildPhases = (
+				01B07C01296C8E8100E4A2FC /* Sources */,
+				01B07C02296C8E8100E4A2FC /* Frameworks */,
+				01B07C03296C8E8100E4A2FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				01B07C0A296C8E8100E4A2FC /* PBXTargetDependency */,
+			);
+			name = "GeekGarden-Attendace-iOS-UnitTests";
+			productName = "GeekGarden-Attendace-iOS-UnitTests";
+			productReference = 01B07C05296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -792,6 +840,10 @@
 				TargetAttributes = {
 					0135C969294A425E008C7589 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					01B07C04296C8E8100E4A2FC = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 0135C969294A425E008C7589;
 					};
 				};
 			};
@@ -812,6 +864,7 @@
 			projectRoot = "";
 			targets = (
 				0135C969294A425E008C7589 /* GeekGarden-Attendace-iOS */,
+				01B07C04296C8E8100E4A2FC /* GeekGarden-Attendace-iOS-UnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -823,6 +876,13 @@
 			files = (
 				0135C975294A425F008C7589 /* Preview Assets.xcassets in Resources */,
 				0135C972294A425F008C7589 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		01B07C03296C8E8100E4A2FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -918,7 +978,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		01B07C01296C8E8100E4A2FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01B07C0F296C8EFE00E4A2FC /* LoginViewModel-Test.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01B07C0A296C8E8100E4A2FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0135C969294A425E008C7589 /* GeekGarden-Attendace-iOS */;
+			targetProxy = 01B07C09296C8E8100E4A2FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0135C976294A425F008C7589 /* Debug */ = {
@@ -1101,6 +1177,44 @@
 			};
 			name = Release;
 		};
+		01B07C0B296C8E8100E4A2FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDB22KM8KS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rraccoon.GeekGarden-Attendace-iOS-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeekGarden-Attendace-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GeekGarden-Attendace-iOS";
+			};
+			name = Debug;
+		};
+		01B07C0C296C8E8100E4A2FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XDB22KM8KS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rraccoon.GeekGarden-Attendace-iOS-UnitTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeekGarden-Attendace-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GeekGarden-Attendace-iOS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1118,6 +1232,15 @@
 			buildConfigurations = (
 				0135C979294A425F008C7589 /* Debug */,
 				0135C97A294A425F008C7589 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01B07C0D296C8E8100E4A2FC /* Build configuration list for PBXNativeTarget "GeekGarden-Attendace-iOS-UnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01B07C0B296C8E8100E4A2FC /* Debug */,
+				01B07C0C296C8E8100E4A2FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
