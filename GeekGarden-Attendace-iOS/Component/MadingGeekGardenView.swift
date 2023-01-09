@@ -33,9 +33,9 @@ struct MadingGeekGardenView: View {
                 .fontWeight(.semibold)
                 .lineLimit(1)
                 .frame(height: 25, alignment: .leading)
+            
             Text(isiMading)
-                .lineLimit(3)
-                .frame(height: 70, alignment: .topLeading)
+                .frame(height: 80, alignment: .topLeading)
             
             Spacer()
             HStack {
@@ -46,7 +46,7 @@ struct MadingGeekGardenView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .foregroundColor(.gray)
         }
-        .frame(width: 300, height: 290)
+        .frame(width: 300, height: 290, alignment: .leading)
         .padding(15)
         .background(.white)
         .cornerRadius(15)

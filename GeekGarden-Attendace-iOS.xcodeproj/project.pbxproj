@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D66296BF69E002DB143 /* DetailMadingView.swift */; };
+		01153D6C296C0456002DB143 /* DetaiListWorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */; };
+		01153D6F296C0BFC002DB143 /* DetailListReportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */; };
 		0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */; };
 		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
 		012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A429631B6400366C4A /* UpdateProfileView.swift */; };
@@ -83,9 +86,14 @@
 		01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */; };
 		01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */; };
 		01D3148B295CF3E900D2017E /* HistoryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D3148A295CF3E900D2017E /* HistoryServices.swift */; };
+		01D38845296B3F8800A6DF0F /* MoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38844296B3F8800A6DF0F /* MoreServices.swift */; };
+		01D38847296B400F00A6DF0F /* SignOutResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01153D66296BF69E002DB143 /* DetailMadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMadingView.swift; sourceTree = "<group>"; };
+		01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaiListWorkPermitView.swift; sourceTree = "<group>"; };
+		01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListReportStatusView.swift; sourceTree = "<group>"; };
 		0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonView.swift; sourceTree = "<group>"; };
 		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
 		012B31A429631B6400366C4A /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
@@ -162,6 +170,8 @@
 		01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
 		01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonModel.swift; sourceTree = "<group>"; };
 		01D3148A295CF3E900D2017E /* HistoryServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryServices.swift; sourceTree = "<group>"; };
+		01D38844296B3F8800A6DF0F /* MoreServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreServices.swift; sourceTree = "<group>"; };
+		01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +186,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01153D65296BF68F002DB143 /* DetailMading */ = {
+			isa = PBXGroup;
+			children = (
+				01153D66296BF69E002DB143 /* DetailMadingView.swift */,
+			);
+			path = DetailMading;
+			sourceTree = "<group>";
+		};
+		01153D6A296C043E002DB143 /* DetailListWorkPermit */ = {
+			isa = PBXGroup;
+			children = (
+				01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */,
+			);
+			path = DetailListWorkPermit;
+			sourceTree = "<group>";
+		};
+		01153D6D296C0BDF002DB143 /* DetailListReportStatus */ = {
+			isa = PBXGroup;
+			children = (
+				01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */,
+			);
+			path = DetailListReportStatus;
+			sourceTree = "<group>";
+		};
 		012B31A329631B4C00366C4A /* UpdateProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +385,9 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				01153D6D296C0BDF002DB143 /* DetailListReportStatus */,
+				01153D6A296C043E002DB143 /* DetailListWorkPermit */,
+				01153D65296BF68F002DB143 /* DetailMading */,
 				012B31D72965C96D00366C4A /* ListWorkPermitStatus */,
 				012B31CA2965B75B00366C4A /* ListReportStatus */,
 				012B31BB29658CAF00366C4A /* ReportAttendance */,
@@ -651,6 +688,7 @@
 		01D0C1CE295EDD6400F8A5F4 /* More */ = {
 			isa = PBXGroup;
 			children = (
+				01D38843296B3F7800A6DF0F /* Services */,
 				01D0C1D3295F377E00F8A5F4 /* Model */,
 				01D0C1CF295EDD7000F8A5F4 /* MoreView.swift */,
 				01D0C1D1295EDF6400F8A5F4 /* MoreViewModel.swift */,
@@ -662,6 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				01D0C1D4295F379100F8A5F4 /* CustomMoreButtonModel.swift */,
+				01D38846296B400F00A6DF0F /* SignOutResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -670,6 +709,14 @@
 			isa = PBXGroup;
 			children = (
 				01D3148A295CF3E900D2017E /* HistoryServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		01D38843296B3F7800A6DF0F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				01D38844296B3F8800A6DF0F /* MoreServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -762,6 +809,7 @@
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
+				01153D6F296C0BFC002DB143 /* DetailListReportStatusView.swift in Sources */,
 				012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */,
 				013BC876295CF13F00194B80 /* HistoryView.swift in Sources */,
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,
@@ -773,11 +821,13 @@
 				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
+				01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */,
 				012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */,
 				013BC85F295C385500194B80 /* Data.swift in Sources */,
 				01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */,
 				013BC85D295B384F00194B80 /* CheckInModel.swift in Sources */,
 				012B31AA2964383400366C4A /* UpdateProfilServices.swift in Sources */,
+				01D38845296B3F8800A6DF0F /* MoreServices.swift in Sources */,
 				014BAB202956C22100991566 /* AttendanceViewModel.swift in Sources */,
 				012B31D12965B9E100366C4A /* ListResponseStatusModel.swift in Sources */,
 				014C77442950B03800C253C3 /* MiniProfilPegawai.swift in Sources */,
@@ -792,6 +842,7 @@
 				012B31B229653EEB00366C4A /* WorkPermitView.swift in Sources */,
 				014C77402950A6F300C253C3 /* DataKehadiranPegawaiView.swift in Sources */,
 				012B31D92965C98F00366C4A /* ListWorkPermitStatusView.swift in Sources */,
+				01D38847296B400F00A6DF0F /* SignOutResponseModel.swift in Sources */,
 				01D0C1D2295EDF6400F8A5F4 /* MoreViewModel.swift in Sources */,
 				0135C970294A425E008C7589 /* ContentView.swift in Sources */,
 				014C77542953F12300C253C3 /* LoginPegawaiResponseModel.swift in Sources */,
@@ -801,6 +852,7 @@
 				013BC870295CCD1F00194B80 /* CheckOutResponseModel.swift in Sources */,
 				01D0C1D0295EDD7000F8A5F4 /* MoreView.swift in Sources */,
 				014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */,
+				01153D6C296C0456002DB143 /* DetaiListWorkPermitView.swift in Sources */,
 				012B31CC2965B7C700366C4A /* ListReportStatusView.swift in Sources */,
 				013BC873295CECBF00194B80 /* AttendanceStatsResponseModel.swift in Sources */,
 				014C77482950B33200C253C3 /* NetworkFactory.swift in Sources */,

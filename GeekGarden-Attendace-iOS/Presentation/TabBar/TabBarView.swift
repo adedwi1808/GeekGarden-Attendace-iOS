@@ -89,7 +89,7 @@ struct TabBarView_Previews: PreviewProvider {
 
 extension TabBarView {
     enum Tab: String {
-        case home = "GeekGarden Attendance"
+        case home = "Home"
         case attendance = "Attendance"
         case history = "History"
         case more = "More"

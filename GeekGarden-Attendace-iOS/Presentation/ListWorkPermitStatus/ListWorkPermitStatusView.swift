@@ -16,13 +16,17 @@ struct ListWorkPermitStatusView: View {
             
             ScrollView(.vertical) {
                 ForEach(listWorkPermitVM.workPermitData, id: \.idPengajuanIzin) { item in
-                    WorkPermitStatusItemView(date: listWorkPermitVM.dateStringToDay(item.tanggalMengajukanIzin),
-                                             month: listWorkPermitVM.dateStringToMonth(item.tanggalMengajukanIzin),
-                                             status: item.statusIzin,
-                                             permitStart: listWorkPermitVM.dateStringToDateOnly(item.tanggalMulaiIzin),
-                                             permitEnd: listWorkPermitVM.dateStringToDateOnly(item.tanggalSelesaiIzin),
-                                             permitReason: item.jenisIzin,
-                                             adminName: item.admin?.nama ?? "-")
+                    NavigationLink {
+                        DetaiListWorkPermitView(workPermit: item)
+                    } label: {
+                        WorkPermitStatusItemView(date: listWorkPermitVM.dateStringToDay(item.tanggalMengajukanIzin),
+                                                 month: listWorkPermitVM.dateStringToMonth(item.tanggalMengajukanIzin),
+                                                 status: item.statusIzin,
+                                                 permitStart: listWorkPermitVM.dateStringToDateOnly(item.tanggalMulaiIzin),
+                                                 permitEnd: listWorkPermitVM.dateStringToDateOnly(item.tanggalSelesaiIzin),
+                                                 permitReason: item.jenisIzin,
+                                                 adminName: item.admin?.nama ?? "-")
+                    }
                 }
             }
             .onAppear {

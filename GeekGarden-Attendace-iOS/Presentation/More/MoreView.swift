@@ -5,9 +5,11 @@
 //  Created by Ade Dwi Prayitno on 30/12/22.
 //
 
+import AlertToast
 import SwiftUI
 
 struct MoreView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject private var moreVM: MoreViewModel = MoreViewModel()
     
     var body: some View {
@@ -45,11 +47,36 @@ struct MoreView: View {
                         .foregroundColor(Color("PrimaryColor"))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                
+                Button {
+                    Task {
+                        try await moreVM.signOut()
+                    }
+                } label: {
+                    Text("Sign Out")
+                        .font(.system(size: 22))
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: 180, minHeight: 40)
+                        .padding(10)
+                        .background(.red)
+                        .cornerRadius(10)
+                        .shadow(radius: 1, y: 1)
+                        .padding(2)
+                }
+                .padding(.top, 10)
+                
             }
             .padding(.horizontal, 15)
             .onAppear {
                 moreVM.setMiniProfile()
                 moreVM.setAttendanceStatsFromLocale()
+            }
+            .onChange(of: moreVM.signOutSuccess, perform: { newValue in
+                dismiss()
+            })
+            .toast(isPresenting: $moreVM.isLoading) {
+                AlertToast(type: .loading, title: "Signing Out..")
             }
         }
     }

@@ -17,11 +17,16 @@ struct ListReportStatusView: View {
             
             ScrollView(.vertical) {
                 ForEach(listReportStatusVM.reportStatusData, id: \.idPengaduanAbsensi) { item in
-                    ReportStatusItemView(date: listReportStatusVM.dateStringToDay(item.tanggalPengaduan ?? ""),
-                                         month: listReportStatusVM.dateStringToMonth(item.tanggalPengaduan ?? ""),
-                                         status: item.statusPengaduan ?? "",
-                                         fullDate: listReportStatusVM.dateStringToDateOnly(item.tanggalAbsen ?? ""),
-                                         adminName: item.admin?.nama ?? "-")
+                    
+                    NavigationLink {
+                        DetailListReportStatusView(reportStatus: item)
+                    } label: {
+                        ReportStatusItemView(date: listReportStatusVM.dateStringToDay(item.tanggalPengaduan ?? ""),
+                                             month: listReportStatusVM.dateStringToMonth(item.tanggalPengaduan ?? ""),
+                                             status: item.statusPengaduan ?? "",
+                                             fullDate: listReportStatusVM.dateStringToDateOnly(item.tanggalAbsen ?? ""),
+                                             adminName: item.admin?.nama ?? "-")
+                    }
                 }
             }
         }

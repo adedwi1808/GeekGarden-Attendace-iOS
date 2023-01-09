@@ -11,6 +11,7 @@ import SwiftUI
 enum NetworkFactory {
     //AUTH
     case loginPegawai(email: String, password: String)
+    case signOut
     
     case getMadingGeekGarden
     
@@ -62,13 +63,15 @@ extension NetworkFactory {
             return "/api/riwayat-pengaduan-absensi"
         case .getWorkPermitStatus:
             return "/api/riwayat-pengajuan-izin"
+        case .signOut:
+            return "/api/logout-pegawai"
         }
     }
     
     // MARK: URL QUERY PARAMS / URL PARAMS
     var queryItems: [URLQueryItem] {
         switch self {
-        case .loginPegawai:
+        case .loginPegawai, .signOut:
             return []
         case .checkAttendance, .getAttendanceStats, .getAttendanceHistory:
             return []
@@ -116,7 +119,7 @@ extension NetworkFactory {
     // MARK: HTTP METHOD
     var method: RequestMethod {
         switch self {
-        case .loginPegawai:
+        case .loginPegawai, .signOut:
             return .post
         case .postCheckIn, .postCheckOut:
             return .post
@@ -207,6 +210,8 @@ extension NetworkFactory {
         case .getReportStatus:
             return getHeaders(type: .appToken)
         case .getWorkPermitStatus:
+            return getHeaders(type: .appToken)
+        case .signOut:
             return getHeaders(type: .appToken)
         }
     }
