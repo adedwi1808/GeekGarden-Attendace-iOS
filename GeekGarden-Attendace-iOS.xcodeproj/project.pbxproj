@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D66296BF69E002DB143 /* DetailMadingView.swift */; };
 		0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */; };
 		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
 		012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A429631B6400366C4A /* UpdateProfileView.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01153D66296BF69E002DB143 /* DetailMadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMadingView.swift; sourceTree = "<group>"; };
 		0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonView.swift; sourceTree = "<group>"; };
 		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
 		012B31A429631B6400366C4A /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01153D65296BF68F002DB143 /* DetailMading */ = {
+			isa = PBXGroup;
+			children = (
+				01153D66296BF69E002DB143 /* DetailMadingView.swift */,
+			);
+			path = DetailMading;
+			sourceTree = "<group>";
+		};
 		012B31A329631B4C00366C4A /* UpdateProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +365,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				01153D65296BF68F002DB143 /* DetailMading */,
 				012B31D72965C96D00366C4A /* ListWorkPermitStatus */,
 				012B31CA2965B75B00366C4A /* ListReportStatus */,
 				012B31BB29658CAF00366C4A /* ReportAttendance */,
@@ -787,6 +798,7 @@
 				012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */,
 				014C77422950AFD600C253C3 /* MadingGeekGardenView.swift in Sources */,
 				013BC854295B1CC300194B80 /* MapViewModel.swift in Sources */,
+				01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */,
 				012B31B429655DD700366C4A /* WorkPermitViewModel.swift in Sources */,
 				013BC85F295C385500194B80 /* Data.swift in Sources */,
 				01D0C1D5295F379100F8A5F4 /* CustomMoreButtonModel.swift in Sources */,

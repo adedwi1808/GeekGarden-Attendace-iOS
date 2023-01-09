@@ -37,17 +37,27 @@ struct HomeView: View {
                             HStack {
                                 if homeViewModel.madingDataOfflineReady {
                                     ForEach(homeViewModel.getMadingGeekGardenFromLocale().data!, id: \.idMading) { mading in
-                                        MadingGeekGardenView(
-                                            judulMading: mading.judul ?? "",
-                                            isiMading: mading.informasi ?? "",
-                                            fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                                        NavigationLink {
+                                            DetailMadingView(mading: mading)
+                                        } label: {
+                                            MadingGeekGardenView(
+                                                judulMading: mading.judul ?? "",
+                                                isiMading: mading.informasi ?? "",
+                                                fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                                        }
+                                        .tint(.black)
                                     }
                                 } else {
                                     ForEach(homeViewModel.madingData, id: \.idMading) { mading in
-                                        MadingGeekGardenView(
-                                            judulMading: mading.judul ?? "",
-                                            isiMading: mading.informasi ?? "",
-                                            fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                                        NavigationLink {
+                                            DetailMadingView(mading: mading)
+                                        } label: {
+                                            MadingGeekGardenView(
+                                                judulMading: mading.judul ?? "",
+                                                isiMading: mading.informasi ?? "",
+                                                fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                                        }
+                                        .tint(.black)
                                     }
                                 }
                             }
