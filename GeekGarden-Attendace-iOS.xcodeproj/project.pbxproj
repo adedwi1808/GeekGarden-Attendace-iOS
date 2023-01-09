@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D66296BF69E002DB143 /* DetailMadingView.swift */; };
 		01153D6C296C0456002DB143 /* DetaiListWorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */; };
+		01153D6F296C0BFC002DB143 /* DetailListReportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */; };
 		0127A30E2962F7870052BC0C /* CustomMoreButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */; };
 		0127A31029630D770052BC0C /* AttendanceHistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */; };
 		012B31A529631B6400366C4A /* UpdateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B31A429631B6400366C4A /* UpdateProfileView.swift */; };
@@ -92,6 +93,7 @@
 /* Begin PBXFileReference section */
 		01153D66296BF69E002DB143 /* DetailMadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMadingView.swift; sourceTree = "<group>"; };
 		01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaiListWorkPermitView.swift; sourceTree = "<group>"; };
+		01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListReportStatusView.swift; sourceTree = "<group>"; };
 		0127A30D2962F7870052BC0C /* CustomMoreButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreButtonView.swift; sourceTree = "<group>"; };
 		0127A30F29630D770052BC0C /* AttendanceHistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistoryItemView.swift; sourceTree = "<group>"; };
 		012B31A429631B6400366C4A /* UpdateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,14 @@
 				01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */,
 			);
 			path = DetailListWorkPermit;
+			sourceTree = "<group>";
+		};
+		01153D6D296C0BDF002DB143 /* DetailListReportStatus */ = {
+			isa = PBXGroup;
+			children = (
+				01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */,
+			);
+			path = DetailListReportStatus;
 			sourceTree = "<group>";
 		};
 		012B31A329631B4C00366C4A /* UpdateProfile */ = {
@@ -375,6 +385,7 @@
 		0135C97B294A42CD008C7589 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				01153D6D296C0BDF002DB143 /* DetailListReportStatus */,
 				01153D6A296C043E002DB143 /* DetailListWorkPermit */,
 				01153D65296BF68F002DB143 /* DetailMading */,
 				012B31D72965C96D00366C4A /* ListWorkPermitStatus */,
@@ -798,6 +809,7 @@
 				014BAB1E2956C0B100991566 /* AttendanceView.swift in Sources */,
 				013BC8492959E97C00194B80 /* CheckInViewModel.swift in Sources */,
 				013BC862295CAF0A00194B80 /* CheckAttendanceModel.swift in Sources */,
+				01153D6F296C0BFC002DB143 /* DetailListReportStatusView.swift in Sources */,
 				012B31C62965A62400366C4A /* ReportAttendanceServices.swift in Sources */,
 				013BC876295CF13F00194B80 /* HistoryView.swift in Sources */,
 				015991772954C7AD00490EDC /* HomeServices.swift in Sources */,

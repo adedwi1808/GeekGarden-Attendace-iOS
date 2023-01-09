@@ -24,6 +24,12 @@ struct DetaiListWorkPermitView: View {
             }
             
             Section {
+                Text(workPermit.tanggalMengajukanIzin)
+            } header: {
+                Text("Tanggal Pengajuan")
+            }
+            
+            Section {
                 Text(workPermit.tanggalMulaiIzin)
                 Text(workPermit.tanggalSelesaiIzin)
             } header: {
