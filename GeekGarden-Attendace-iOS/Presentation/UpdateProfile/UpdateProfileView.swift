@@ -101,13 +101,21 @@ struct UpdateProfileView: View {
             }
         }
         .onChange(of: updateProfileVM.updateSuccess, perform: { newValue in
-            dismiss()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5){
+                dismiss()
+            }
         })
         .toast(isPresenting: $updateProfileVM.isLoading) {
             AlertToast(type: .loading, title: "Loading")
         }
         .toast(isPresenting: $updateProfileVM.showAlert) {
-            AlertToast(displayMode: .banner(.pop), type: .error(.red), title: "Upss!", subTitle: updateProfileVM.alertMessage)
+            updateProfileVM.updateSuccess || updateProfileVM.updatePhotoProfileSuccess ?
+            AlertToast(displayMode: .banner(.pop), type: .complete(.green), title: "Success",subTitle: updateProfileVM.alertMessage)
+            :
+            AlertToast(displayMode: .banner(.pop),
+                       type: .error(.red),
+                       title: "Upss",
+                       subTitle: updateProfileVM.alertMessage)
         }
     }
 }
