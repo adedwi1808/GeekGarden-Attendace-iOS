@@ -85,6 +85,7 @@
 		019CDFC62971626600718F98 /* HomeViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDFC52971626600718F98 /* HomeViewModel-Test.swift */; };
 		019CDFC829716D8600718F98 /* AttendanceViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDFC729716D8600718F98 /* AttendanceViewModel-Test.swift */; };
 		019CDFCA2971795900718F98 /* CheckOutViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDFC92971795900718F98 /* CheckOutViewModel-Test.swift */; };
+		019CDFCC297181BC00718F98 /* HistoryViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDFCB297181BC00718F98 /* HistoryViewModel-Test.swift */; };
 		01B07BF8296C57EA00E4A2FC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */; };
 		01B07BFA296C71A600E4A2FC /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */; };
 		01B07BFD296C757200E4A2FC /* ForgotPasswordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */; };
@@ -188,6 +189,7 @@
 		019CDFC52971626600718F98 /* HomeViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel-Test.swift"; sourceTree = "<group>"; };
 		019CDFC729716D8600718F98 /* AttendanceViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceViewModel-Test.swift"; sourceTree = "<group>"; };
 		019CDFC92971795900718F98 /* CheckOutViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CheckOutViewModel-Test.swift"; sourceTree = "<group>"; };
+		019CDFCB297181BC00718F98 /* HistoryViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryViewModel-Test.swift"; sourceTree = "<group>"; };
 		01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordServices.swift; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 				019CDFC52971626600718F98 /* HomeViewModel-Test.swift */,
 				019CDFC729716D8600718F98 /* AttendanceViewModel-Test.swift */,
 				019CDFC92971795900718F98 /* CheckOutViewModel-Test.swift */,
+				019CDFCB297181BC00718F98 /* HistoryViewModel-Test.swift */,
 			);
 			path = "GeekGarden-Attendace-iOS-UnitTests";
 			sourceTree = "<group>";
@@ -995,6 +998,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01B07C11296C9BB000E4A2FC /* CheckInViewModel-Test.swift in Sources */,
+				019CDFCC297181BC00718F98 /* HistoryViewModel-Test.swift in Sources */,
 				019CDFC829716D8600718F98 /* AttendanceViewModel-Test.swift in Sources */,
 				019CDFC62971626600718F98 /* HomeViewModel-Test.swift in Sources */,
 				01B07C0F296C8EFE00E4A2FC /* LoginViewModel-Test.swift in Sources */,
