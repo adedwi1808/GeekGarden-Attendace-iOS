@@ -82,6 +82,7 @@
 		014C775C29542C0C00C253C3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C775B29542C0C00C253C3 /* UserDefaults.swift */; };
 		015991742954C65B00490EDC /* MadingGeekGardenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */; };
 		015991772954C7AD00490EDC /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015991762954C7AD00490EDC /* HomeServices.swift */; };
+		019CDFC62971626600718F98 /* HomeViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019CDFC52971626600718F98 /* HomeViewModel-Test.swift */; };
 		01B07BF8296C57EA00E4A2FC /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */; };
 		01B07BFA296C71A600E4A2FC /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */; };
 		01B07BFD296C757200E4A2FC /* ForgotPasswordServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */; };
@@ -182,6 +183,7 @@
 		014C775B29542C0C00C253C3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		015991732954C65B00490EDC /* MadingGeekGardenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MadingGeekGardenResponseModel.swift; sourceTree = "<group>"; };
 		015991762954C7AD00490EDC /* HomeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
+		019CDFC52971626600718F98 /* HomeViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel-Test.swift"; sourceTree = "<group>"; };
 		01B07BF7296C57EA00E4A2FC /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		01B07BF9296C71A600E4A2FC /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		01B07BFC296C757200E4A2FC /* ForgotPasswordServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordServices.swift; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 			children = (
 				01B07C0E296C8EFE00E4A2FC /* LoginViewModel-Test.swift */,
 				01B07C10296C9BB000E4A2FC /* CheckInViewModel-Test.swift */,
+				019CDFC52971626600718F98 /* HomeViewModel-Test.swift */,
 			);
 			path = "GeekGarden-Attendace-iOS-UnitTests";
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01B07C11296C9BB000E4A2FC /* CheckInViewModel-Test.swift in Sources */,
+				019CDFC62971626600718F98 /* HomeViewModel-Test.swift in Sources */,
 				01B07C0F296C8EFE00E4A2FC /* LoginViewModel-Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
