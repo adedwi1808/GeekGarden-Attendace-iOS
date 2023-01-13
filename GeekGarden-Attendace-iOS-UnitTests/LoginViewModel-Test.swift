@@ -10,12 +10,12 @@ import XCTest
 
 final class LoginViewModel_Test: XCTestCase {
     
-    private var expectedLoginPegawaiResponse: LoginPegawaiResponseModel = LoginPegawaiResponseModel(data: DataClass(idPegawai: 1, nama: "Ade", jenisKelamin: "Laki-laki", nomorHP: "08123456", email: "test@mail.com", jabatan: "Tokek", fotoProfile: "foto"), token: "ini token")
-    
+    private var expectedLoginPegawaiResponse: LoginPegawaiResponseModel!
     private var sut: LoginViewModel!
     private var networkServices: LoginPegawaiServicesMock!
     
     override func setUp() async throws {
+        expectedLoginPegawaiResponse = LoginPegawaiResponseModel(data: DataClass(idPegawai: 1, nama: "Ade", jenisKelamin: "Laki-laki", nomorHP: "08123456", email: "test@mail.com", jabatan: "Tokek", fotoProfile: "foto"), token: "ini token")
         self.networkServices = LoginPegawaiServicesMock(dataPegawai: expectedLoginPegawaiResponse)
         self.sut = LoginViewModel(loginServices: networkServices)
         try await super.setUp()
@@ -36,6 +36,7 @@ final class LoginViewModel_Test: XCTestCase {
     override func tearDownWithError() throws {
         sut = nil
         networkServices = nil
+        expectedLoginPegawaiResponse = nil
         try super.tearDownWithError()
     }
 }

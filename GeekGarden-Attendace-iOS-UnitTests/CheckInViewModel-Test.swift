@@ -10,21 +10,33 @@ import XCTest
 
 final class CheckInViewModel_Test: XCTestCase {
 
-    let expectedCheckInResponse: CheckInResponseModel = CheckInResponseModel(code: 200, message: "res", data: Attendance(idAbsensi: 1, idPegawai: 1, tempat: "atlantis", status: "status", longitude: "123", latitude: "123", foto: "foto", tanggal: "2022-12-03"))
+    private var expectedCheckInResponse: CheckInResponseModel!
+    private var sut: CheckInViewModel!
+    private var networkService: CheckInServicesMock!
     
+    override func setUp() async throws {
+        expectedCheckInResponse = CheckInResponseModel(code: 200, message: "res", data: Attendance(idAbsensi: 1, idPegawai: 1, tempat: "atlantis", status: "status", longitude: "123", latitude: "123", foto: "foto", tanggal: "2022-12-03"))
+        networkService = CheckInServicesMock(checkInResponse: expectedCheckInResponse)
+        sut = CheckInViewModel(checkInServices: networkService)
+        try await super.setUp()
+    }
     
     func testCheckInResponse() async {
-        let service: CheckInServicesProtocol = CheckInServicesMock(checkInResponse: expectedCheckInResponse)
-        let vm: CheckInViewModel = CheckInViewModel(checkInServices: service)
-        
         do {
-            let response = try await service.postCheckIn(endpoint: .postCheckIn(tempat: "", status: "", long: "", lat: "", image: Data()))
+            let response = try await networkService.postCheckIn(endpoint: .postCheckIn(tempat: "", status: "", long: "", lat: "", image: Data()))
             XCTAssertNotNil(response)
             XCTAssertEqual(response.data?.tempat, "atlantis")
         } catch {
             XCTAssertNil(error)
         }
-        XCTAssertTrue(!vm.isLoading)
+        XCTAssertTrue(!sut.isLoading)
+    }
+    
+    override func tearDownWithError() throws {
+        sut = nil
+        networkService = nil
+        expectedCheckInResponse = nil
+        try super.tearDownWithError()
     }
     
 }
