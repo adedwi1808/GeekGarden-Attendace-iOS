@@ -10,22 +10,34 @@ import XCTest
 
 final class LoginViewModel_Test: XCTestCase {
     
-    let expectedLoginPegawaiResponse: LoginPegawaiResponseModel = LoginPegawaiResponseModel(data: DataClass(idPegawai: 1, nama: "Ade", jenisKelamin: "Laki-laki", nomorHP: "08123456", email: "test@mail.com", jabatan: "Tokek", fotoProfile: "foto"), token: "ini token")
+    private var expectedLoginPegawaiResponse: LoginPegawaiResponseModel = LoginPegawaiResponseModel(data: DataClass(idPegawai: 1, nama: "Ade", jenisKelamin: "Laki-laki", nomorHP: "08123456", email: "test@mail.com", jabatan: "Tokek", fotoProfile: "foto"), token: "ini token")
+    
+    private var sut: LoginViewModel!
+    private var networkServices: LoginPegawaiServicesMock!
+    
+    override func setUp() async throws {
+        self.networkServices = LoginPegawaiServicesMock(dataPegawai: expectedLoginPegawaiResponse)
+        self.sut = LoginViewModel(loginServices: networkServices)
+        try await super.setUp()
+    }
     
     func testLoginResponse() async {
-        let services: LoginServicesProtocol = LoginPegawaiServicesMock(dataPegawai: expectedLoginPegawaiResponse)
-        let VM: LoginViewModel = LoginViewModel(loginServices: services)
-        
         do {
-            let data = try await services.loginPegawai(endpoint: .loginPegawai(email: "", password: ""))
+            let data = try await networkServices.loginPegawai(endpoint: .loginPegawai(email: "", password: ""))
             XCTAssertNotNil(data)
             XCTAssertEqual(data.data?.nama, "Ade")
         } catch {
             XCTAssertNotNil(error)
         }
-        XCTAssertTrue(!VM.isLoading)
+        XCTAssertTrue(!sut.isLoading)
     }
     
+    
+    override func tearDownWithError() throws {
+        sut = nil
+        networkServices = nil
+        try super.tearDownWithError()
+    }
 }
 
 class LoginPegawaiServicesMock: LoginServicesProtocol {
