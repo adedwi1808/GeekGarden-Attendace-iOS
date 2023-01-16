@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010C406129758139001D3677 /* UpdateProfileViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C406029758139001D3677 /* UpdateProfileViewModel-Test.swift */; };
 		01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D66296BF69E002DB143 /* DetailMadingView.swift */; };
 		01153D6C296C0456002DB143 /* DetaiListWorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */; };
 		01153D6F296C0BFC002DB143 /* DetailListReportStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		010C406029758139001D3677 /* UpdateProfileViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpdateProfileViewModel-Test.swift"; sourceTree = "<group>"; };
 		01153D66296BF69E002DB143 /* DetailMadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMadingView.swift; sourceTree = "<group>"; };
 		01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaiListWorkPermitView.swift; sourceTree = "<group>"; };
 		01153D6E296C0BFC002DB143 /* DetailListReportStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListReportStatusView.swift; sourceTree = "<group>"; };
@@ -757,11 +759,12 @@
 			isa = PBXGroup;
 			children = (
 				01B07C0E296C8EFE00E4A2FC /* LoginViewModel-Test.swift */,
-				01B07C10296C9BB000E4A2FC /* CheckInViewModel-Test.swift */,
 				019CDFC52971626600718F98 /* HomeViewModel-Test.swift */,
 				019CDFC729716D8600718F98 /* AttendanceViewModel-Test.swift */,
+				01B07C10296C9BB000E4A2FC /* CheckInViewModel-Test.swift */,
 				019CDFC92971795900718F98 /* CheckOutViewModel-Test.swift */,
 				019CDFCB297181BC00718F98 /* HistoryViewModel-Test.swift */,
+				010C406029758139001D3677 /* UpdateProfileViewModel-Test.swift */,
 			);
 			path = "GeekGarden-Attendace-iOS-UnitTests";
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 			files = (
 				01B07C11296C9BB000E4A2FC /* CheckInViewModel-Test.swift in Sources */,
 				019CDFCC297181BC00718F98 /* HistoryViewModel-Test.swift in Sources */,
+				010C406129758139001D3677 /* UpdateProfileViewModel-Test.swift in Sources */,
 				019CDFC829716D8600718F98 /* AttendanceViewModel-Test.swift in Sources */,
 				019CDFC62971626600718F98 /* HomeViewModel-Test.swift in Sources */,
 				01B07C0F296C8EFE00E4A2FC /* LoginViewModel-Test.swift in Sources */,
