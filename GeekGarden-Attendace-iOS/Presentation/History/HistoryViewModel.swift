@@ -43,26 +43,14 @@ class HistoryViewModel: ObservableObject {
     }
     
     func dateStringToDay(_ dates: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = dateFormatter.date(from: dates) else { return "-"}
-        dateFormatter.dateFormat = "dd"
-        return dateFormatter.string(from: date)
+        DateFormatter.stringDay(using: dates)
     }
     
     func dateStringToMonth(_ dates: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = dateFormatter.date(from: dates) else { return "-"}
-        dateFormatter.dateFormat = "MMMM"
-        return dateFormatter.string(from: date)
+        DateFormatter.stringMonth(using: dates)
     }
     
     func dateStringToTime(_ dates: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = dateFormatter.date(from: dates) else { return "-"}
-        dateFormatter.dateFormat = "HH:mm"
-        return dateFormatter.string(from: date)
+        DateFormatter.stringTime(using: dates)
     }
 }
