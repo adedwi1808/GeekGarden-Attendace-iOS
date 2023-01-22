@@ -24,7 +24,9 @@ class HistoryViewModel: ObservableObject {
             let data = try await historyServices.getAttendanceHistory(endpoint: .getAttendanceHistory)
             self.attendanceHistory.append(contentsOf: data.data!)
             saveAttendanceHistoryToLocale(with: data)
-            self.isLoaded = true
+            DispatchQueue.main.async {
+                self.isLoaded = true
+            }
         } catch {
             print("ERR While get Attendance History")
         }
