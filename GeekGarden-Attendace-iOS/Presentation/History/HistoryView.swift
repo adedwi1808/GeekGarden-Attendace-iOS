@@ -27,10 +27,13 @@ struct HistoryView: View {
                 
             }
             .onAppear {
-                Task {
-                    await historyVM.getAttendanceHistory()
+                if !historyVM.isLoaded {
+                    Task {
+                        await historyVM.getAttendanceHistory()
+                    }
+                } else {
+                    historyVM.setAttendanceHistoryData()
                 }
-                historyVM.setAttendanceHistoryData()
             }
         }
     }

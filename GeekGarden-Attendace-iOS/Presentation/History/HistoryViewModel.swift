@@ -10,6 +10,8 @@ import Foundation
 class HistoryViewModel: ObservableObject {
     @Published var attendanceHistory: [AttendanceHistoryModel] = []
     
+    @Published var isLoaded: Bool = false
+    
     private var historyServices: HistoryServicesProtocol
     private var prefs = UserDefaults()
     
@@ -20,7 +22,9 @@ class HistoryViewModel: ObservableObject {
     func getAttendanceHistory() async {
         do {
             let data = try await historyServices.getAttendanceHistory(endpoint: .getAttendanceHistory)
+            self.attendanceHistory.append(contentsOf: data.data!)
             saveAttendanceHistoryToLocale(with: data)
+            self.isLoaded = true
         } catch {
             print("ERR While get Attendance History")
         }
