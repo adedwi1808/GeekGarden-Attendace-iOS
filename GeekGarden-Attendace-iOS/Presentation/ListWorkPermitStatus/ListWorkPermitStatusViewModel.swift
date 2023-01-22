@@ -16,7 +16,7 @@ class ListWorkPermitStatusViewModel: ObservableObject {
         self.listWorkPermitStatusServices = listWorkPermitStatusServices
     }
     
-    func getListWorkPermitStatus() async {
+    func getListWorkPermitStatus() async throws{
         do {
             let data = try await listWorkPermitStatusServices.getListWorkPermitStatus(endpoint: .getWorkPermitStatus)
             DispatchQueue.main.async {
@@ -29,33 +29,15 @@ class ListWorkPermitStatusViewModel: ObservableObject {
 }
 
 extension ListWorkPermitStatusViewModel {
-    private var remoteDateFormat: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return dateFormatter
-    }
-    
     func dateStringToDateOnly(_ dates: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let date = dateFormatter.date(from: dates) else { return "?"}
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.string(from: date)
+        DateFormatter.stringDateFromDateOnlyFormat(using: dates)
     }
     
     func dateStringToDay(_ dates: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = dateFormatter.date(from: dates) else { return "?"}
-        dateFormatter.dateFormat = "dd"
-        return dateFormatter.string(from: date)
+        DateFormatter.stringDay(using: dates)
     }
     
     func dateStringToMonth(_ dates: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        guard let date = dateFormatter.date(from: dates) else { return "?"}
-        dateFormatter.dateFormat = "MMMM"
-        return dateFormatter.string(from: date)
+        DateFormatter.stringMonth(using: dates)
     }
 }

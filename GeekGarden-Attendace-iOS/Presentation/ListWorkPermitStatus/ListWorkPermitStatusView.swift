@@ -31,7 +31,7 @@ struct ListWorkPermitStatusView: View {
             }
             .onAppear {
                 Task {
-                    await listWorkPermitVM.getListWorkPermitStatus()
+                    try await listWorkPermitVM.getListWorkPermitStatus()
                 }
         }
         }
