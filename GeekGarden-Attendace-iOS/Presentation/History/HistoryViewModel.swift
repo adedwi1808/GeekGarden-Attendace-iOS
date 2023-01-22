@@ -22,9 +22,9 @@ class HistoryViewModel: ObservableObject {
     func getAttendanceHistory() async {
         do {
             let data = try await historyServices.getAttendanceHistory(endpoint: .getAttendanceHistory)
-            self.attendanceHistory.append(contentsOf: data.data!)
             saveAttendanceHistoryToLocale(with: data)
             DispatchQueue.main.async {
+                self.attendanceHistory.append(contentsOf: data.data!)
                 self.isLoaded = true
             }
         } catch {
