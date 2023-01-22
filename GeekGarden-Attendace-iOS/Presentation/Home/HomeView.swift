@@ -35,31 +35,7 @@ struct HomeView: View {
                     Section {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                if homeViewModel.madingDataOfflineReady {
-                                    ForEach(homeViewModel.getMadingGeekGardenFromLocale().data!, id: \.idMading) { mading in
-                                        NavigationLink {
-                                            DetailMadingView(mading: mading)
-                                        } label: {
-                                            MadingGeekGardenView(
-                                                judulMading: mading.judul ?? "",
-                                                isiMading: mading.informasi ?? "",
-                                                fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
-                                        }
-                                        .tint(.black)
-                                    }
-                                } else {
-                                    ForEach(homeViewModel.madingData, id: \.idMading) { mading in
-                                        NavigationLink {
-                                            DetailMadingView(mading: mading)
-                                        } label: {
-                                            MadingGeekGardenView(
-                                                judulMading: mading.judul ?? "",
-                                                isiMading: mading.informasi ?? "",
-                                                fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
-                                        }
-                                        .tint(.black)
-                                    }
-                                }
+                                madingGeekGardenView
                             }
                         }
                     } header: {
@@ -82,6 +58,36 @@ struct HomeView: View {
             }
             homeViewModel.setAttendanceStatsFromLocale()
             homeViewModel.setMiniProfile()
+        }
+    }
+    
+    //MARK: - Mading GeekGarden
+    @ViewBuilder
+    private var madingGeekGardenView: some View {
+        if homeViewModel.madingDataOfflineReady {
+            ForEach(homeViewModel.getMadingGeekGardenFromLocale().data!, id: \.idMading) { mading in
+                NavigationLink {
+                    DetailMadingView(mading: mading)
+                } label: {
+                    MadingGeekGardenView(
+                        judulMading: mading.judul ?? "",
+                        isiMading: mading.informasi ?? "",
+                        fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                }
+                .tint(.black)
+            }
+        } else {
+            ForEach(homeViewModel.madingData, id: \.idMading) { mading in
+                NavigationLink {
+                    DetailMadingView(mading: mading)
+                } label: {
+                    MadingGeekGardenView(
+                        judulMading: mading.judul ?? "",
+                        isiMading: mading.informasi ?? "",
+                        fotoMading: mading.foto ?? "", tanggalMading: mading.createAt ?? "")
+                }
+                .tint(.black)
+            }
         }
     }
 }
