@@ -32,24 +32,6 @@ class AttendanceViewModel: ObservableObject {
         self.attendanceServices = attendanceServices
     }
     
-    private var remoteDateFormat: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter
-    }
-    
-    private var timeFormat: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh.mm"
-        return formatter
-    }
-    
-    private var dateFormat: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, dd MMMM yyyy"
-        return formatter
-    }
-    
     var updateTimer: Timer {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {_ in
             self.date = Date()
@@ -57,11 +39,11 @@ class AttendanceViewModel: ObservableObject {
     }
     
     func timeString(date: Date) -> String {
-        timeFormat.string(from: date)
+        DateFormatter.stringTimeOnly.string(from: date)
     }
     
     func dateString(date: Date) -> String {
-        dateFormat.string(from: date)
+        DateFormatter.stringDayDateOnly.string(from: date)
     }
     
     func getReversedGeoCodeLoc() {
@@ -112,7 +94,7 @@ class AttendanceViewModel: ObservableObject {
     func getCheckInTime() {
         let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
         guard let time = data?.data?.jamHadir?.tanggal else { return }
-        guard let date = remoteDateFormat.date(from: time) else { return }
+        let date = DateFormatter.dateTimeFormat.date(from: time)!
         if Calendar.current.isDateInToday(date) {
             self.checkInDate = date
             self.checkInTime = timeString(date: date)
@@ -122,7 +104,7 @@ class AttendanceViewModel: ObservableObject {
     func getCheckOutTime() {
         let data = prefs.getDataFromLocal(CheckAttendanceResponseModel.self, with: .checkAttendance)
         guard let time = data?.data?.jamPulang?.tanggal else { return }
-        guard let date = remoteDateFormat.date(from: time) else { return }
+        let date = DateFormatter.dateTimeFormat.date(from: time)!
         if Calendar.current.isDateInToday(date) {
             self.checkOutDate = date
             self.checkOutTime = timeString(date: date)

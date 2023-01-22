@@ -38,6 +38,12 @@ extension DateFormatter {
         return dateFormatter
     }()
     
+    static let stringDayDateOnly: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, dd MMMM yyyy"
+        return dateFormatter
+    }()
+    
     static let stringTimeOnly: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
@@ -62,6 +68,11 @@ extension DateFormatter {
     static func stringDate(using date: String) -> String {
         let date = DateFormatter.dateTimeFormat.date(from: date)!
         return DateFormatter.stringDateOnly.string(from: date)
+    }
+    
+    static func stringDayDate(using date: String) -> String {
+        let date = DateFormatter.dateTimeFormat.date(from: date)!
+        return DateFormatter.stringDayDateOnly.string(from: date)
     }
     
     static func stringDateFromDateOnlyFormat(using date: String) -> String {
