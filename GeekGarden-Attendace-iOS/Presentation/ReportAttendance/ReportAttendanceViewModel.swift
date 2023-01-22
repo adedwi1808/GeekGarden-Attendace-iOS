@@ -21,19 +21,13 @@ class ReportAttendanceViewModel: ObservableObject {
         self.reportAttendanceServices = reportAttendanceServices
     }
     
-    private var remoteDateFormat: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter
-    }
-    
     func postReportAttendance() async throws {
         DispatchQueue.main.async {
             self.isLoading.toggle()
         }
         do {
             let data = try await reportAttendanceServices.postReportAttendance(endPoint:
-                    .postReportAttendance(tanggal: remoteDateFormat.string(from: attendanceDate),
+                    .postReportAttendance(tanggal: DateFormatter.dateTimeFormat.string(from: attendanceDate),
                                           keteranganLaporan: reportDec))
             DispatchQueue.main.async {
                 self.isLoading.toggle()
