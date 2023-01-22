@@ -8,9 +8,21 @@
 import Foundation
 
 extension DateFormatter {
-    static let remoteFormat: DateFormatter = {
+    static let dateTimeFormat: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter
+    }()
+    
+    static let dateOnlyFormat: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter
+    }()
+    
+    static let stringDateOnly: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         return dateFormatter
     }()
     
@@ -33,17 +45,27 @@ extension DateFormatter {
     }()
     
     static func stringMonth(using date: String) -> String {
-        let date = DateFormatter.remoteFormat.date(from: date)!
+        let date = DateFormatter.dateTimeFormat.date(from: date)!
         return DateFormatter.stringMonthOnly.string(from: date)
     }
     
     static func stringDay(using date: String) -> String {
-        let date = DateFormatter.remoteFormat.date(from: date)!
+        let date = DateFormatter.dateTimeFormat.date(from: date)!
         return DateFormatter.stringDayOnly.string(from: date)
     }
     
     static func stringTime(using date: String) -> String {
-        let date = DateFormatter.remoteFormat.date(from: date)!
+        let date = DateFormatter.dateTimeFormat.date(from: date)!
         return DateFormatter.stringTimeOnly.string(from: date)
+    }
+    
+    static func stringDate(using date: String) -> String {
+        let date = DateFormatter.dateTimeFormat.date(from: date)!
+        return DateFormatter.stringDateOnly.string(from: date)
+    }
+    
+    static func stringDateFromDateOnlyFormat(using date: String) -> String {
+        let date = DateFormatter.dateOnlyFormat.date(from: date)!
+        return DateFormatter.stringDateOnly.string(from: date)
     }
 }
