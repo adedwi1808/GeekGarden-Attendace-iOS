@@ -18,7 +18,7 @@ class WorkPermitViewModel: ObservableObject {
     @Published var permitDateStart: Date = Date()
     @Published var permitDateEnd: Date = Date()
     @Published var isShowActionSheet: Bool = false
-
+    
     @Published var isLoading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -30,20 +30,17 @@ class WorkPermitViewModel: ObservableObject {
         self.workPermitServices = workPermitServices
     }
     
-    private var remoteDateFormat: DateFormatter {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        return dateFormatter
-    }
-    
-    
     func postWorkPermit(image: Data) async throws{
         DispatchQueue.main.async {
             self.isLoading.toggle()
         }
         
         do {
-            let data = try await workPermitServices.postWorkPermit(endPoint: .workPermit(jenisIzin: selectedReason.rawValue, tanggalMulai: remoteDateFormat.string(from: permitDateStart), tanggalSelesai: remoteDateFormat.string(from: permitDateEnd), alasanIzin: permitReasonDec, suratIzin: image))
+            let data = try await workPermitServices
+                .postWorkPermit(endPoint: .workPermit(jenisIzin: selectedReason.rawValue,
+                                                      tanggalMulai: DateFormatter.dateTimeFormat.string(from: permitDateStart),
+                                                      tanggalSelesai: DateFormatter.dateTimeFormat.string(from: permitDateEnd),
+                                                      alasanIzin: permitReasonDec, suratIzin: image))
             DispatchQueue.main.async {
                 self.alertMessage = data.message
                 self.isLoading.toggle()
