@@ -514,13 +514,13 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		013BC8452958CBDA00194B80 /* CameraPicker */ = {
+		013BC8452958CBDA00194B80 /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
 				013BC84A2959E9C200194B80 /* Model */,
 				013BC8462958CBF100194B80 /* ImagePicker.swift */,
 			);
-			path = CameraPicker;
+			path = ImagePicker;
 			sourceTree = "<group>";
 		};
 		013BC84A2959E9C200194B80 /* Model */ = {
@@ -671,7 +671,7 @@
 				014C775A29542BE700C253C3 /* Extension */,
 				013BC871295CE74C00194B80 /* Utils */,
 				013BC84D2959FAD500194B80 /* LocationManager */,
-				013BC8452958CBDA00194B80 /* CameraPicker */,
+				013BC8452958CBDA00194B80 /* ImagePicker */,
 				014C77462950B30B00C253C3 /* Networking */,
 			);
 			path = Domainless;
