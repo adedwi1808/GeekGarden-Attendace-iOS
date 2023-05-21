@@ -14,7 +14,7 @@ struct MadingGeekGardenView: View {
     let tanggalMading: String
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/mading/\(fotoMading)")) { image in
+            AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/public/mading/\(fotoMading)")) { image in
                 image
                     .resizable()
                     .scaledToFill()
@@ -23,6 +23,9 @@ struct MadingGeekGardenView: View {
             }
             .frame(height: 120)
             .cornerRadius(8)
+            .onAppear {
+                print("https://\(Constans().baseURL)/storage/public/mading/\(fotoMading)")
+            }
             
             Color.gray
                 .frame(height: 1)

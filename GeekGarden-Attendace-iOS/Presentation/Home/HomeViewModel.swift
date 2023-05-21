@@ -75,15 +75,15 @@ extension HomeViewModel {
 }
 //MARK: - Mading
 extension HomeViewModel {
+    @MainActor
     func getMadingGeekGarden() async {
         do {
             let data = try await homeServices.getMadingGeekGarden(endpoint: .getMadingGeekGarden)
-            DispatchQueue.main.async {
                 self.madingData.append(contentsOf: data.data!)
                 self.saveMadingGeekGardenLocale(data)
-            }
         } catch {
             print("err while do getmading geek garden")
+            print(error.localizedDescription)
         }
     }
     

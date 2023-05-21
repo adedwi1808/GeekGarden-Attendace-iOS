@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import netfox
 
 protocol NetworkerProtocol: AnyObject {
     func taskAsync<T>(type: T.Type,
@@ -25,6 +25,7 @@ final class Networker: NetworkerProtocol {
         
         // swiftlint:disable disable_print
         #if DEBUG || NETFOX
+        NFX.sharedInstance().start()
         let dataString = String(decoding: data, as: UTF8.self)
         print("Response : \(dataString)")
         #endif

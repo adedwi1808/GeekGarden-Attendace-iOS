@@ -24,7 +24,7 @@ struct UpdateProfileView: View {
                 Button {
                     isShowActionSheet.toggle()
                 } label: {
-                    AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/pegawai/\(updateProfileVM.pegawaiPhotoProfileURL)")) { Image in
+                    AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/public/pegawai/\(updateProfileVM.pegawaiPhotoProfileURL)")) { Image in
                         Image
                             .resizable()
                             .scaledToFill()

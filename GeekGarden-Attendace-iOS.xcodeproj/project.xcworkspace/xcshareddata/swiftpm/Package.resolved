@@ -8,6 +8,15 @@
         "branch" : "master",
         "revision" : "a437862bb6605080a5816e866cbd4ac8c8657b49"
       }
+    },
+    {
+      "identity" : "netfox",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kasketis/netfox.git",
+      "state" : {
+        "revision" : "557576032736fd3140422baefb68b8f76c55088f",
+        "version" : "1.21.0"
+      }
     }
   ],
   "version" : 2

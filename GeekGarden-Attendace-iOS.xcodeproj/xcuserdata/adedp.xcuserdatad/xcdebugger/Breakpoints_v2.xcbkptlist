@@ -36,5 +36,165 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E388451F-4DFC-4929-8779-FB233F40C838"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekGarden-Attendace-iOS/Presentation/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "madingGeekGardenView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E67A1356-4B9C-4D0C-A93D-52E9EF8E48EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekGarden-Attendace-iOS/Presentation/Home/HomeView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "madingGeekGardenView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E67A1356-4B9C-4D0C-A93D-52E9EF8E48EC - 7e1175a3bab6897c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GeekGarden_Attendace_iOS.HomeView.madingGeekGardenView.getter : some"
+                  moduleName = "GeekGarden-Attendace-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adedp/Library/CloudStorage/OneDrive-UniversitasTeknologiYogyakarta/Kuliah/Semester%207/Tugas/SETIK/GeekGarden-Attendace-iOS/GeekGarden-Attendace-iOS/Presentation/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "1152">
+               </Location>
+               <Location
+                  uuid = "E67A1356-4B9C-4D0C-A93D-52E9EF8E48EC - 534353c391bc1d71"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (GeekGarden_Attendace_iOS.MadingGeekGardenModel) -&gt; &lt;&lt;opaque return type of SwiftUI.View.tint(Swift.Optional&lt;SwiftUI.Color&gt;) -&gt; some&gt;&gt;.0 in GeekGarden_Attendace_iOS.HomeView.madingGeekGardenView.getter : some"
+                  moduleName = "GeekGarden-Attendace-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adedp/Library/CloudStorage/OneDrive-UniversitasTeknologiYogyakarta/Kuliah/Semester%207/Tugas/SETIK/GeekGarden-Attendace-iOS/GeekGarden-Attendace-iOS/Presentation/Home/HomeView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "204">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6374F21D-AA3B-4EA6-9E00-1AA2BFE996DB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekGarden-Attendace-iOS/Presentation/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "getMadingGeekGardenFromLocale()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20DA4FB8-ABA2-4862-AFA4-D4338AD177CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekGarden-Attendace-iOS/Presentation/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "getMadingGeekGarden()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2EDAC1AC-1ADC-465C-9F7A-FCAECD5ED9BC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekGarden-Attendace-iOS/Presentation/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "getMadingGeekGarden()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "01ACE505-F81F-4C06-B48D-BF37BF8A3AE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeekGarden-Attendace-iOS/Presentation/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "getMadingGeekGarden()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "01ACE505-F81F-4C06-B48D-BF37BF8A3AE5 - f73e6d9d25c8f793"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GeekGarden_Attendace_iOS.HomeViewModel.getMadingGeekGarden() async -&gt; ()"
+                  moduleName = "GeekGarden-Attendace-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adedp/Library/CloudStorage/OneDrive-UniversitasTeknologiYogyakarta/Kuliah/Semester%207/Tugas/SETIK/GeekGarden-Attendace-iOS/GeekGarden-Attendace-iOS/Presentation/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "01ACE505-F81F-4C06-B48D-BF37BF8A3AE5 - 3c249f71664bd1de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for GeekGarden_Attendace_iOS.HomeViewModel.getMadingGeekGarden() async -&gt; ()"
+                  moduleName = "GeekGarden-Attendace-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adedp/Library/CloudStorage/OneDrive-UniversitasTeknologiYogyakarta/Kuliah/Semester%207/Tugas/SETIK/GeekGarden-Attendace-iOS/GeekGarden-Attendace-iOS/Presentation/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

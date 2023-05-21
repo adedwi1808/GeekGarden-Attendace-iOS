@@ -18,7 +18,7 @@ struct MiniProfilPegawaiView: View {
             UpdateProfileView()
         }, label: {
             HStack {
-                AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/pegawai/\(pegawaiPhotoProfileURL)")) { Image in
+                AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/public/pegawai/\(pegawaiPhotoProfileURL)")) { Image in
                     Image
                         .resizable()
                         .scaledToFill()
