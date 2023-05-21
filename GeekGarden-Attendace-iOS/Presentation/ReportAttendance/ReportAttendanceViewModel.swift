@@ -21,26 +21,21 @@ class ReportAttendanceViewModel: ObservableObject {
         self.reportAttendanceServices = reportAttendanceServices
     }
     
+    @MainActor
     func postReportAttendance() async throws {
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         do {
             let data = try await reportAttendanceServices.postReportAttendance(endPoint:
                     .postReportAttendance(tanggal: DateFormatter.dateTimeFormat.string(from: attendanceDate),
                                           keteranganLaporan: reportDec))
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.reportSuccess.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = data.message
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = err.localizedDescription
-            }
         }
     }
 }

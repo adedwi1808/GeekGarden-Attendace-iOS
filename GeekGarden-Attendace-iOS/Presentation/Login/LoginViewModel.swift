@@ -22,23 +22,17 @@ class LoginViewModel: ObservableObject {
         self.loginServices = loginServices
     }
     
+    @MainActor
     func loginPegawai() async throws{
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         do {
             let data = try await loginServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
         } catch let err as NetworkError {
-//            print("err while do login")
-            DispatchQueue.main.async {
                 self.showAlert.toggle()
                 self.alertMessage = err.localizedDescription
-            }
         }
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
     }
     
     func saveLoginData(using data: LoginPegawaiResponseModel) {

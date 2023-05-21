@@ -82,20 +82,15 @@ extension MoreViewModel {
 
 //MARK: - Custom Button
 extension MoreViewModel {
+    @MainActor
     func signOut() async throws {
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         do {
             try await moreServices.signOut(endpoint: .signOut)
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.signOutSuccess.toggle()
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
-            }
             print(err)
         }
     }

@@ -37,23 +37,17 @@ class CheckOutViewModel: ObservableObject {
     }
     
     func postCheckOut(long: String, lat: String, tempat: Bool, foto: Data, prog: String) async throws{
-        DispatchQueue.main.async{
             self.isLoading.toggle()
-        }
         do {
             let data = try await checkOutServices.postCheckOut(endpoint: .postCheckOut(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Pulang", prog: progressPegawai, long: long, lat: lat, image: foto))
-            DispatchQueue.main.async{
                 self.alertMessage = data.message ?? ""
                 self.isLoading.toggle()
                 self.attendanceSuccess.toggle()
                 self.showAlert.toggle()
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async{
                 self.alertMessage = err.localizedDescription
                 self.isLoading.toggle()
                 self.showAlert.toggle()
-            }
         }
     }
 }

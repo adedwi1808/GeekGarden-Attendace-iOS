@@ -36,24 +36,18 @@ class CheckInViewModel: ObservableObject {
     }
     
     func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async throws{
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         do {
             let data = try await checkInServices.postCheckIn(
                 endpoint: .postCheckIn(tempat: tempat ? "Diluar Kantor" : "Dikantor", status: "Hadir", long: long, lat: lat, image: foto))
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.attendanceSuccess.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = data.message
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = err.localizedDescription
-            }
         }
     }
 }

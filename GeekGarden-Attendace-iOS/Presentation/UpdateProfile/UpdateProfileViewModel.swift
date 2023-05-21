@@ -32,13 +32,12 @@ class UpdateProfileViewModel: ObservableObject {
         self.updateProfileServices = updateProfileServices
     }
     
+    @MainActor
     func updatePegawaiProfile() {
         if pegawaiPassword.count > 1,
            pegawaiPassword.count < 6 {
-            DispatchQueue.main.async {
                 self.showAlert.toggle()
                 self.alertMessage = "Password not valid"
-            }
         } else {
             Task {
                 try await postUpdateProfile()
@@ -58,58 +57,46 @@ class UpdateProfileViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func postUpdatePhotoProfile(image: Data) async throws{
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         do {
             let data = try await updateProfileServices.updatePegawaiPhotoProfile(endpoint:
                     .updatePegawaiPhotoProfile(image: image))
             saveUpdateData(using: data.data)
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.updatePhotoProfileSuccess.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = "Berhasil mengubah foto profil"
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = err.localizedDescription
-            }
         }
     }
     
+    @MainActor
     func postUpdateProfile() async throws{
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         do {
             let data = try await updateProfileServices.updateDataPegawai(endpoint:
                     .updateDataPegawai(email: pegawaiEmail,
                                        noHP: pegawaiPhoneNumber,
                                        password: pegawaiPassword))
             saveUpdateData(using: data.data)
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.updateSuccess.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = "Berhasil mengupdate profil"
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async {
                 self.isLoading.toggle()
                 self.showAlert.toggle()
                 self.alertMessage = err.localizedDescription
-            }
         }
     }
     
     func saveUpdateData(using data: DataPegawaiModel) {
-        DispatchQueue.main.async {
             self.prefs.setDataToLocal(data.self, with: .dataPegawai)
-        }
     }
     
 }

@@ -30,10 +30,9 @@ class WorkPermitViewModel: ObservableObject {
         self.workPermitServices = workPermitServices
     }
     
+    @MainActor
     func postWorkPermit(image: Data) async throws{
-        DispatchQueue.main.async {
             self.isLoading.toggle()
-        }
         
         do {
             let data = try await workPermitServices
@@ -41,18 +40,14 @@ class WorkPermitViewModel: ObservableObject {
                                                       tanggalMulai: DateFormatter.dateTimeFormat.string(from: permitDateStart),
                                                       tanggalSelesai: DateFormatter.dateTimeFormat.string(from: permitDateEnd),
                                                       alasanIzin: permitReasonDec, suratIzin: image))
-            DispatchQueue.main.async {
                 self.alertMessage = data.message
                 self.isLoading.toggle()
                 self.showAlert.toggle()
                 self.permitSuccess.toggle()
-            }
         } catch let err as NetworkError {
-            DispatchQueue.main.async {
                 self.alertMessage = err.localizedDescription
                 self.isLoading.toggle()
                 self.showAlert.toggle()
-            }
         }
     }
     

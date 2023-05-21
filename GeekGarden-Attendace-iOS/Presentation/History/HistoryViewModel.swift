@@ -19,15 +19,14 @@ class HistoryViewModel: ObservableObject {
         self.historyServices = historyServices
     }
     
+    @MainActor
     func getAttendanceHistory() async {
         do {
             let data = try await historyServices.getAttendanceHistory(endpoint: .getAttendanceHistory)
             saveAttendanceHistoryToLocale(with: data)
-            DispatchQueue.main.async {
                 self.attendanceHistory.removeAll()
                 self.attendanceHistory.append(contentsOf: data.data!)
                 self.isLoaded = true
-            }
         } catch {
             print("ERR While get Attendance History")
         }

@@ -17,12 +17,11 @@ class ListReportStatusViewModel: ObservableObject {
         self.listReportStatusServices = listReportStatusServices
     }
     
+    @MainActor
     func getReportStatusData() async {
         do {
             let data = try await listReportStatusServices.getListReportStatus(endpoint: .getReportStatus)
-            DispatchQueue.main.async {
                 self.reportStatusData.append(contentsOf: data.data)
-            }
         } catch {
             print("ERR while get list report status")
         }
