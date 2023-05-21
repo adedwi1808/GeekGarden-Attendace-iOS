@@ -15,23 +15,27 @@ struct ListWorkPermitStatusView: View {
                 .ignoresSafeArea()
             
             ScrollView(.vertical) {
-                ForEach(listWorkPermitVM.workPermitData, id: \.idPengajuanIzin) { item in
-                    NavigationLink {
-                        DetaiListWorkPermitView(workPermit: item)
-                    } label: {
-                        WorkPermitStatusItemView(date: listWorkPermitVM.dateStringToDay(item.tanggalMengajukanIzin),
-                                                 month: listWorkPermitVM.dateStringToMonth(item.tanggalMengajukanIzin),
-                                                 status: item.statusIzin,
-                                                 permitStart: listWorkPermitVM.dateStringToDateOnly(item.tanggalMulaiIzin),
-                                                 permitEnd: listWorkPermitVM.dateStringToDateOnly(item.tanggalSelesaiIzin),
-                                                 permitReason: item.jenisIzin,
-                                                 adminName: item.admin?.nama ?? "-")
+                if listWorkPermitVM.isWorkPermitHistoryLoaded {
+                    ForEach(listWorkPermitVM.workPermitData, id: \.idPengajuanIzin) { item in
+                        NavigationLink {
+                            DetaiListWorkPermitView(workPermit: item)
+                        } label: {
+                            WorkPermitStatusItemView(date: listWorkPermitVM.dateStringToDay(item.tanggalMengajukanIzin),
+                                                     month: listWorkPermitVM.dateStringToMonth(item.tanggalMengajukanIzin),
+                                                     status: item.statusIzin,
+                                                     permitStart: listWorkPermitVM.dateStringToDateOnly(item.tanggalMulaiIzin),
+                                                     permitEnd: listWorkPermitVM.dateStringToDateOnly(item.tanggalSelesaiIzin),
+                                                     permitReason: item.jenisIzin,
+                                                     adminName: item.admin?.nama ?? "-")
+                        }
                     }
                 }
             }
             .onAppear {
-                Task {
-                    try await listWorkPermitVM.getListWorkPermitStatus()
+                if !listWorkPermitVM.isWorkPermitHistoryLoaded {
+                    Task {
+                        try await listWorkPermitVM.getListWorkPermitStatus()
+                    }
                 }
         }
         }

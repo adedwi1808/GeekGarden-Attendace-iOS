@@ -9,6 +9,7 @@ import Foundation
 
 class ListWorkPermitStatusViewModel: ObservableObject {
     @Published var workPermitData: [WorkPermitModel] = []
+    @Published var isWorkPermitHistoryLoaded: Bool = false
     private var listWorkPermitStatusServices: ListWorkPermitStatusServicesProtocol
     private var prefs = UserDefaults()
     
@@ -16,12 +17,12 @@ class ListWorkPermitStatusViewModel: ObservableObject {
         self.listWorkPermitStatusServices = listWorkPermitStatusServices
     }
     
+    @MainActor
     func getListWorkPermitStatus() async throws{
         do {
             let data = try await listWorkPermitStatusServices.getListWorkPermitStatus(endpoint: .getWorkPermitStatus)
-            DispatchQueue.main.async {
                 self.workPermitData.append(contentsOf: data.data)
-            }
+            isWorkPermitHistoryLoaded = true
         } catch {
             print("ERR while get list work permit status")
         }
