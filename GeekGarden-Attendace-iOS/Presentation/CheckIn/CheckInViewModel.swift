@@ -35,6 +35,7 @@ class CheckInViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func postCheckIn(lat: String, long: String, tempat: Bool, foto: Data) async throws{
             self.isLoading.toggle()
         do {

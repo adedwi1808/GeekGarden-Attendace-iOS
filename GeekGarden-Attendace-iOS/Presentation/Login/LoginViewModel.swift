@@ -24,24 +24,22 @@ class LoginViewModel: ObservableObject {
     
     @MainActor
     func loginPegawai() async throws{
-            self.isLoading.toggle()
+        self.isLoading.toggle()
         do {
             let data = try await loginServices.loginPegawai(endpoint: .loginPegawai(email: self.email, password: self.password))
             saveLoginData(using: data)
         } catch let err as NetworkError {
-                self.showAlert.toggle()
-                self.alertMessage = err.localizedDescription
+            self.showAlert.toggle()
+            self.alertMessage = err.localizedDescription
         }
-            self.isLoading.toggle()
+        self.isLoading.toggle()
     }
     
     func saveLoginData(using data: LoginPegawaiResponseModel) {
-        DispatchQueue.main.async {
-            guard let appToken = data.token else { return }
-            self.isLoggedIn = true
-            self.prefs.setDataToLocal(data.data.self, with: .dataPegawai)
-            self.prefs.setDataToLocal(appToken.self, with: .appToken)
-        }
+        guard let appToken = data.token else { return }
+        self.isLoggedIn = true
+        self.prefs.setDataToLocal(data.data.self, with: .dataPegawai)
+        self.prefs.setDataToLocal(appToken.self, with: .appToken)
     }
     
     func resetLocalStorage() {

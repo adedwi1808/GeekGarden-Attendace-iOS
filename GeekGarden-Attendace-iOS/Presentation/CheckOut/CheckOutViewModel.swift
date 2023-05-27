@@ -36,6 +36,7 @@ class CheckOutViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func postCheckOut(long: String, lat: String, tempat: Bool, foto: Data, prog: String) async throws{
             self.isLoading.toggle()
         do {

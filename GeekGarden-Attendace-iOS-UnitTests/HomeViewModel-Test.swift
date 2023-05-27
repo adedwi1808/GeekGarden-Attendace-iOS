@@ -57,6 +57,18 @@ final class HomeViewModel_Test: XCTestCase {
         XCTAssertTrue(sut.madingDataOfflineReady)
     }
     
+    func testAttendanceStats() async throws {
+        do {
+            let data = try await networkServices.getAttendanceStats(endpoint: .getAttendanceStats)
+            sut.madingDataOfflineReady.toggle()
+            XCTAssertNotNil(data)
+            XCTAssertNotEqual(data.data?.cuti, 0)
+        } catch let err as NetworkError {
+            XCTAssertNil(err)
+        }
+        XCTAssertTrue(sut.madingDataOfflineReady)
+    }
+    
 }
 
 class HomeServicesMock: HomeServicesProtocol {

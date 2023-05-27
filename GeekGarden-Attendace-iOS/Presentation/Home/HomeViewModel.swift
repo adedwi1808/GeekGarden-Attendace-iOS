@@ -29,6 +29,7 @@ class HomeViewModel: ObservableObject {
 
 //MARK: - Mini Profile & Attendance Stats
 extension HomeViewModel {
+    @MainActor
     func getAttendanceStats() async {
         do {
             let data = try await homeServices.getAttendanceStats(endpoint: .getAttendanceStats)

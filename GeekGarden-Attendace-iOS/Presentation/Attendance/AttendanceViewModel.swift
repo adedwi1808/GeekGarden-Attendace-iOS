@@ -72,6 +72,7 @@ class AttendanceViewModel: ObservableObject {
         return locA.distance(from: locB) > 25
     }
     
+    @MainActor
     func checkAttendance() async {
         do {
             let data = try await attendanceServices.checkAttendance(endpoint: .checkAttendance)
