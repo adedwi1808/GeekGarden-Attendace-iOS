@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0107998C2A2CEAE000227CD5 /* MoreViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107998B2A2CEAE000227CD5 /* MoreViewModel-Test.swift */; };
+		0107998E2A2CFD5C00227CD5 /* WorkPermitViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107998D2A2CFD5C00227CD5 /* WorkPermitViewModel-Test.swift */; };
+		010799902A2D587600227CD5 /* ListWorkPermitViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107998F2A2D587600227CD5 /* ListWorkPermitViewModel-Test.swift */; };
+		010799922A2D5F3D00227CD5 /* ReportAttendanceViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010799912A2D5F3D00227CD5 /* ReportAttendanceViewModel-Test.swift */; };
+		010799942A2D628800227CD5 /* ListReportStatusViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010799932A2D628800227CD5 /* ListReportStatusViewModel-Test.swift */; };
+		010799962A2D684700227CD5 /* ForgotPasswordViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010799952A2D684700227CD5 /* ForgotPasswordViewModel-Test.swift */; };
 		010C406129758139001D3677 /* UpdateProfileViewModel-Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010C406029758139001D3677 /* UpdateProfileViewModel-Test.swift */; };
 		01153D67296BF69E002DB143 /* DetailMadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D66296BF69E002DB143 /* DetailMadingView.swift */; };
 		01153D6C296C0456002DB143 /* DetaiListWorkPermitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */; };
@@ -115,6 +121,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0107998B2A2CEAE000227CD5 /* MoreViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoreViewModel-Test.swift"; sourceTree = "<group>"; };
+		0107998D2A2CFD5C00227CD5 /* WorkPermitViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkPermitViewModel-Test.swift"; sourceTree = "<group>"; };
+		0107998F2A2D587600227CD5 /* ListWorkPermitViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListWorkPermitViewModel-Test.swift"; sourceTree = "<group>"; };
+		010799912A2D5F3D00227CD5 /* ReportAttendanceViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReportAttendanceViewModel-Test.swift"; sourceTree = "<group>"; };
+		010799932A2D628800227CD5 /* ListReportStatusViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListReportStatusViewModel-Test.swift"; sourceTree = "<group>"; };
+		010799952A2D684700227CD5 /* ForgotPasswordViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForgotPasswordViewModel-Test.swift"; sourceTree = "<group>"; };
 		010C406029758139001D3677 /* UpdateProfileViewModel-Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpdateProfileViewModel-Test.swift"; sourceTree = "<group>"; };
 		01153D66296BF69E002DB143 /* DetailMadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMadingView.swift; sourceTree = "<group>"; };
 		01153D6B296C0456002DB143 /* DetaiListWorkPermitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetaiListWorkPermitView.swift; sourceTree = "<group>"; };
@@ -773,6 +785,12 @@
 				019CDFC92971795900718F98 /* CheckOutViewModel-Test.swift */,
 				019CDFCB297181BC00718F98 /* HistoryViewModel-Test.swift */,
 				010C406029758139001D3677 /* UpdateProfileViewModel-Test.swift */,
+				0107998B2A2CEAE000227CD5 /* MoreViewModel-Test.swift */,
+				0107998D2A2CFD5C00227CD5 /* WorkPermitViewModel-Test.swift */,
+				0107998F2A2D587600227CD5 /* ListWorkPermitViewModel-Test.swift */,
+				010799912A2D5F3D00227CD5 /* ReportAttendanceViewModel-Test.swift */,
+				010799932A2D628800227CD5 /* ListReportStatusViewModel-Test.swift */,
+				010799952A2D684700227CD5 /* ForgotPasswordViewModel-Test.swift */,
 			);
 			path = "GeekGarden-Attendace-iOS-UnitTests";
 			sourceTree = "<group>";
@@ -1012,13 +1030,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010799942A2D628800227CD5 /* ListReportStatusViewModel-Test.swift in Sources */,
 				01B07C11296C9BB000E4A2FC /* CheckInViewModel-Test.swift in Sources */,
+				010799962A2D684700227CD5 /* ForgotPasswordViewModel-Test.swift in Sources */,
 				019CDFCC297181BC00718F98 /* HistoryViewModel-Test.swift in Sources */,
 				010C406129758139001D3677 /* UpdateProfileViewModel-Test.swift in Sources */,
+				0107998E2A2CFD5C00227CD5 /* WorkPermitViewModel-Test.swift in Sources */,
+				010799922A2D5F3D00227CD5 /* ReportAttendanceViewModel-Test.swift in Sources */,
+				010799902A2D587600227CD5 /* ListWorkPermitViewModel-Test.swift in Sources */,
 				019CDFC829716D8600718F98 /* AttendanceViewModel-Test.swift in Sources */,
 				019CDFC62971626600718F98 /* HomeViewModel-Test.swift in Sources */,
 				01B07C0F296C8EFE00E4A2FC /* LoginViewModel-Test.swift in Sources */,
 				019CDFCA2971795900718F98 /* CheckOutViewModel-Test.swift in Sources */,
+				0107998C2A2CEAE000227CD5 /* MoreViewModel-Test.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

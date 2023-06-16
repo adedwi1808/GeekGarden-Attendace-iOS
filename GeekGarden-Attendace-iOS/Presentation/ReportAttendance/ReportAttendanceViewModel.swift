@@ -17,7 +17,7 @@ class ReportAttendanceViewModel: ObservableObject {
     
     private var reportAttendanceServices: ReportAttendanceServicesProtocol
     
-    init(reportAttendanceServices: ReportAttendanceServices = ReportAttendanceServices()) {
+    init(reportAttendanceServices: ReportAttendanceServicesProtocol = ReportAttendanceServices()) {
         self.reportAttendanceServices = reportAttendanceServices
     }
     
