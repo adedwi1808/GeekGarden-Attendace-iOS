@@ -21,7 +21,7 @@ class ListReportStatusViewModel: ObservableObject {
     func getReportStatusData() async {
         do {
             let data = try await listReportStatusServices.getListReportStatus(endpoint: .getReportStatus)
-                self.reportStatusData.append(contentsOf: data.data)
+                self.reportStatusData = data.data
         } catch {
             print("ERR while get list report status")
         }

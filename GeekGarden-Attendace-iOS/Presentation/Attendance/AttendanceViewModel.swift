@@ -68,8 +68,9 @@ class AttendanceViewModel: ObservableObject {
     
     func checkDistance() -> Bool {
         guard let locA = self.locA else { return false}
-        let locB = CLLocation(latitude: 7.75561, longitude: 110.38478)
-        return locA.distance(from: locB) > 25
+        //MARK: Coordinat
+        let locB = CLLocation(latitude: -7.75561, longitude: 110.38478)
+        return locA.distance(from: locB) > 20
     }
     
     @MainActor

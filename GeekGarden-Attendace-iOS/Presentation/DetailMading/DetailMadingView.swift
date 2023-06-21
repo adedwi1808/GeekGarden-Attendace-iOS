@@ -14,7 +14,7 @@ struct DetailMadingView: View {
     var body: some View {
         ScrollView(.vertical) {
             VStack(alignment: .leading, spacing: 10) {
-                AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/public/mading/\(mading.foto ?? "")")) { image in
+                AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/mading/\(mading.foto ?? "")")) { image in
                     image
                         .resizable()
                         .scaledToFill()

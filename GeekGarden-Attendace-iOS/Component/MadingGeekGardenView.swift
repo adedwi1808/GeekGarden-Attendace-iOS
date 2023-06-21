@@ -14,17 +14,19 @@ struct MadingGeekGardenView: View {
     let tanggalMading: String
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/public/mading/\(fotoMading)")) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-            } placeholder: {
-                Color.gray
-            }
-            .frame(height: 120)
-            .cornerRadius(8)
-            .onAppear {
-                print("https://\(Constans().baseURL)/storage/public/mading/\(fotoMading)")
+            ZStack {
+                AsyncImage(url: URL(string: "https://\(Constans().baseURL)/storage/mading/\(fotoMading)")) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                } placeholder: {
+                    Color.gray
+                }
+                .frame(height: 120)
+                .cornerRadius(8)
+                .onAppear {
+                    print("https://\(Constans().baseURL)/storage/mading/\(fotoMading)")
+                }
             }
             
             Color.gray
